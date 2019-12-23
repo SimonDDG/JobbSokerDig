@@ -11,4 +11,10 @@ public class ViewController {
 
         return "index";
     }
+
+    @GetMapping("/profil")
+    public String getProfil(){
+
+        return "profil";
+    }
 }
