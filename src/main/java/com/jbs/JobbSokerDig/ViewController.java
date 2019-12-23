@@ -3,6 +3,8 @@ package com.jbs.JobbSokerDig;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class ViewController {
 
@@ -28,6 +30,17 @@ public class ViewController {
     public String getEditProfile() {
 
         return "editProfile";
+    }
+
+    @GetMapping("/userMain")
+    public String getUserMain(){
+        return "userMain";
+    }
+
+    @GetMapping("/companyMain")
+    public String getCompanyMain(){
+
+        return "companyMain";
     }
 
 }

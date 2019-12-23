@@ -19,7 +19,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin();
+                .formLogin().defaultSuccessUrl("/successLogin", true)
+                .loginPage("/login").permitAll()
+                .and()
+                .logout().logoutSuccessUrl("/");
     }
 
     @Bean
@@ -28,6 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         //KOM IHÅG ATT TA BORT OCH ÄNDRA TILL EN SÄKER USER
         manager.createUser(User.withDefaultPasswordEncoder().username("user").password("123").roles("USER").build());
+        manager.createUser(User.withDefaultPasswordEncoder().username("company").password("123").roles("COMPANY").build());
         return manager;
     }
 
