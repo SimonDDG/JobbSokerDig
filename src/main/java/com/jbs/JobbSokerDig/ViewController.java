@@ -12,9 +12,22 @@ public class ViewController {
         return "index";
     }
 
+    @GetMapping("/login")
+    public String getLogin(){
+
+        return "login";
+    }
+
     @GetMapping("/profil")
     public String getProfil(){
 
         return "profil";
     }
+
+    @GetMapping("/editProfile")
+    public String getEditProfile() {
+
+        return "editProfile";
+    }
+
 }
