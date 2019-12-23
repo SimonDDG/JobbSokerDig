@@ -43,4 +43,14 @@ public class ViewController {
         return "companyMain";
     }
 
+    @GetMapping("/listCandidate")
+    public String getListCandidate(){
+        return "listCandidate";
+    }
+
+    @GetMapping("/companyProfile")
+    public String getCompanyProfile() {
+        return  "companyProfile";
+    }
+
 }
