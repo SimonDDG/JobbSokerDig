@@ -6,7 +6,9 @@
 
     <title>Company main</title>
 </head>
+
 <body>
+<div th:replace="fragments/header :: header">...</div>
 
 <div>
     <form th:action="@{/logout}" method="post">
