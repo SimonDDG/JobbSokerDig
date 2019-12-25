@@ -19,6 +19,12 @@ public class ViewController {
         return "login";
     }
 
+    @GetMapping("/aboutUs")
+    public String getAboutUs(){
+
+        return "aboutUs";
+    }
+
     @GetMapping("/userMain")
     public String getUserMain(){
 
@@ -37,6 +43,12 @@ public class ViewController {
         return "userEditProfile";
     }
 
+    @GetMapping("/userMyOffers")
+    public String getUserMyOffers() {
+
+        return "userMyOffers";
+    }
+
     @GetMapping("/companyMain")
     public String getCompanyMain(){
 
@@ -53,6 +65,12 @@ public class ViewController {
     public String getCompanyEditProfile() {
 
         return "companyEditProfile";
+    }
+
+    @GetMapping("/companyCreateOffer")
+    public String getCompanyCreateOffer() {
+
+        return "companyCreateOffer";
     }
 
     @GetMapping("/listCandidate")
