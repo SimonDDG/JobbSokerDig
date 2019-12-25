@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ViewController {
 
+
     @GetMapping("/")
     public String getIndex() {
 
@@ -18,21 +19,22 @@ public class ViewController {
         return "login";
     }
 
-    @GetMapping("/profil")
-    public String getProfil(){
-
-        return "profil";
-    }
-
-    @GetMapping("/editProfile")
-    public String getEditProfile() {
-
-        return "editProfile";
-    }
-
     @GetMapping("/userMain")
     public String getUserMain(){
+
         return "userMain";
+    }
+
+    @GetMapping("/userProfile")
+    public String getUserProfile(){
+
+        return "userProfile";
+    }
+
+    @GetMapping("/userEditProfile")
+    public String getEditUserProfile() {
+
+        return "userEditProfile";
     }
 
     @GetMapping("/companyMain")
@@ -41,14 +43,22 @@ public class ViewController {
         return "companyMain";
     }
 
-    @GetMapping("/listCandidate")
-    public String getListCandidate(){
-        return "listCandidate";
-    }
-
     @GetMapping("/companyProfile")
     public String getCompanyProfile() {
+
         return  "companyProfile";
+    }
+
+    @GetMapping("/companyEditProfile")
+    public String getCompanyEditProfile() {
+
+        return "companyEditProfile";
+    }
+
+    @GetMapping("/listCandidate")
+    public String getListCandidate(){
+
+        return "listCandidate";
     }
 
 }
