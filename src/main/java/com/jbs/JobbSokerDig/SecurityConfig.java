@@ -21,6 +21,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/images/tomte2.png").permitAll()
                 .antMatchers("/loginStyle.css").permitAll()
                 .antMatchers("/aboutUs").permitAll()
+                .antMatchers("/test").permitAll()
+                .antMatchers("/test2").permitAll()
 
                 //Only Users
                 .antMatchers("/userMain").hasAnyRole("USER")
