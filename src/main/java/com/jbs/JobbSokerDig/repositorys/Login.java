@@ -3,10 +3,11 @@ package com.jbs.JobbSokerDig.repositorys;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "Login")
 public class Login {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "LoginID")
     private Long id;
 
