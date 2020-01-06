@@ -7,47 +7,47 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ViewController {
 
 
-    @GetMapping("/")
-    public String getIndex() {
+//    @GetMapping("/")
+//    public String getIndex() {
+//
+//        return "index";
+//    }
 
-        return "index";
-    }
+//    @GetMapping("/login")
+//    public String getLogin(){
+//
+//        return "login";
+//    }
 
-    @GetMapping("/login")
-    public String getLogin(){
+//    @GetMapping("/aboutUs")
+//    public String getAboutUs(){
+//
+//        return "aboutUs";
+//    }
 
-        return "login";
-    }
+//    @GetMapping("/userMain")
+//    public String getUserMain(){
+//
+//        return "userMain";
+//    }
 
-    @GetMapping("/aboutUs")
-    public String getAboutUs(){
+//    @GetMapping("/userProfile")
+//    public String getUserProfile(){
+//
+//        return "userProfile";
+//    }
 
-        return "aboutUs";
-    }
+//    @GetMapping("/userEditProfile")
+//    public String getEditUserProfile() {
+//
+//        return "userEditProfile";
+//    }
 
-    @GetMapping("/userMain")
-    public String getUserMain(){
-
-        return "userMain";
-    }
-
-    @GetMapping("/userProfile")
-    public String getUserProfile(){
-
-        return "userProfile";
-    }
-
-    @GetMapping("/userEditProfile")
-    public String getEditUserProfile() {
-
-        return "userEditProfile";
-    }
-
-    @GetMapping("/userMyOffers")
-    public String getUserMyOffers() {
-
-        return "userMyOffers";
-    }
+//    @GetMapping("/userMyOffers")
+//    public String getUserMyOffers() {
+//
+//        return "userMyOffers";
+//    }
 
 //    @GetMapping("/companyMain")
 //    public String getCompanyMain(){

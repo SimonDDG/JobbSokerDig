@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class FunctionController {
 
-    @GetMapping("/successLogin")
-    public String successRedirect(HttpServletRequest request){
-        if(request.isUserInRole("ROLE_USER")) {
-            return "userMain";
-        } else if (request.isUserInRole("ROLE_COMPANY")) {
-            return "companyMain";
-        } else {
-            return "index";
-        }
-    }
+//    @GetMapping("/successLogin")
+//    public String successRedirect(HttpServletRequest request){
+//        if(request.isUserInRole("ROLE_USER")) {
+//            return "userMain";
+//        } else if (request.isUserInRole("ROLE_COMPANY")) {
+//            return "companyMain";
+//        } else {
+//            return "index";
+//        }
+//    }
     
 }
