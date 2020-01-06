@@ -3,27 +3,16 @@ package com.jbs.JobbSokerDig.repositorys;
 import javax.persistence.*;
 
 @Entity
-public class LoginDetails {
+public class Login {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "LoginID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "username")
+    @Column(nullable = false, unique = true)
     private String username;
 
-    @Column(name = "password")
     private String password;
-
-    public LoginDetails() {
-    }
-
-    public LoginDetails(Long id, String username, String password) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-    }
 
     public Long getId() {
         return id;
@@ -49,4 +38,3 @@ public class LoginDetails {
         this.password = password;
     }
 }
-
