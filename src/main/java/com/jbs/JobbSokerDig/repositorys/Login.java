@@ -7,11 +7,13 @@ public class Login {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "LoginID")
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
 
+    @Column(name = "password")
     private String password;
 
     public Long getId() {
