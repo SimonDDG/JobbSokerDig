@@ -12,6 +12,7 @@ public class LoginDetails {
 
     @Column(name = "username")
     private String username;
+
     @Column(name = "password")
     private String password;
 
