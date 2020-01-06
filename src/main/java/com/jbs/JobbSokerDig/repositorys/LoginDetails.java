@@ -1,4 +1,4 @@
-package com.jbs.JobbSokerDig;
+package com.jbs.JobbSokerDig.repositorys;
 
 import javax.persistence.*;
 
