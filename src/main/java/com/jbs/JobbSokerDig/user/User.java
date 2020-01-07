@@ -26,7 +26,7 @@ public class User {
     @Column(name = "Description")
     String Description;
 
-    @Column(name = "ExperiencesAndProjects")
+    @Column(name = "Experiencesandprojects")
     String ExperiencesAndProjects;
 
     public Long getUserId() {
