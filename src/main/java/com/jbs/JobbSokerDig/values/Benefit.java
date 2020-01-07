@@ -11,7 +11,7 @@ public class Benefit {
     @Column(name = "BenefitId")
     Long BenefitId;
 
-    @OneToMany
+    @OneToOne //Kolla på sen om det ska vara OneToMany
     @JoinColumn(name = "BenefitSpecificationId")
     BenefitSpecification benefitSpecification;
 
