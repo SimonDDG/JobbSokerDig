@@ -8,7 +8,7 @@ public class Qualification {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "QualificationId")
+    @Column(name = "Qualificationid")
     Long QualificationId;
 
     @Column(name = "Qualification")

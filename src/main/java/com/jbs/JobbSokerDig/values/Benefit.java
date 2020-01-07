@@ -8,11 +8,11 @@ public class Benefit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "BenefitId")
+    @Column(name = "Benefitid")
     Long BenefitId;
 
     @OneToOne //Kolla på sen om det ska vara OneToMany
-    @JoinColumn(name = "BenefitSpecificationId")
+    @JoinColumn(name = "Benefitspecificationid")
     BenefitSpecification benefitSpecification;
 
     @Column(name = "Benefit")

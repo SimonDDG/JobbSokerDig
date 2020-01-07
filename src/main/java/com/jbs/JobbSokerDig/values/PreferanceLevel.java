@@ -3,15 +3,15 @@ package com.jbs.JobbSokerDig.values;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "PreferanceLevel")
+@Table(name = "Preferancelevel")
 public class PreferanceLevel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PreferenceLevelId")
+    @Column(name = "Preferencelevelid")
     Long PreferenceLevelId;
 
-    @Column(name = "ImportanceLevel")
+    @Column(name = "Importancelevel")
     int ImportanceLevel;
 
     public Long getPreferenceLevelId() {

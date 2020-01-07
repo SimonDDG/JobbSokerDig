@@ -10,4 +10,6 @@ class JobbSokerDigApplicationTests {
 	void contextLoads() {
 	}
 
+
+
 }

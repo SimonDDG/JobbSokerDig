@@ -6,23 +6,23 @@ import com.jbs.JobbSokerDig.user.User;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "SoftOffer")
+@Table(name = "Softoffer")
 public class SoftOffer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "SoftOfferId")
+    @Column(name = "SoftOfferid")
     Long SoftOfferId;
 
     @ManyToOne
-    @JoinColumn(name = "UserId")
+    @JoinColumn(name = "Userid")
     User user;
 
     @ManyToOne
-    @JoinColumn(name = "CompanyId")
+    @JoinColumn(name = "Companyid")
     Company company;
 
-    @Column(name = "SoftOffer")
+    @Column(name = "Softoffer")
     String SoftOffer;
 
     public Long getSoftOfferId() {

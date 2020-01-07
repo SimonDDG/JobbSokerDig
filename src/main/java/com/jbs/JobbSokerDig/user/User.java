@@ -10,14 +10,14 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "UserId")
+    @Column(name = "Userid")
     Long UserId;
 
     @OneToOne
-    @JoinColumn(name = "LoginID")
+    @JoinColumn(name = "Loginid")
     Login login;
 
-    @Column(name = "FullName")
+    @Column(name = "Fullname")
     String fullName;
 
     @Column(name = "email")

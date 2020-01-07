@@ -8,10 +8,10 @@ public class BenefitSpecification {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "BenefitSpecificationId")
+    @Column(name = "Benefitspecificationid")
     Long BenefitSpecificationId;
 
-    @Column(name = "BenefitSpec")
+    @Column(name = "Benefitspec")
     String BenefitSpec;
 
     public Long getBenefitSpecificationId() {

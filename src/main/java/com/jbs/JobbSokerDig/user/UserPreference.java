@@ -7,24 +7,24 @@ import com.jbs.JobbSokerDig.values.PreferanceLevel;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "UserPreferenceId")
+@Table(name = "Userpreferenceid")
 public class UserPreference {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "UserPreferenceId")
+    @Column(name = "Userpreferenceid")
     Long UserPreferenceId;
 
     @OneToOne
-    @JoinColumn(name = "BenefitId")
+    @JoinColumn(name = "Benefitid")
     Benefit benefit;
 
     @OneToOne
-    @JoinColumn(name = "PreferenceLevelId")
+    @JoinColumn(name = "Preferencelevelid")
     PreferanceLevel preferenceLevel;
 
     @ManyToOne
-    @JoinColumn(name = "UserId")
+    @JoinColumn(name = "Userid")
     User user;
 
     public Long getUserPreferenceId() {

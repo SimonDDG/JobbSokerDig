@@ -6,20 +6,20 @@ import com.jbs.JobbSokerDig.values.Benefit;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "CompAndBen")
+@Table(name = "Compandben")
 public class CompAndBen {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "CompAndBenId")
+    @Column(name = "Compandbenid")
     Long CompAndBenId;
 
     @OneToOne
-    @JoinColumn(name = "BenefitId")
+    @JoinColumn(name = "Benefitid")
     Benefit benefit;
 
     @ManyToOne
-    @JoinColumn(name = "CompanyId")
+    @JoinColumn(name = "Companyid")
     Company company;
 
     public Long getCompAndBenId() {

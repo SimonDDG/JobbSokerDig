@@ -3,15 +3,15 @@ package com.jbs.JobbSokerDig.values;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "QualificationLevel")
+@Table(name = "Qualificationlevel")
 public class QualificationLevel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "QualificationLevelId")
+    @Column(name = "Qualificationlevelid")
     Long QualificationLevelId;
 
-    @Column(name = "QualificationLevel")
+    @Column(name = "Qualificationlevel")
     int QualificationLevel;
 
     public Long getQualificationLevelId() {

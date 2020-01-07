@@ -7,24 +7,24 @@ import com.jbs.JobbSokerDig.values.QualificationLevel;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "QualificationNeed")
+@Table(name = "Qualificationneed")
 public class QualificationNeed {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "QualificationNeedId")
+    @Column(name = "Qualificationneedid")
     Long QualificationNeedId;
 
     @OneToOne
-    @JoinColumn(name = "QualificationId")
+    @JoinColumn(name = "Qualificationid")
     Qualification qualification;
 
     @OneToOne
-    @JoinColumn(name = "QualificationLevelId")
+    @JoinColumn(name = "Qualificationlevelid")
     QualificationLevel qualificationLevel;
 
     @ManyToOne
-    @JoinColumn(name = "CompanyId")
+    @JoinColumn(name = "Companyid")
     Company company;
 
     public Long getQualificationNeedId() {
