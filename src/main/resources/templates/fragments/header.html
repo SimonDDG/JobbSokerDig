@@ -2,81 +2,100 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <title>header</title>
 </head>
 <body>
 <div th:fragment="header">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="/images/tomte2.png" width="30" height="30" alt=""> <!--ändra logga-->
+                Jobb Söker Dig!
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <a class="navbar-brand" href="/">
-            <img src="/images/tomte2.png" width="30" height="30" alt="">
-            Jobb Söker Dig!
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
 
-                <!--If logged in as user-->
-                <a class="nav-item nav-link" href="userMain" sec:authorize="hasRole('ROLE_USER')">Main</a>
-                <a class="nav-item nav-link" href="userProfile" sec:authorize="hasRole('ROLE_USER')">Profile</a>
-                <a class=" nav-item nav-link" href="userEditProfile" sec:authorize="hasRole('ROLE_USER')">Settings</a>
-                <a class=" nav-item nav-link" href="userMyOffers" sec:authorize="hasRole('ROLE_USER')">My Offers</a>
+                    <!--If logged in as user-->
+                    <li class="nav-item" >
+                        <a class="nav-link" href="userMain" sec:authorize="hasRole('ROLE_USER')">Main</a>
+                    </li>
+                    <a class="nav-item nav-link" href="userProfile" sec:authorize="hasRole('ROLE_USER')">Profile</a>
+                    <a class=" nav-item nav-link" href="userEditProfile"
+                       sec:authorize="hasRole('ROLE_USER')">Settings</a>
+                    <a class=" nav-item nav-link" href="userMyOffers" sec:authorize="hasRole('ROLE_USER')">My Offers</a>
 
-                <!--If logged in as Company-->
-                <a class="nav-item nav-link" href="companyMain" sec:authorize="hasRole('ROLE_COMPANY')">Main</a>
-                <a class="nav-item nav-link" href="companyProfile" sec:authorize="hasRole('ROLE_COMPANY')">Profile</a>
-                <a class="nav-item nav-link" href="companyEditProfile" sec:authorize="hasRole('ROLE_COMPANY')">Settings</a>
-                <a class="nav-item nav-link" href="companyCreateOffer" sec:authorize="hasRole('ROLE_COMPANY')">Create Offer</a>
+                    <!--If logged in as Company-->
+                    <a class="nav-item nav-link" href="companyMain" sec:authorize="hasRole('ROLE_COMPANY')">Main</a>
+                    <a class="nav-item nav-link" href="companyProfile"
+                       sec:authorize="hasRole('ROLE_COMPANY')">Profile</a>
+                    <a class="nav-item nav-link" href="companyEditProfile" sec:authorize="hasRole('ROLE_COMPANY')">Settings</a>
+                    <a class="nav-item nav-link" href="companyCreateOffer" sec:authorize="hasRole('ROLE_COMPANY')">Create
+                        Offer</a>
 
-                <a class="nav-item nav-link" href="listCandidate" sec:authorize="hasRole('ROLE_COMPANY')">View Candidates</a>
+                    <a class="nav-item nav-link" href="listCandidate" sec:authorize="hasRole('ROLE_COMPANY')">View
+                        Candidates</a>
 
-                <!--Public "menu"-->
-                <span sec:authorize="isAnonymous()"></span>
+                    <!--Public "menu"-->
+                    <span sec:authorize="isAnonymous()"></span>
 
-            </div>
+                </ul>
 
 
                 <!--Allways on-->
-            <div class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto">
 
-                <a class="nav-item nav-link disabled" href="aboutUs">About Us.</a>
+                    <a class="nav-item nav-link disabled" href="aboutUs">About Us.</a>
 
+                </ul>
+
+                <!-- Right part of "menu" -->
+                <ul class="navbar-nav ml-auto">
+
+                    <div th:if="${#httpServletRequest.requestURI != '/login'}" sec:authorize="isAnonymous()">
+                        <form class="form-inline" th:action="@{/login}" method="post">
+                            <input class="btn btn-sm btn-outline-secondary" type="submit" value="Login"/>
+                        </form>
+                    </div>
+
+
+                    <div sec:authorize="isAuthenticated()">
+
+                        <span th:text="${'Welcome ' + #httpServletRequest.remoteUser}"></span>
+
+                        <form class="form-inline" th:action="@{/logout}" method="post">
+                            <input class="btn btn-sm btn-outline-secondary" type="submit" value="Logout"/>
+                        </form>
+
+                    </div>
+
+                </ul>
             </div>
-
-            <!-- Right part of "menu" -->
-            <ul class="navbar-nav ml-auto">
-
-                <div th:if="${#httpServletRequest.requestURI != '/login'}" sec:authorize="isAnonymous()">
-                    <form class="form-inline" th:action="@{/login}" method="post">
-                        <input class="btn btn-sm btn-outline-secondary" type="submit" value="Login"/>
-                    </form>
-                </div>
-
-
-                <div sec:authorize="isAuthenticated()">
-
-                    <span th:text="${'Welcome ' + #httpServletRequest.remoteUser}"></span>
-
-                    <form class="form-inline" th:action="@{/logout}" method="post">
-                        <input class="btn btn-sm btn-outline-secondary" type="submit" value="Logout"/>
-                    </form>
-
-                </div>
-
-            </ul>
         </div>
     </nav>
 </div>
 
 <!--Bootstrap script-->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 </body>
 </html>
