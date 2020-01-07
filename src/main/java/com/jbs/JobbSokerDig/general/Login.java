@@ -1,4 +1,4 @@
-package com.jbs.JobbSokerDig.repositorys;
+package com.jbs.JobbSokerDig.general;
 
 import javax.persistence.*;
 
@@ -9,7 +9,7 @@ public class Login {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "LoginID")
-    private Long id;
+    private Long LoginID;
 
     @Column(name = "username", nullable = false, unique = true)
     private String username;
@@ -20,12 +20,12 @@ public class Login {
     @Column(name = "role")
     private String role;
 
-    public Long getId() {
-        return id;
+    public Long getLoginID() {
+        return LoginID;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setLoginID(Long loginID) {
+        this.LoginID = loginID;
     }
 
     public String getUsername() {

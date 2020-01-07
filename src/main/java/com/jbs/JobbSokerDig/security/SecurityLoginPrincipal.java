@@ -1,6 +1,6 @@
 package com.jbs.JobbSokerDig.security;
 
-import com.jbs.JobbSokerDig.repositorys.Login;
+import com.jbs.JobbSokerDig.general.Login;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

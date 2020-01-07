@@ -1,5 +1,6 @@
 package com.jbs.JobbSokerDig.security;
 
+import com.jbs.JobbSokerDig.general.Login;
 import com.jbs.JobbSokerDig.repositorys.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

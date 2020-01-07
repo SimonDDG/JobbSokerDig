@@ -1,6 +1,6 @@
-package com.jbs.JobbSokerDig;
+package com.jbs.JobbSokerDig.testingAndInit;
 
-import com.jbs.JobbSokerDig.repositorys.Login;
+import com.jbs.JobbSokerDig.general.Login;
 import com.jbs.JobbSokerDig.repositorys.LoginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;

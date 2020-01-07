@@ -1,4 +1,4 @@
-package com.jbs.JobbSokerDig;
+package com.jbs.JobbSokerDig.testingAndInit;
 
 import com.jbs.JobbSokerDig.repositorys.LoginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
