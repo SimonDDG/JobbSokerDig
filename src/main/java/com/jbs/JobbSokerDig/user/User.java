@@ -10,7 +10,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    Long UserId;
 
     @OneToOne
     @JoinColumn(name = "LoginID")
@@ -28,12 +28,12 @@ public class User {
     @Column(name = "ExperiencesAndProjects")
     String ExperiencesAndProjects;
 
-    public Long getId() {
-        return id;
+    public Long getUserId() {
+        return UserId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserId(Long userId) {
+        this.UserId = userId;
     }
 
     public Login getLogin() {
