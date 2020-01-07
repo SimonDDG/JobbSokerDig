@@ -1,6 +1,5 @@
 package com.jbs.JobbSokerDig.user;
 
-import com.jbs.JobbSokerDig.user.User;
 import com.jbs.JobbSokerDig.values.Benefit;
 import com.jbs.JobbSokerDig.values.PreferanceLevel;
 
@@ -24,8 +23,8 @@ public class UserPreference {
     PreferanceLevel preferenceLevel;
 
     @ManyToOne
-    @JoinColumn(name = "Userid")
-    User user;
+    @JoinColumn(name = "Usercandidateid")
+    UserCandidate userCandidate;
 
     public Long getUserPreferenceId() {
         return UserPreferenceId;
@@ -51,11 +50,11 @@ public class UserPreference {
         this.preferenceLevel = preferenceLevel;
     }
 
-    public User getUser() {
-        return user;
+    public UserCandidate getUserCandidate() {
+        return userCandidate;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserCandidate(UserCandidate userCandidate) {
+        this.userCandidate = userCandidate;
     }
 }

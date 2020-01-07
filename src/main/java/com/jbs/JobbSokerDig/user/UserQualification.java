@@ -1,6 +1,5 @@
 package com.jbs.JobbSokerDig.user;
 
-import com.jbs.JobbSokerDig.user.User;
 import com.jbs.JobbSokerDig.values.Qualification;
 import com.jbs.JobbSokerDig.values.QualificationLevel;
 
@@ -24,8 +23,8 @@ public class UserQualification {
     QualificationLevel qualificationLevel;
 
     @ManyToOne
-    @JoinColumn(name = "Userid")
-    User user;
+    @JoinColumn(name = "Usercandidateid")
+    UserCandidate userCandidate;
 
     public Long getUserQualificationId() {
         return UserQualificationId;
@@ -51,11 +50,11 @@ public class UserQualification {
         this.qualificationLevel = qualificationLevel;
     }
 
-    public User getUser() {
-        return user;
+    public UserCandidate getUserCandidate() {
+        return userCandidate;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserCandidate(UserCandidate userCandidate) {
+        this.userCandidate = userCandidate;
     }
 }

@@ -5,13 +5,13 @@ import com.jbs.JobbSokerDig.general.Login;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "User")
-public class User {
+@Table(name = "Usercandidate")
+public class UserCandidate {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Userid")
-    Long UserId;
+    @Column(name = "Usercandidateid")
+    Long UserCandidateId;
 
     @OneToOne
     @JoinColumn(name = "Loginid")
@@ -29,12 +29,12 @@ public class User {
     @Column(name = "Experiencesandprojects")
     String ExperiencesAndProjects;
 
-    public Long getUserId() {
-        return UserId;
+    public Long getUserCandidateId() {
+        return UserCandidateId;
     }
 
-    public void setUserId(Long userId) {
-        this.UserId = userId;
+    public void setUserCandidateId(Long userCandidateId) {
+        this.UserCandidateId = userCandidateId;
     }
 
     public Login getLogin() {

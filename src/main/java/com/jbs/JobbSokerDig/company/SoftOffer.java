@@ -1,7 +1,6 @@
 package com.jbs.JobbSokerDig.company;
 
-import com.jbs.JobbSokerDig.company.Company;
-import com.jbs.JobbSokerDig.user.User;
+import com.jbs.JobbSokerDig.user.UserCandidate;
 
 import javax.persistence.*;
 
@@ -11,12 +10,12 @@ public class SoftOffer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "SoftOfferid")
+    @Column(name = "Softofferid")
     Long SoftOfferId;
 
     @ManyToOne
-    @JoinColumn(name = "Userid")
-    User user;
+    @JoinColumn(name = "Usercandidateid")
+    UserCandidate userCandidate;
 
     @ManyToOne
     @JoinColumn(name = "Companyid")
@@ -33,12 +32,12 @@ public class SoftOffer {
         SoftOfferId = softOfferId;
     }
 
-    public User getUser() {
-        return user;
+    public UserCandidate getUserCandidate() {
+        return userCandidate;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserCandidate(UserCandidate userCandidate) {
+        this.userCandidate = userCandidate;
     }
 
     public Company getCompany() {

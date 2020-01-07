@@ -1,9 +1,9 @@
 package com.jbs.JobbSokerDig.repositorys;
 
-import com.jbs.JobbSokerDig.user.User;
+import com.jbs.JobbSokerDig.user.UserCandidate;
 import org.springframework.data.repository.CrudRepository;
 
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface UserRepository extends CrudRepository<UserCandidate, Long> {
 
-    User findByFullName(String fullName);
+    UserCandidate findByFullName(String fullName);
 }
