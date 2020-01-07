@@ -8,6 +8,7 @@ public class Qualification {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "QualificationId")
     Long QualificationId;
 
     @Column(name = "Qualification")

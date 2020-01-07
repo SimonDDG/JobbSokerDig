@@ -12,6 +12,7 @@ public class UserPreference {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "UserPreferenceId")
     Long UserPreferenceId;
 
     @OneToOne

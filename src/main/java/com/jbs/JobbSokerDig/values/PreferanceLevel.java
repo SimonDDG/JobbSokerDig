@@ -8,6 +8,7 @@ public class PreferanceLevel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "PreferenceLevelId")
     Long PreferenceLevelId;
 
     @Column(name = "ImportanceLevel")

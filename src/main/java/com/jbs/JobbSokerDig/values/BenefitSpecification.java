@@ -8,6 +8,7 @@ public class BenefitSpecification {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "BenefitSpecificationId")
     Long BenefitSpecificationId;
 
     @Column(name = "BenefitSpec")

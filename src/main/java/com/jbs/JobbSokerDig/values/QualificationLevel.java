@@ -8,6 +8,7 @@ public class QualificationLevel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "QualificationLevelId")
     Long QualificationLevelId;
 
     @Column(name = "QualificationLevel")

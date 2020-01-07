@@ -10,6 +10,7 @@ public class Company {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "CompanyId")
     Long CompanyId;
 
     @OneToOne
