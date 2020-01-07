@@ -8,7 +8,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -26,6 +25,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/images/tomte2.png").permitAll()
                 .antMatchers("/loginStyle.css").permitAll()
                 .antMatchers("/aboutUs").permitAll()
+
+                //Public for testing purpose
                 .antMatchers("/test").permitAll()
                 .antMatchers("/test2").permitAll()
                 .antMatchers("/init").permitAll()
@@ -41,7 +42,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/companyProfile").hasAnyRole("COMPANY")
                 .antMatchers("/companyEditProfile").hasAnyRole("COMPANY")
                 .antMatchers("/companyCreateOffer").hasAnyRole("COMPANY")
-                        //This one should maybe be public?
+
+                //This one should maybe be public?
                 .antMatchers("/listCandidate").hasAnyRole("COMPANY")
 
                 .anyRequest().authenticated()
@@ -54,30 +56,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout().logoutSuccessUrl("/");
     }
 
-    @Bean
-    public UserDetailsService userDetailsService() {
-        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-
-        //KOM IHÅG ATT TA BORT OCH ÄNDRA TILL EN SÄKER USER
-        manager.createUser(User.withDefaultPasswordEncoder().username("user").password("123").roles("USER").build());
-        manager.createUser(User.withDefaultPasswordEncoder().username("company").password("123").roles("COMPANY").build());
-        return manager;
-    }
-
     @Autowired
-    private SecurityLoginDetailsService userDetailsService;
+    private SecurityLoginDetailsService securityLoginDetailsService;
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth)
-            throws Exception {
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
     }
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider authProvider
-                = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(userDetailsService);
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+        authProvider.setUserDetailsService(securityLoginDetailsService);
         authProvider.setPasswordEncoder(encoder());
         return authProvider;
     }

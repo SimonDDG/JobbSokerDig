@@ -18,18 +18,19 @@ public class SecurityLoginPrincipal implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        final List<GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority("USER"));
+        String currentRole = login.getRole().trim();
+        final List<GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + currentRole));
         return authorities;
     }
 
     @Override
     public String getPassword() {
-        return login.getPassword();
+        return login.getPassword().trim();
     }
 
     @Override
     public String getUsername() {
-        return login.getUsername();
+        return login.getUsername().trim();
     }
 
     @Override
