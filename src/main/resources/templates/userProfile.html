@@ -7,20 +7,24 @@
           rel="shortcut icon" type="image/A-icon">
     <link href="images/Adroit-logo-shortcut.png"
           rel="apple-touch-icon">
+    <link rel="stylesheet" href="profileStyle.css">
+    <link rel="stylesheet" href="/static/profileStyle.css">
     <title>Adroit - Part of AW Family</title>
 </head>
 
 <body>
 <div th:replace="fragments/header :: header">...</div>
 
-<h1>Kandidat profil</h1>
+<div class="jumbotron" id="block1">
 
 <img src="images/profileExample.jpg" width="100px">
 
-<h2 th:text="${userCandidate.fullName}"></h2>
+<h2 class="display-4" th:text="${userCandidate.fullName}"></h2>
 
 <p th:text="'Description: ' + ${userCandidate.description}"></p>
+</div>
 
+<div class="jumbotron jumbotron-fluid" id="block2">
 <h3>Qualifications</h3>
 <ul th:each="uq : ${userQualification}">
 
@@ -30,7 +34,9 @@
     </li>
 
 </ul>
+</div>
 
+<div class="jumbotron jumbotron-fluid" id="block3">
 <h3>Benefit Preference</h3>
 
 <ul th:each="up : ${userPreference}">
@@ -39,8 +45,11 @@
         <span th:text="${up.preferenceLevel.ImportanceLevel}"></span>
     </li>
 </ul>
+</div>
 
+<div class="jumbotron jumbotron-fluid" id="block4">
 <h3>Reviews</h3>
+</div>
 
 
 <!--Bootstrap script-->
