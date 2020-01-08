@@ -10,10 +10,11 @@ public interface UserRepository extends CrudRepository<UserCandidate, Long> {
 
     @Query(
             value = "SELECT dbo.UserCandidate.* " +
-            "FROM     dbo.Login INNER JOIN " +
-            "dbo.UserCandidate ON dbo.Login.LoginID = dbo.UserCandidate.LoginId " +
-            "WHERE dbo.Login.username = ?1",
+                    "FROM dbo.Login INNER JOIN " +
+                    "dbo.UserCandidate ON dbo.Login.LoginID = dbo.UserCandidate.LoginId " +
+                    "WHERE dbo.Login.username = ?1",
             nativeQuery = true
     )
     UserCandidate getUserCandidateRepo(String username);
+
 }
