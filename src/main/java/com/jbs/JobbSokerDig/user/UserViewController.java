@@ -1,5 +1,7 @@
 package com.jbs.JobbSokerDig.user;
 
+import com.jbs.JobbSokerDig.company.SoftOffer;
+import com.jbs.JobbSokerDig.service.SoftOfferService;
 import com.jbs.JobbSokerDig.service.UserCandidateService;
 import com.jbs.JobbSokerDig.service.UserPreferenceService;
 import com.jbs.JobbSokerDig.service.UserQualificationService;
@@ -23,6 +25,9 @@ public class UserViewController {
 
     @Autowired
     UserPreferenceService userPreferenceService;
+
+    @Autowired
+    SoftOfferService softOfferService;
 
     @GetMapping("/userMain")
     public String getUserMain(){
@@ -56,8 +61,16 @@ public class UserViewController {
     }
 
     @GetMapping("/userMyOffers")
-    public String getUserMyOffers() {
+    public String getUserMyOffers(HttpServletRequest request, Model model) {
+
+        List<SoftOffer> softOffers = softOfferService.getSoftOfferForUser(getCurrentUserCandidate(request).getUserCandidateId());
+        model.addAttribute("softOffers", softOffers);
 
         return "userMyOffers";
+    }
+
+    private UserCandidate getCurrentUserCandidate(HttpServletRequest request) {
+        UserCandidate userCandidate = userCandidateService.getUserCandidate(request);
+        return userCandidate;
     }
 }
