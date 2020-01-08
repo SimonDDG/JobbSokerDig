@@ -29,6 +29,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/images/profileExample.jpg").permitAll()
                 .antMatchers("/images/adroit-logo-ex.jpg").permitAll()
                 .antMatchers("/images/adroit-logo-transparent.png").permitAll()
+                .antMatchers("/images/logo-transparent-white.png").permitAll()
+                .antMatchers("/images/adroit-transparent-logo-small.png").permitAll()
 
                 //Public for testing purpose
                 .antMatchers("/test").permitAll()
