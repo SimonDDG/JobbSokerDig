@@ -11,13 +11,13 @@
           rel="apple-touch-icon">
     <link href="https://assets.website-files.com/59a92b6636f2410001271027/css/academic-work-x.ae262db23.css"
           rel="stylesheet" type="text/css">
+    <link rel="stylesheet" th:href="@{headerStyle.css}" href="../static/headerStyle.css">
 
 
     <title>Adroit - Part of AW Family</title>
 </head>
 
 <body>
-<div th:replace="fragments/header :: header">...</div>
 <!--
 <h1>The login page.</h1>
 
@@ -29,7 +29,8 @@
     </form>
 </div>
 -->
-<div class="hero _2"> <!-- Ändrar bakgrunden på första blocket -->
+<div id="indexbackground"> <!-- Ändrar bakgrunden på första blocket -->
+    <div th:replace="fragments/header :: header-light">...</div>
 <div class="wrapper fadeInDown">
     <div id="formContent">
         <!-- Tabs Titles -->
