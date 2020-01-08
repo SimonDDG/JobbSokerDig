@@ -11,9 +11,9 @@ public class Benefit {
     @Column(name = "Benefitid")
     Long BenefitId;
 
-    @OneToOne //Kolla på sen om det ska vara OneToMany
-    @JoinColumn(name = "Benefitspecificationid")
-    BenefitSpecification benefitSpecification;
+//    @OneToOne //Kolla på sen om det ska vara OneToMany
+//    @JoinColumn(name = "Benefitspecificationid")
+//    BenefitSpecification benefitSpecification;
 
     @Column(name = "Benefit")
     String Benefit;
@@ -26,13 +26,13 @@ public class Benefit {
         BenefitId = benefitId;
     }
 
-    public BenefitSpecification getBenefitSpecification() {
-        return benefitSpecification;
-    }
-
-    public void setBenefitSpecification(BenefitSpecification benefitSpecification) {
-        this.benefitSpecification = benefitSpecification;
-    }
+//    public BenefitSpecification getBenefitSpecification() {
+//        return benefitSpecification;
+//    }
+//
+//    public void setBenefitSpecification(BenefitSpecification benefitSpecification) {
+//        this.benefitSpecification = benefitSpecification;
+//    }
 
     public String getBenefit() {
         return Benefit;
