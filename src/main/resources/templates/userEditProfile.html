@@ -54,11 +54,15 @@
         </div>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
             <div class="card-body">
-                <div th:each="benefit : ${benefits}">
-                    <input th:text="${benefit.Benefit}" type="checkbox">
-                </div>
-                <br>
-                <button type="button" class="btn btn-secondary">Save</button>
+
+                <table>
+                    <tr th:each="benefitArrList : ${splittedBenefits}">
+                        <th th:each="benefit : ${benefitArrList}">
+                            <input th:text="${benefit.Benefit}" type="checkbox">
+                        </th>
+                    </tr>
+                </table>
+
             </div>
         </div>
     </div>
@@ -73,11 +77,18 @@
         </div>
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
             <div class="card-body">
-                <div th:each="benefit : ${benefits}">
-                    <input th:text="${benefit.Benefit}" type="checkbox">
-                </div>
+
+                <table>
+                    <tr th:each="benefitArrList : ${splittedBenefits}">
+                        <th th:each="benefit : ${benefitArrList}">
+                            <input th:text="${benefit.Benefit}" type="checkbox">
+                        </th>
+                    </tr>
+                </table>
+
                 <br>
                 <button type="button" class="btn btn-secondary">Save</button>
+
             </div>
         </div>
     </div>

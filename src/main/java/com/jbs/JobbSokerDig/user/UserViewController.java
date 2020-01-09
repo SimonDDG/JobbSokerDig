@@ -71,7 +71,8 @@ public class UserViewController {
         model.addAttribute("splittedQualifications", splittedQualifications);
 
         List<Benefit> benefits = benefitService.getAllBenefits();
-        model.addAttribute("benefits", benefits);
+        List<List<Benefit>> splittedBenefits = viewLogic.splitBenefitList(benefits, 5);
+        model.addAttribute("splittedBenefits", splittedBenefits);
 
         return "userEditProfile";
     }
