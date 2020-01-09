@@ -24,10 +24,10 @@ public class CompanyViewController {
         return "companyEditProfile";
     }
 
-    @GetMapping("/companyCreateOffer")
-    public String getCompanyCreateOffer() {
+    @GetMapping("/companyOpenPositions")
+    public String getCompanyOpenPositions() {
 
-        return "companyCreateOffer";
+        return "companyOpenPositions";
     }
 
     @GetMapping("/listCandidate")
