@@ -1,6 +1,7 @@
 package com.jbs.JobbSokerDig.viewLogic;
 
 
+import com.jbs.JobbSokerDig.values.Benefit;
 import com.jbs.JobbSokerDig.values.Qualification;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,16 @@ public class ViewLogic {
     }
 
     //metod för att dela benefit list
+    public List<List<Benefit>> splitBenefitList(List<Benefit> bigList, int innerSize) {
 
+        int size = bigList.size();
+        List<List<Benefit>> parts = new ArrayList<List<Benefit>>();
+
+        for (int i = 0; i < size; i += innerSize) {
+            parts.add(new ArrayList<Benefit>(bigList.subList(i, Math.min(size, i + innerSize))));
+        }
+
+        return parts;
+    }
 
 }
