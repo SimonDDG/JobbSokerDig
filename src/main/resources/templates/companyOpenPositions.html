@@ -17,9 +17,17 @@
 <h1>Your open positions</h1>
 
 <div>
-    <h3>Qualifications for the position</h3>
+    <h3>Qualifications needed for the position</h3>
+        <div th:each="qualification : ${qualifications}">
+            <input th:text="${qualification.Qualification}" type="checkbox">
+        </div>
+
+
 
     <h3>Benefits you can offer</h3>
+
+
+
 </div>
 
 <!--Bootstrap script-->
