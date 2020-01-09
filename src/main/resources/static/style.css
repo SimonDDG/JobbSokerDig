@@ -65,8 +65,18 @@
 #navbar-text9 {
     color: white;
 }
+#navbar-text {
+    color: white;
+}
+
 
 #menu {
+    position: absolute;
+    top: 40px;
+    left: 300px;
+}
+
+#menu-dark {
     position: absolute;
     top: 40px;
     left: 300px;
