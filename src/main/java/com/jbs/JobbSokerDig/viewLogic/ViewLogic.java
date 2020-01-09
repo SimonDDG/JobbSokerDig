@@ -12,7 +12,6 @@ import java.util.List;
 @Service
 public class ViewLogic {
 
-    //metod för att dela qualificiation list
     public List<List<Qualification>> splitQualificationList(List<Qualification> bigList, int innerSize) {
 
         int size = bigList.size();
@@ -25,7 +24,7 @@ public class ViewLogic {
         return parts;
     }
 
-    //metod för att dela benefit list
+    
     public List<List<Benefit>> splitBenefitList(List<Benefit> bigList, int innerSize) {
 
         int size = bigList.size();
