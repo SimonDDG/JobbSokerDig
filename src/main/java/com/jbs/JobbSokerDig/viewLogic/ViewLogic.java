@@ -13,7 +13,7 @@ public class ViewLogic {
 
     //metod för att dela qualificiation list
     public List<Qualification> splitQualificationList(List<Qualification> bigList) {
-        
+
     }
 
 
