@@ -23,9 +23,7 @@ public class QualificationNeed {
     @JoinColumn(name = "Qualificationlevelid")
     QualificationLevel qualificationLevel;
 
-    @ManyToOne
-    @JoinColumn(name = "Companyid")
-    Company company;
+
 
     public Long getQualificationNeedId() {
         return QualificationNeedId;
@@ -51,11 +49,4 @@ public class QualificationNeed {
         this.qualificationLevel = qualificationLevel;
     }
 
-    public Company getCompany() {
-        return company;
     }
-
-    public void setCompany(Company company) {
-        this.company = company;
-    }
-}
