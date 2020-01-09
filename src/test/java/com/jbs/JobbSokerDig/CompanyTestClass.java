@@ -1,9 +1,11 @@
 package com.jbs.JobbSokerDig;
 
 import com.jbs.JobbSokerDig.company.Company;
+import com.jbs.JobbSokerDig.company.OpenPosition;
 import com.jbs.JobbSokerDig.general.Login;
 import com.jbs.JobbSokerDig.repositorys.CompanyRepository;
 import com.jbs.JobbSokerDig.repositorys.LoginRepository;
+import com.jbs.JobbSokerDig.repositorys.OpenPositionRepository;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,7 @@ public class CompanyTestClass {
     CompanyRepository companyRepository;
 
     @Autowired
-    LoginRepository loginRepository;
+    OpenPositionRepository openPositionRepository;
 
     @Test
     void contextLoads() {
@@ -31,14 +33,11 @@ public class CompanyTestClass {
 
         Assert.assertEquals("name of first company", "JSD testComp", compList.get(0).getName());
 
+        List<OpenPosition> openPositionList = (ArrayList)openPositionRepository.findAll();
+        Assert.assertEquals("JavaDeveloper", openPositionList.get(0).getOpenPositionName());
+
 
     }
-
-    @Test
-    public void test() {
-        Login login = loginRepository.findByUsername("user");
-
-        Assert.assertEquals("user", login.getUsername().trim());
-    }
+    
 
 }
