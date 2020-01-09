@@ -11,9 +11,9 @@ public class GeneralFunctionController {
     @GetMapping("/successLogin")
     public String successRedirect(HttpServletRequest request){
         if(request.isUserInRole("ROLE_USER")) {
-            return "userMain";
+            return "index";
         } else if (request.isUserInRole("ROLE_COMPANY")) {
-            return "companyMain";
+            return "index";
         } else {
             return "index";
         }

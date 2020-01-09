@@ -7,12 +7,17 @@
           rel="shortcut icon" type="image/A-icon">
     <link href="images/Adroit-logo-shortcut.png"
           rel="apple-touch-icon">
-    <link rel="stylesheet" th:href="@{profileStyle.css}" href="../static/profileStyle.css">
+    <!-- ADROIT/AWX HEAD STARTS -->
+    <link href="https://assets.website-files.com/59a92b6636f2410001271027/css/academic-work-x.ae262db23.css"
+          rel="stylesheet" type="text/css">
+    <link rel="stylesheet" th:href="@{style.css}" href="../static/style.css">
     <title>Adroit - Part of AW Family</title>
+</head>
+<!-- AWX HEAD ENDS -->
 </head>
 
 <body>
-<div th:replace="fragments/header :: header">...</div>
+<div th:replace="fragments/header :: header-light">...</div>
 
 <div class="jumbotron" id="block1">
 
@@ -41,7 +46,7 @@
 <ul th:each="up : ${userPreference}">
     <li>
         <span th:text="${up.benefit.Benefit}"></span>
-        <span th:text="${up.preferenceLevel.ImportanceLevel}"></span>
+       <!-- <span th:text="${up.preferenceLevel.ImportanceLevel}"></span> -->
     </li>
 </ul>
 </div>
@@ -49,6 +54,7 @@
 <div class="jumbotron jumbotron-fluid" id="block4">
 <h3>Reviews</h3>
 </div>
+<div th:replace="fragments/footer :: footer">...</div>
 
 
 <!--Bootstrap script-->

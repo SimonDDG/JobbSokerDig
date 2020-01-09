@@ -9,15 +9,16 @@
           rel="shortcut icon" type="image/A-icon">
     <link href="images/Adroit-logo-shortcut.png"
           rel="apple-touch-icon">
+    <!-- ADROIT/AWX HEAD STARTS -->
     <link href="https://assets.website-files.com/59a92b6636f2410001271027/css/academic-work-x.ae262db23.css"
           rel="stylesheet" type="text/css">
-
-
+    <link rel="stylesheet" th:href="@{style.css}" href="../static/style.css">
     <title>Adroit - Part of AW Family</title>
+</head>
+<!-- AWX HEAD ENDS -->
 </head>
 
 <body>
-<div th:replace="fragments/header :: header">...</div>
 <!--
 <h1>The login page.</h1>
 
@@ -29,7 +30,8 @@
     </form>
 </div>
 -->
-<div class="hero _2"> <!-- Ändrar bakgrunden på första blocket -->
+<div id="indexbackground"> <!-- Ändrar bakgrunden på första blocket -->
+    <div th:replace="fragments/header :: header">...</div>
 <div class="wrapper fadeInDown">
     <div id="formContent">
         <!-- Tabs Titles -->
@@ -54,6 +56,8 @@
     </div>
 </div>
 </div>
+<div th:replace="fragments/footer :: footer">...</div>
+
 
 <!--Bootstrap script-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
