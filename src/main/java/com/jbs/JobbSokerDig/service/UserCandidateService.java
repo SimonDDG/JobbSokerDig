@@ -17,4 +17,8 @@ public class UserCandidateService {
         String username = request.getRemoteUser();
         return userRepository.getUserCandidateRepo(username);
     }
+
+    public UserCandidate getUserCandidateByUsername(String username) {
+        return userRepository.getUserCandidateRepo(username);
+    }
 }
