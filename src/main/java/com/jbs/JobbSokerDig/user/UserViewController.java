@@ -55,7 +55,9 @@ public class UserViewController {
     }
 
     @GetMapping("/userEditProfile")
-    public String getEditUserProfile() {
+    public String getEditUserProfile(HttpServletRequest request, Model model) {
+
+
 
         return "userEditProfile";
     }
