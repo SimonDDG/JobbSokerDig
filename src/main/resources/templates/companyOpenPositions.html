@@ -29,9 +29,13 @@
         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="card-body">
                 <h3>Qualifications needed for the position</h3>
-                <div th:each="qualification : ${qualifications}">
-                    <input th:text="${qualification.Qualification}" type="checkbox">
-                </div>
+                <table>
+                    <tr th:each="qualificationSublist : ${qualificationBigList}">
+                        <th th:each="qualification : ${qualificationSublist}">
+                            <input th:text="${qualification.Qualification}" type="checkbox">
+                        </th>
+                    </tr>
+                </table>
                 <button type="button" class="btn btn-secondary">Save</button>
             </div>
         </div>
@@ -47,9 +51,13 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
                 <h3>Benefits you can offer</h3>
-                <div th:each="benefit : ${benefits}">
-                    <input th:text="${benefit.Benefit}" type="checkbox">
-                </div>
+                <table>
+                    <tr th:each="benefitSublist : ${benefitBigList}">
+                        <th th:each="benefit : ${benefitSublist}">
+                            <input th:text="${benefit.Benefit}" type="checkbox">
+                        </th>
+                    </tr>
+                </table>
                 <button type="button" class="btn btn-secondary">Save</button>
             </div>
         </div>
