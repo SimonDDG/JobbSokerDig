@@ -35,6 +35,24 @@ public class InitController {
             loginRepository.save(loginUser);
         }
 
+        Login loginUser2 = loginRepository.findByUsername("user2");
+        if (loginUser2 == null) {
+            loginUser2 = new Login();
+            loginUser2.setUsername("user2");
+            loginUser2.setPassword(encoder.encode("asd"));
+            loginUser2.setRole("USER");
+            loginRepository.save(loginUser2);
+        }
+
+        Login loginUser3 = loginRepository.findByUsername("user3");
+        if (loginUser3 == null) {
+            loginUser3 = new Login();
+            loginUser3.setUsername("user3");
+            loginUser3.setPassword(encoder.encode("asd"));
+            loginUser3.setRole("USER");
+            loginRepository.save(loginUser3);
+        }
+
         Login loginCompany = loginRepository.findByUsername("company");
         if (loginCompany == null) {
             loginCompany = new Login();
