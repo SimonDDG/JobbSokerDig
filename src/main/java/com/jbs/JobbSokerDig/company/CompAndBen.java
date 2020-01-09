@@ -18,9 +18,6 @@ public class CompAndBen {
     @JoinColumn(name = "Benefitid")
     Benefit benefit;
 
-    @ManyToOne
-    @JoinColumn(name = "Companyid")
-    Company company;
 
     public Long getCompAndBenId() {
         return CompAndBenId;
@@ -38,11 +35,5 @@ public class CompAndBen {
         this.benefit = benefit;
     }
 
-    public Company getCompany() {
-        return company;
-    }
 
-    public void setCompany(Company company) {
-        this.company = company;
-    }
 }
