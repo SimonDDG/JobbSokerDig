@@ -24,7 +24,7 @@ public class ViewLogic {
         return parts;
     }
 
-    
+
     public List<List<Benefit>> splitBenefitList(List<Benefit> bigList, int innerSize) {
 
         int size = bigList.size();

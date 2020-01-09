@@ -5,6 +5,7 @@ import com.jbs.JobbSokerDig.service.CompanyService;
 import com.jbs.JobbSokerDig.service.QualificationService;
 import com.jbs.JobbSokerDig.values.Benefit;
 import com.jbs.JobbSokerDig.values.Qualification;
+import com.jbs.JobbSokerDig.viewLogic.ViewLogic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +25,9 @@ public class CompanyViewController {
 
     @Autowired
     BenefitService benefitService;
+
+    @Autowired
+    ViewLogic viewLogic;
 
     @GetMapping("/companyMain")
     public String getCompanyMain(){
@@ -46,10 +50,12 @@ public class CompanyViewController {
     public String getCompanyOpenPositions(HttpServletRequest request, Model model) {
 
         List<Qualification> qualifications = qualificationService.getAllQualifications();
-        model.addAttribute("qualifications", qualifications);
+        List<List<Qualification>> qualificationBigList = viewLogic.splitQualificationList(qualifications, 5);
+        model.addAttribute("qualificationBigList", qualificationBigList);
 
         List<Benefit> benefits = benefitService.getAllBenefits();
-        model.addAttribute("benefits", benefits);
+        List<List<Benefit>> benefitBigList = viewLogic.splitBenefitList(benefits, 5);
+        model.addAttribute("benefitBigList", benefitBigList);
 
         return "companyOpenPositions";
     }
