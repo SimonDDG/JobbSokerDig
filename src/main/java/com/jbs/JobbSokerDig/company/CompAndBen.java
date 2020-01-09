@@ -18,6 +18,17 @@ public class CompAndBen {
     @JoinColumn(name = "Benefitid")
     Benefit benefit;
 
+    @ManyToOne
+    @JoinColumn(name = "Openpositionid")
+    OpenPosition openPosition;
+
+    public OpenPosition getOpenPosition() {
+        return openPosition;
+    }
+
+    public void setOpenPosition(OpenPosition openPosition) {
+        this.openPosition = openPosition;
+    }
 
     public Long getCompAndBenId() {
         return CompAndBenId;

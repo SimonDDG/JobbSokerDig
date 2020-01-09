@@ -15,13 +15,6 @@ public class OpenPosition {
     @JoinColumn(name = "Companyid")
     Company company;
 
-    @OneToOne
-    @JoinColumn(name = "Compandbenid")
-    CompAndBen compAndBen;
-
-    @OneToOne
-    @JoinColumn(name = "Qualificationneedid")
-    QualificationNeed qualificationNeed;
 
     @Column(name = "Openpositionname")
     String openPositionName;
@@ -42,21 +35,6 @@ public class OpenPosition {
         this.company = company;
     }
 
-    public CompAndBen getCompAndBen() {
-        return compAndBen;
-    }
-
-    public void setCompAndBen(CompAndBen compAndBen) {
-        this.compAndBen = compAndBen;
-    }
-
-    public QualificationNeed getQualificationNeed() {
-        return qualificationNeed;
-    }
-
-    public void setQualificationNeed(QualificationNeed qualificationNeed) {
-        this.qualificationNeed = qualificationNeed;
-    }
 
     public String getOpenPositionName() {
         return openPositionName;

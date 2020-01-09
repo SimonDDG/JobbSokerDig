@@ -23,7 +23,17 @@ public class QualificationNeed {
     @JoinColumn(name = "Qualificationlevelid")
     QualificationLevel qualificationLevel;
 
+    @ManyToOne
+    @JoinColumn(name = "Openpositionid")
+    OpenPosition openPosition;
 
+    public OpenPosition getOpenPosition() {
+        return openPosition;
+    }
+
+    public void setOpenPosition(OpenPosition openPosition) {
+        this.openPosition = openPosition;
+    }
 
     public Long getQualificationNeedId() {
         return QualificationNeedId;
