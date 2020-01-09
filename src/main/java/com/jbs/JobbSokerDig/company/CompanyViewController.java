@@ -1,7 +1,9 @@
 package com.jbs.JobbSokerDig.company;
 
+import com.jbs.JobbSokerDig.service.BenefitService;
 import com.jbs.JobbSokerDig.service.CompanyService;
 import com.jbs.JobbSokerDig.service.QualificationService;
+import com.jbs.JobbSokerDig.values.Benefit;
 import com.jbs.JobbSokerDig.values.Qualification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,9 @@ public class CompanyViewController {
 
     @Autowired
     QualificationService qualificationService;
+
+    @Autowired
+    BenefitService benefitService;
 
     @GetMapping("/companyMain")
     public String getCompanyMain(){
@@ -42,6 +47,9 @@ public class CompanyViewController {
 
         List<Qualification> qualifications = qualificationService.getAllQualifications();
         model.addAttribute("qualifications", qualifications);
+
+        List<Benefit> benefits = benefitService.getAllBenefits();
+        model.addAttribute("benefits", benefits);
 
         return "companyOpenPositions";
     }

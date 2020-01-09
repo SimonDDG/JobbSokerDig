@@ -25,7 +25,9 @@
 
 
     <h3>Benefits you can offer</h3>
-
+        <div th:each="benefit : ${benefits}">
+            <input th:text="${benefit.Benefit}" type="checkbox">
+        </div>
 
 
 </div>
