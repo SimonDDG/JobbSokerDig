@@ -18,12 +18,22 @@
 <div>
     <p>My qualifications</p>
     <div th:each="qualification : ${qualifications}">
-        <input th:text="${qualification.Qualification}">
+        <input th:text="${qualification.Qualification}" type="checkbox">
+    </div>
+</div>
+
+<div>
+    <p>Lista MustHave benefist.</p>
+    <div th:each="benefit : ${benefits}">
+        <input th:text="${benefit.Benefit}" type="checkbox">
     </div>
 </div>
 
 <div>
     <p>Lista preferd benefist.</p>
+    <div th:each="benefit : ${benefits}">
+        <input th:text="${benefit.Benefit}" type="checkbox">
+    </div>
 </div>
 
 <!--Bootstrap script-->
