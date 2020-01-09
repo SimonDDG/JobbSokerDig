@@ -28,11 +28,18 @@
         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
                 <!-- Shows in collapsable item body -->
-                <div th:each="qualification : ${qualifications}">
-                    <input th:text="${qualification.Qualification}" type="checkbox">
-                </div>
+
+                <table>
+                    <tr th:each="sqBig : ${splittedQualifications}">
+                        <th th:each="sq : ${sqBig}">
+                            <input th:text="${sq.Qualification}" type="checkbox">
+                        </th>
+                    </tr>
+                </table>
+
                 <br>
                 <button type="button" class="btn btn-secondary">Save</button>
+
             </div>
         </div>
     </div>

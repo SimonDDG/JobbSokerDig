@@ -4,6 +4,7 @@ import com.jbs.JobbSokerDig.company.SoftOffer;
 import com.jbs.JobbSokerDig.service.*;
 import com.jbs.JobbSokerDig.values.Benefit;
 import com.jbs.JobbSokerDig.values.Qualification;
+import com.jbs.JobbSokerDig.viewLogic.ViewLogic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,6 +35,9 @@ public class UserViewController {
     @Autowired
     BenefitService benefitService;
 
+    @Autowired
+    ViewLogic viewLogic;
+
     @GetMapping("/userMain")
     public String getUserMain(){
 
@@ -63,7 +67,8 @@ public class UserViewController {
     public String getEditUserProfile(HttpServletRequest request, Model model) {
 
         List<Qualification> qualifications = qualificationService.getAllQualifications();
-        model.addAttribute("qualifications", qualifications);
+        List<List<Qualification>> splittedQualifications = viewLogic.splitQualificationList(qualifications, 5);
+        model.addAttribute("splittedQualifications", splittedQualifications);
 
         List<Benefit> benefits = benefitService.getAllBenefits();
         model.addAttribute("benefits", benefits);
@@ -76,6 +81,7 @@ public class UserViewController {
 
         List<SoftOffer> softOffers = softOfferService.getSoftOfferForUser(getCurrentUserCandidate(request).getUserCandidateId());
         model.addAttribute("softOffers", softOffers);
+
 
         return "userMyOffers";
     }
