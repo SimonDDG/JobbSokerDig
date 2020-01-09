@@ -40,7 +40,8 @@ public class CompanyViewController {
     @GetMapping("/companyOpenPositions")
     public String getCompanyOpenPositions(HttpServletRequest request, Model model) {
 
-    List<Qualification> qualifications = qualificationService.getAllQualifications();
+        List<Qualification> qualifications = qualificationService.getAllQualifications();
+        model.addAttribute("qualifications", qualifications);
 
         return "companyOpenPositions";
     }
