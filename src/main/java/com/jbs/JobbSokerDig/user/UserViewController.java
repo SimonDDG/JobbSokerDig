@@ -1,10 +1,8 @@
 package com.jbs.JobbSokerDig.user;
 
 import com.jbs.JobbSokerDig.company.SoftOffer;
-import com.jbs.JobbSokerDig.service.SoftOfferService;
-import com.jbs.JobbSokerDig.service.UserCandidateService;
-import com.jbs.JobbSokerDig.service.UserPreferenceService;
-import com.jbs.JobbSokerDig.service.UserQualificationService;
+import com.jbs.JobbSokerDig.service.*;
+import com.jbs.JobbSokerDig.values.Qualification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +26,9 @@ public class UserViewController {
 
     @Autowired
     SoftOfferService softOfferService;
+
+    @Autowired
+    QualificationService qualificationService;
 
     @GetMapping("/userMain")
     public String getUserMain(){
@@ -57,7 +58,8 @@ public class UserViewController {
     @GetMapping("/userEditProfile")
     public String getEditUserProfile(HttpServletRequest request, Model model) {
 
-
+        List<Qualification> qualifications = qualificationService.getAllQualifications();
+        model.addAttribute("qualifications", qualifications);
 
         return "userEditProfile";
     }

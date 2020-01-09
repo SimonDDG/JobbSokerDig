@@ -16,11 +16,14 @@
 <h1>A form for editing profile</h1>
 
 <div>
-    <p>Lista Qualifications.</p>
+    <p>My qualifications</p>
+    <div th:each="qualification : ${qualifications}">
+        <input th:text="${qualification.Qualification}">
+    </div>
 </div>
 
 <div>
-    <p>Lista Preferance.</p>
+    <p>Lista preferd benefist.</p>
 </div>
 
 <!--Bootstrap script-->
