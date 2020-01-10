@@ -1,30 +1,29 @@
 #block1 {
-    background-color: #F0F0F0
+    background-color: #F0F0F0;
 }
 
 #block2 {
-    background-color: #FFFFFF
+    background-color: #FFFFFF;
 }
 
 #block3 {
-    background-color: #F0F0F0
+    background-color: #F0F0F0;
 
 }
 
 #block4 {
-    background-color: #FFFFFF
+    background-color: #FFFFFF;
 
 }
 
 #indexbackground {
-    height: 400px;
-    width: 100%;
-    background-image: url("https://assets.website-files.com/59a92b6636f2410001271027/5bc87f31b0d4cf8dfe4cb084_Bild.jpg")
+
+    background-image: url("https://assets.website-files.com/59a92b6636f2410001271027/5bc87f31b0d4cf8dfe4cb084_Bild.jpg");
 }
 
 
 .scroll-link {
-    text-align: center
+    text-align: center;
 }
 
 .nav-item nav-link {
@@ -80,6 +79,11 @@
     position: absolute;
     top: 40px;
     left: 300px;
+}
+
+.landing-page-slogan {
+    text-align: center;
+    color: white;
 }
 
 https://assets.website-files.com/59a92b6636f2410001271027/59a92b6736f24100012710fb_john-towner-128480.jpg

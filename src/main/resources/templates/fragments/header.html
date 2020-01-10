@@ -34,22 +34,28 @@
 
                     <!--If logged in as user-->
 
-                    <a id="navbar-text1" class="nav-item nav-link" href="userMain" sec:authorize="hasRole('ROLE_USER')">Main</a>
+<!--   REMOVED USER_MAIN                 <a id="navbar-text1" class="nav-item nav-link" href="userMain" sec:authorize="hasRole('ROLE_USER')">Main</a>  -->
 
-                    <a id="navbar-text2" class="nav-item nav-link" href="userProfile" sec:authorize="hasRole('ROLE_USER')">Profile</a>
+
+
+                    <a id="navbar-text4" class=" nav-item nav-link" href="userMyOffers" sec:authorize="hasRole('ROLE_USER')">My offers</a>
+                    <a id="navbar-text2" class="nav-item nav-link" href="userProfile" sec:authorize="hasRole('ROLE_USER')">My profile</a>
                     <a id="navbar-text3" class=" nav-item nav-link" href="userEditProfile"
                        sec:authorize="hasRole('ROLE_USER')">Settings</a>
-                    <a id="navbar-text4" class=" nav-item nav-link" href="userMyOffers" sec:authorize="hasRole('ROLE_USER')">My offers</a>
 
                     <!--If logged in as Company-->
-                    <a id="navbar-text5" class="nav-item nav-link" href="companyMain" sec:authorize="hasRole('ROLE_COMPANY')">Main</a>
-                    <a id="navbar-text6" class="nav-item nav-link" href="companyProfile"
-                       sec:authorize="hasRole('ROLE_COMPANY')">Profile</a>
-                    <a id="navbar-text7" class="nav-item nav-link" href="companyEditProfile" sec:authorize="hasRole('ROLE_COMPANY')">Settings</a>
-                    <a id="navbar-text8" class="nav-item nav-link" href="companyOpenPositions" sec:authorize="hasRole('ROLE_COMPANY')">Open positions</a>
+<!-- REMOVED COMPANY_MAIN <a id="navbar-text5" class="nav-item nav-link" href="companyMain" sec:authorize="hasRole('ROLE_COMPANY')">Main</a> -->
+
+
+                    <a id="navbar-text8" class="nav-item nav-link" href="companyOpenPositions" sec:authorize="hasRole('ROLE_COMPANY')">Open new position</a>
 
                     <a id="navbar-text9" class="nav-item nav-link" href="listCandidate" sec:authorize="hasRole('ROLE_COMPANY')">View
-                        Candidates</a>
+                        talents</a>
+                    <a id="navbar-text6" class="nav-item nav-link" href="companyProfile"
+                       sec:authorize="hasRole('ROLE_COMPANY')">My profile</a>
+                    <a id="navbar-text7" class="nav-item nav-link" href="companyEditProfile" sec:authorize="hasRole('ROLE_COMPANY')">Settings</a>
+
+                    <!-- Logged in as any -->
                     <a id="navbar-text" class="nav-item nav-link" href="aboutUs">About us</a>
 
                     <!--Public "menu"-->
@@ -117,21 +123,23 @@
                 <ul id="menu-dark" class="navbar-nav ml-auto">
 
                     <!--If logged in as user-->
-                    <li class="nav-item" >
+<!-- REMOVED USER MAIN <li class="nav-item" >
                         <a class="nav-link" href="userMain" sec:authorize="hasRole('ROLE_USER')">Main</a>
-                    </li>
-                    <a class="nav-item nav-link" href="userProfile" sec:authorize="hasRole('ROLE_USER')">Profile</a>
-                    <a class=" nav-item nav-link" href="userEditProfile" sec:authorize="hasRole('ROLE_USER')">Settings</a>
+                    </li> -->
+
                     <a class=" nav-item nav-link" href="userMyOffers" sec:authorize="hasRole('ROLE_USER')">My Offers</a>
+                    <a class="nav-item nav-link" href="userProfile" sec:authorize="hasRole('ROLE_USER')">My profile</a>
+                    <a class=" nav-item nav-link" href="userEditProfile" sec:authorize="hasRole('ROLE_USER')">Settings</a>
 
                     <!--If logged in as Company-->
-                    <a class="nav-item nav-link" href="companyMain" sec:authorize="hasRole('ROLE_COMPANY')">Main</a>
-                    <a class="nav-item nav-link" href="companyProfile"
-                       sec:authorize="hasRole('ROLE_COMPANY')">Profile</a>
-                    <a class="nav-item nav-link" href="companyOpenPositions" sec:authorize="hasRole('ROLE_COMPANY')">Open positions</a>
+ <!-- REMOVED COMPANY_MAIN <a class="nav-item nav-link" href="companyMain" sec:authorize="hasRole('ROLE_COMPANY')">Main</a> -->
+
+                    <a class="nav-item nav-link" href="companyOpenPositions" sec:authorize="hasRole('ROLE_COMPANY')">Open new position</a>
                     <a class="nav-item nav-link" href="listCandidate" sec:authorize="hasRole('ROLE_COMPANY')">View
-                        Candidates</a>
+                        talents</a>
+                    <a class="nav-item nav-link" href="companyProfile" sec:authorize="hasRole('ROLE_COMPANY')">My profile</a>
                     <a class="nav-item nav-link" href="companyEditProfile" sec:authorize="hasRole('ROLE_COMPANY')">Settings</a>
+
 
                     <a class="nav-item nav-link" href="aboutUs">About us</a>
                     <!--Public "menu"-->
