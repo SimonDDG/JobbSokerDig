@@ -20,6 +20,8 @@
 
 <!-- PLACERA I LOOP FÖR ATT KOLLA HUR MÅNGA JOBS SOM FINNS FÖR SPECIFIKT COMPANY-->
 
+<tr th:each="openPosition : ${}">
+
 <div class="accordion" id="accordionExample">
     <div class="card">
         <div class="card-header" id="headingJob">
@@ -90,61 +92,11 @@
     </div>
 </div>
 
+</tr>
+
 <!-- end test job 1-->
 
 
-
-
-<!--
-<div id="accordion">
-    <div class="card">
-        <div class="card-header" id="headingOne">
-            <h5 class="mb-0">
-                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Qualifications
-                </button>
-            </h5>
-        </div>
-
-        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-            <div class="card-body">
-                <h3>Qualifications needed for the position</h3>
-                <table>
-                    <tr th:each="qualificationSublist : ${qualificationBigList}">
-                        <th th:each="qualification : ${qualificationSublist}">
-                            <input th:text="${qualification.Qualification}" type="checkbox">
-                        </th>
-                    </tr>
-                </table>
-                <button type="button" class="btn btn-secondary">Save</button>
-            </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-header" id="headingTwo">
-            <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Benefits
-                </button>
-            </h5>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-            <div class="card-body">
-                <h3>Benefits you can offer</h3>
-                <table>
-                    <tr th:each="benefitSublist : ${benefitBigList}">
-                        <th th:each="benefit : ${benefitSublist}">
-                            <input th:text="${benefit.Benefit}" type="checkbox">
-                        </th>
-                    </tr>
-                </table>
-                <button type="button" class="btn btn-secondary">Save</button>
-            </div>
-        </div>
-    </div>
-<div>
-</div>
-</div>-->
 
 <!--Bootstrap script-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
