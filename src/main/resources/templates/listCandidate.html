@@ -2,7 +2,8 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="/images/Adroit-logo-shortcut.png"
           rel="shortcut icon" type="image/A-icon">
     <link href="images/Adroit-logo-shortcut.png"
@@ -20,25 +21,31 @@
 <body>
 <div th:replace="fragments/header :: header-light">...</div>
 
-<div class="button-wrapper text-center" style="margin-bottom:100px;">
-    <a type="button" class="btn btn-secondary" href="../userProfile/user">View talent</a>
-</div>
-<div class="button-wrapper text-center" style="margin-bottom:100px;">
-    <a type="button" class="btn btn-secondary" href="../userProfile/user2">View talent</a>
-</div>
+<tr th:each="userObject : ${allUserObjects}">
+<li th:text="${userObject.FullName}">
 
-<div class="button-wrapper text-center" style="margin-bottom:100px;">
-    <a type="button" class="btn btn-secondary" href="../userProfile/user3">View talent</a>
-</div>
+
+
+</li>
+
+    <div class="button-wrapper text-center" style="margin-bottom:100px;">
+        <a type="button" class="btn btn-secondary" th:href="'../userProfile/' + ${userObject.Login.username}">View talent</a>
+    </div>
+</tr>
+
 
 <div th:replace="fragments/footer :: footer">...</div>
 
 
-
-
 <!--Bootstrap script-->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 </body>
 </html>

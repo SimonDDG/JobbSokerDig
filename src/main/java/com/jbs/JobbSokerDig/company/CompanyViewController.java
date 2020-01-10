@@ -1,5 +1,6 @@
 package com.jbs.JobbSokerDig.company;
 
+import com.jbs.JobbSokerDig.repositorys.UserRepository;
 import com.jbs.JobbSokerDig.service.*;
 import com.jbs.JobbSokerDig.user.UserCandidate;
 import com.jbs.JobbSokerDig.user.UserPreference;
@@ -41,6 +42,9 @@ public class CompanyViewController {
     @Autowired
     UserQualificationService userQualificationService;
 
+    @Autowired
+    UserRepository userRepository;
+
     @GetMapping("/companyMain")
     public String getCompanyMain(){
 
@@ -75,13 +79,18 @@ public class CompanyViewController {
     @GetMapping("/listCandidate")
     public String getListCandidate(Model model){
 
+        List<UserCandidate> userObjectList = (List)userRepository.findAll();
 
+        List<String> allUserLoginNames = userCandidateService.getAllUserLoginNames(userObjectList);
+        System.out.println("hej" + allUserLoginNames);
+        model.addAttribute("allUserObjects", userObjectList);
 
         return "listCandidate";
     }
 
     @GetMapping("/userProfile/{username}")
     public String seeUserProfile(@PathVariable String username, Model model){
+
 
         UserCandidate userCandidate = userCandidateService.getUserCandidateByUsername(username);
         model.addAttribute("userCandidate", userCandidate);
