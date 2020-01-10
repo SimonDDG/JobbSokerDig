@@ -16,11 +16,11 @@ public class UserQualification {
 
     @OneToOne
     @JoinColumn(name = "Qualificationid")
-    Qualification qualification;
+    Qualification userQualification;
 
     @OneToOne
     @JoinColumn(name = "Qualificationlevelid")
-    QualificationLevel qualificationLevel;
+    QualificationLevel userQualificationLevel;
 
     @ManyToOne
     @JoinColumn(name = "Usercandidateid")
@@ -34,20 +34,20 @@ public class UserQualification {
         UserQualificationId = userQualificationId;
     }
 
-    public Qualification getQualification() {
-        return qualification;
+    public Qualification getUserQualification() {
+        return userQualification;
     }
 
-    public void setQualification(Qualification qualification) {
-        this.qualification = qualification;
+    public void setUserQualification(Qualification userQualification) {
+        this.userQualification = userQualification;
     }
 
-    public QualificationLevel getQualificationLevel() {
-        return qualificationLevel;
+    public QualificationLevel getUserQualificationLevel() {
+        return userQualificationLevel;
     }
 
-    public void setQualificationLevel(QualificationLevel qualificationLevel) {
-        this.qualificationLevel = qualificationLevel;
+    public void setUserQualificationLevel(QualificationLevel userQualificationLevel) {
+        this.userQualificationLevel = userQualificationLevel;
     }
 
     public UserCandidate getUserCandidate() {

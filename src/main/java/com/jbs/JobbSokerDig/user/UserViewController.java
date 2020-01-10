@@ -11,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -47,10 +46,10 @@ public class UserViewController {
     @GetMapping("/userProfile")
     public String getUserProfile(HttpServletRequest request, Model model){
 
-        UserCandidate userCandidate = userCandidateService.getUserCandidate(request);
+        UserCandidate userCandidate = getCurrentUserCandidate(request);
         model.addAttribute("userCandidate", userCandidate);
 
-        List<UserQualification> userQualification = userQualificationService.getUserQualification(userCandidate.getUserCandidateId());
+        List<UserQualification> userQualification = getCurrentUserCandidateQualifications(userCandidate);
         model.addAttribute("userQualification", userQualification);
 
         List<UserPreference> userPreference = userPreferenceService.getUserPreference(userCandidate.getUserCandidateId());
@@ -65,17 +64,15 @@ public class UserViewController {
 
     @GetMapping("/userEditProfile")
     public String getEditUserProfile(HttpServletRequest request, Model model) {
-        UserCandidate userCandidate = userCandidateService.getUserCandidate(request);
+        UserCandidate userCandidate = getCurrentUserCandidate(request);
 
-        List<UserQualification> userQualification = userQualificationService.getUserQualification(userCandidate.getUserCandidateId());
+        List<UserQualification> userQualification = getCurrentUserCandidateQualifications(userCandidate);
         model.addAttribute("userQualification", userQualification);
 
         List<Qualification> qualifications = qualificationService.getAllQualifications();
-
-        List<Qualification> checkedQualificationsList = checkQualificationsAgainstUserCandidateQualifications(request, qualifications);
+        List<Qualification> checkedQualificationsList = checkQualificationsAgainstUserCandidateQualifications(userCandidate, qualifications);
 
         List<List<Qualification>> splittedQualifications = viewLogic.splitQualificationList(checkedQualificationsList, 5);
-
         model.addAttribute("splittedQualifications", splittedQualifications);
 
         List<Benefit> benefits = benefitService.getAllBenefits();
@@ -87,22 +84,18 @@ public class UserViewController {
         return "userEditProfile";
     }
 
-    private List<Qualification> checkQualificationsAgainstUserCandidateQualifications(HttpServletRequest request, List<Qualification> qualifications) {
-        UserCandidate userCandidate = userCandidateService.getUserCandidate(request);
+    private List<Qualification> checkQualificationsAgainstUserCandidateQualifications(UserCandidate userCandidate, List<Qualification> qualifications) {
 
-        List<UserQualification> userQualification = userQualificationService.getUserQualification(userCandidate.getUserCandidateId());
-
-        System.out.println("HIT KOMMER VI O SKRIVER UT LISTAN!!" + qualifications);
+        List<UserQualification> userQualification = getCurrentUserCandidateQualifications(userCandidate);
+        System.out.println("SKRIVER VI UT USER QAL LISTAN?!" + userQualification);
 
         List<Qualification> returnList = qualifications;
         System.out.println("DETTA AER RETURNLISTEN!!" + returnList);
 
         for (UserQualification uq : userQualification) {
             for (Qualification sq : returnList) {
-                if (uq.getQualification().getQualification().equals(sq.getQualification())) {
+                if (uq.getUserQualification().getQualification().equals(sq.getQualification())) {
                     returnList.remove(sq);
-
-
                 }
             }
         }
@@ -117,12 +110,16 @@ public class UserViewController {
         List<SoftOffer> softOffers = softOfferService.getSoftOfferForUser(getCurrentUserCandidate(request).getUserCandidateId());
         model.addAttribute("softOffers", softOffers);
 
-
         return "userMyOffers";
     }
 
     private UserCandidate getCurrentUserCandidate(HttpServletRequest request) {
         UserCandidate userCandidate = userCandidateService.getUserCandidate(request);
         return userCandidate;
+    }
+
+    private List<UserQualification> getCurrentUserCandidateQualifications(UserCandidate userCandidate) {
+        List<UserQualification> userQualification = userQualificationService.getUserQualification(userCandidate.getUserCandidateId());
+        return userQualification;
     }
 }
