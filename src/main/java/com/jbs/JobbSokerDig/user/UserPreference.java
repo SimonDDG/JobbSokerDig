@@ -26,6 +26,17 @@ public class UserPreference {
     @JoinColumn(name = "Usercandidateid")
     UserCandidate userCandidate;
 
+    @Column(name = "Musthave")
+    Boolean mustHave;
+
+    public Boolean getMustHave() {
+        return mustHave;
+    }
+
+    public void setMustHave(Boolean mustHave) {
+        this.mustHave = mustHave;
+    }
+
     public Long getUserPreferenceId() {
         return UserPreferenceId;
     }
