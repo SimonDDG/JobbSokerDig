@@ -16,6 +16,83 @@
 
 <h1>Your open positions</h1>
 
+<!-- start test job 1-->
+<div class="accordion" id="accordionExample">
+    <div class="card">
+        <div class="card-header" id="headingJob">
+            <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseJobOne" aria-expanded="true" aria-controls="collapseJobOne">
+                    Java Developer <!-- HÅRDKODAT, ÄNDRA, GÖRA ALLT TILL EN LOOP BASERAT PÅ ANTAL TJÄNSTER SOM FINNS -->
+                </button>
+            </h2>
+        </div>
+
+        <div id="collapseJobOne" class="collapse" aria-labelledby="headingJob" data-parent="#accordionExample">
+            <div class="card-body">
+                <!-- start inner collapse -->
+
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Qualifications
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body">
+                                <h3>Qualifications needed for the position</h3>
+                                <table>
+                                    <tr th:each="qualificationSublist : ${qualificationBigList}">
+                                        <th th:each="qualification : ${qualificationSublist}">
+                                            <input th:text="${qualification.Qualification}" type="checkbox">
+                                        </th>
+                                    </tr>
+                                </table>
+                                <button type="button" class="btn btn-secondary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Benefits
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body">
+                                <h3>Benefits you can offer</h3>
+                                <table>
+                                    <tr th:each="benefitSublist : ${benefitBigList}">
+                                        <th th:each="benefit : ${benefitSublist}">
+                                            <input th:text="${benefit.Benefit}" type="checkbox">
+                                        </th>
+                                    </tr>
+                                </table>
+                                <button type="button" class="btn btn-secondary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+
+                <!-- end inner collapse -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- end test job 1-->
+
+
+
+
+<!--
 <div id="accordion">
     <div class="card">
         <div class="card-header" id="headingOne">
@@ -64,7 +141,7 @@
     </div>
 <div>
 </div>
-</div>
+</div>-->
 
 <!--Bootstrap script-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
