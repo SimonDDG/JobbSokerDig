@@ -65,17 +65,51 @@ public class UserViewController {
 
     @GetMapping("/userEditProfile")
     public String getEditUserProfile(HttpServletRequest request, Model model) {
+        UserCandidate userCandidate = userCandidateService.getUserCandidate(request);
+
+        List<UserQualification> userQualification = userQualificationService.getUserQualification(userCandidate.getUserCandidateId());
+        model.addAttribute("userQualification", userQualification);
 
         List<Qualification> qualifications = qualificationService.getAllQualifications();
-        List<List<Qualification>> splittedQualifications = viewLogic.splitQualificationList(qualifications, 5);
+
+        List<Qualification> checkedQualificationsList = checkQualificationsAgainstUserCandidateQualifications(request, qualifications);
+
+        List<List<Qualification>> splittedQualifications = viewLogic.splitQualificationList(checkedQualificationsList, 5);
+
         model.addAttribute("splittedQualifications", splittedQualifications);
 
         List<Benefit> benefits = benefitService.getAllBenefits();
         List<List<Benefit>> splittedBenefits = viewLogic.splitBenefitList(benefits, 5);
         model.addAttribute("splittedBenefits", splittedBenefits);
 
+
+
         return "userEditProfile";
     }
+
+    private List<Qualification> checkQualificationsAgainstUserCandidateQualifications(HttpServletRequest request, List<Qualification> qualifications) {
+        UserCandidate userCandidate = userCandidateService.getUserCandidate(request);
+
+        List<UserQualification> userQualification = userQualificationService.getUserQualification(userCandidate.getUserCandidateId());
+
+        System.out.println("HIT KOMMER VI O SKRIVER UT LISTAN!!" + qualifications);
+
+        List<Qualification> returnList = qualifications;
+        System.out.println("DETTA AER RETURNLISTEN!!" + returnList);
+
+        for (UserQualification uq : userQualification) {
+            for (Qualification sq : returnList) {
+                if (uq.getQualification().getQualification().equals(sq.getQualification())) {
+                    returnList.remove(sq);
+
+
+                }
+            }
+        }
+        System.out.println(returnList);
+        return returnList;
+    }
+
 
     @GetMapping("/userMyOffers")
     public String getUserMyOffers(HttpServletRequest request, Model model) {
