@@ -38,28 +38,29 @@ public class MatchService {
         List<UserCandidate> allUserCandidates = (List) userRepository.findAll();
 
         ArrayList<Integer> matchedQualifications = new ArrayList<>();
-
-        for (int i = 0; i < allUserCandidates.size(); i++) { //itererar genom alla kandidater i databasen, en efter en
-            int numberOfQualificationMatched = 0;
-
-            for (int j = 0; j < qualificationNeeds.size(); j++) { //itererar genom alla kvalifikationsbehov för en specifik OpenPosition
-
-                for (int k = 0; k < userQualifications.size(); k++) { //itererar genom alla UserQualification för alla users, en efter en
-                    if (allUserCandidates.get(i).getUserCandidateId().equals(userQualifications.get(k).getUserCandidate().getUserCandidateId())) {
-                        if (userQualifications.get(k).getQualification().getQualificationId().equals(qualificationNeeds.get(j).getQualification().getQualificationId())) {
-                            numberOfQualificationMatched++;
-
-                        }
-                    }
-                }
-                matchedQualifications.add(numberOfQualificationMatched);
-            }
-
-        }
+//
+//        for (int i = 0; i < allUserCandidates.size(); i++) { //itererar genom alla kandidater i databasen, en efter en
+//            int numberOfQualificationMatched = 0;
+//
+//            for (int j = 0; j < qualificationNeeds.size(); j++) { //itererar genom alla kvalifikationsbehov för en specifik OpenPosition
+//
+//                for (int k = 0; k < userQualifications.size(); k++) { //itererar genom alla UserQualification för alla users, en efter en
+//                    if (allUserCandidates.get(i).getUserCandidateId().equals(userQualifications.get(k).getUserCandidate().getUserCandidateId())) {
+//                        if (userQualifications.get(k).getQualification().getQualificationId().equals(qualificationNeeds.get(j).getQualification().getQualificationId())) {
+//                            numberOfQualificationMatched++;
+//
+//                        }
+//                    }
+//                }
+//                matchedQualifications.add(numberOfQualificationMatched);
+//            }
+//
+//        }
         //            int percentageQualificationMatched = calculateMatchedPercentage(numberOfQualificationMatched, numberOfQualificationNeeded);
 
         return matchedQualifications;
     }
+
 
 
 //    public int calculateHowManyBenefitsMatched (/*Tar emot en kandidat och en OpenPosition*/) {
