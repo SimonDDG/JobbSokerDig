@@ -1,8 +1,10 @@
 package com.jbs.JobbSokerDig.company;
 
-import com.jbs.JobbSokerDig.service.BenefitService;
-import com.jbs.JobbSokerDig.service.CompanyService;
-import com.jbs.JobbSokerDig.service.QualificationService;
+import com.jbs.JobbSokerDig.repositorys.UserRepository;
+import com.jbs.JobbSokerDig.service.*;
+import com.jbs.JobbSokerDig.user.UserCandidate;
+import com.jbs.JobbSokerDig.user.UserPreference;
+import com.jbs.JobbSokerDig.user.UserQualification;
 import com.jbs.JobbSokerDig.values.Benefit;
 import com.jbs.JobbSokerDig.values.Qualification;
 import com.jbs.JobbSokerDig.viewLogic.ViewLogic;
@@ -10,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -28,6 +32,18 @@ public class CompanyViewController {
 
     @Autowired
     ViewLogic viewLogic;
+
+    @Autowired
+    UserCandidateService userCandidateService;
+
+    @Autowired
+    UserPreferenceService userPreferenceService;
+
+    @Autowired
+    UserQualificationService userQualificationService;
+
+    @Autowired
+    UserRepository userRepository;
 
     @GetMapping("/companyMain")
     public String getCompanyMain(){
@@ -61,9 +77,31 @@ public class CompanyViewController {
     }
 
     @GetMapping("/listCandidate")
-    public String getListCandidate(){
+    public String getListCandidate(Model model){
+
+        List<UserCandidate> userObjectList = (List)userRepository.findAll();
+
+        List<String> allUserLoginNames = userCandidateService.getAllUserLoginNames(userObjectList);
+        System.out.println("hej" + allUserLoginNames);
+        model.addAttribute("allUserObjects", userObjectList);
 
         return "listCandidate";
+    }
+
+    @GetMapping("/userProfile/{username}")
+    public String seeUserProfile(@PathVariable String username, Model model){
+
+
+        UserCandidate userCandidate = userCandidateService.getUserCandidateByUsername(username);
+        model.addAttribute("userCandidate", userCandidate);
+
+        List<UserQualification> userQualification = userQualificationService.getUserQualification(userCandidate.getUserCandidateId());
+        model.addAttribute("userQualification", userQualification);
+
+        List<UserPreference> userPreference = userPreferenceService.getUserPreference(userCandidate.getUserCandidateId());
+        model.addAttribute("userPreference", userPreference);
+
+        return "userProfile";
     }
 
     private Company getCurrentCompany(HttpServletRequest request) {
