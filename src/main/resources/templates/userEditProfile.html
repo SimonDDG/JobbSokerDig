@@ -34,7 +34,7 @@
         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
                 <!-- Shows in collapsable item body -->
-                <h3 >These qualifications are already selected:</h3>
+                <h3 >These are your selected qualifications:</h3>
                 <table>
                     <tr>
                         <th th:each="uq : ${userQualification}">
@@ -42,6 +42,7 @@
                         </th>
                     </tr>
                 </table>
+                <h3 >Add more qualifications:</h3>
                 <table>
                     <tr th:each="sqBig : ${splittedQualifications}">
                         <th th:each="sq : ${sqBig}">
@@ -68,7 +69,15 @@
         </div>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
             <div class="card-body">
-
+                <h3 >These benefits are selected as your Must Haves:</h3>
+                <table>
+                    <tr>
+                        <th th:each="um : ${userMustHaves}">
+                            <input th:text="${um.benefit.Benefit}" type="checkbox" checked="checked">
+                        </th>
+                    </tr>
+                </table>
+                <h3 >Uncheck "Must Have"-benefit to add another:</h3>
                 <table>
                     <tr th:each="benefitArrList : ${splittedBenefits}">
                         <th th:each="benefit : ${benefitArrList}">
@@ -94,7 +103,15 @@
         </div>
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
             <div class="card-body">
-
+                <h3 >These benefits are selected as your preferred benefits (but not "Must Haves"):</h3>
+                <table>
+                    <tr>
+                        <th th:each="num : ${notUserMustHaves}">
+                            <input th:text="${num.benefit.Benefit}" type="checkbox" checked="checked">
+                        </th>
+                    </tr>
+                </table>
+                <h3 >Add more preferred benefits:</h3>
                 <table>
                     <tr th:each="benefitArrList : ${splittedBenefits}">
                         <th th:each="benefit : ${benefitArrList}">
