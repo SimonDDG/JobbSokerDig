@@ -44,7 +44,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //Only Users
                 .antMatchers("/userMain").hasAnyRole("USER")
                 .antMatchers("/userEditProfile").hasAnyRole("USER")
+                .antMatchers("/userEditProfile/**").hasAnyRole("USER")
                 .antMatchers("/userMyOffers").hasAnyRole("USER")
+                .antMatchers("/save").hasAnyRole("USER")
 
                 //Only companys
                 .antMatchers("/companyMain").hasAnyRole("COMPANY")
