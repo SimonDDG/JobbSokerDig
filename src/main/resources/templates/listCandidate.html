@@ -20,6 +20,12 @@
 <body>
 <div th:replace="fragments/header :: header-light">...</div>
 
+<div th:each="user : ${usernames}">
+    <div class="button-wrapper text-center" style="margin-bottom:100px;">
+        <a type="button" class="btn btn-secondary" th:href="'../userProfile/' + ${user}">View talent</a>
+    </div>
+</div>
+
 <div class="button-wrapper text-center" style="margin-bottom:100px;">
     <a type="button" class="btn btn-secondary" href="../userProfile/user">View talent</a>
 </div>

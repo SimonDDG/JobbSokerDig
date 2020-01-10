@@ -1,8 +1,11 @@
 package com.jbs.JobbSokerDig.viewLogic;
 
 
+import com.jbs.JobbSokerDig.service.LoginService;
+import com.jbs.JobbSokerDig.user.UserCandidate;
 import com.jbs.JobbSokerDig.values.Benefit;
 import com.jbs.JobbSokerDig.values.Qualification;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
@@ -11,6 +14,9 @@ import java.util.List;
 
 @Service
 public class ViewLogic {
+
+    @Autowired
+    LoginService loginService;
 
     public List<List<Qualification>> splitQualificationList(List<Qualification> bigList, int innerSize) {
 
@@ -37,4 +43,14 @@ public class ViewLogic {
         return parts;
     }
 
+    public List<String> getAllUsernames(List<UserCandidate> allUsers) {
+
+        List<String> usernames = new ArrayList<>();
+
+        for (int i = 0; i < allUsers.size(); i++) {
+            Long id = allUsers.get(i).getUserCandidateId();
+            usernames.add(loginService.getUsername(id));
+        }
+        return null;
+    }
 }

@@ -75,7 +75,9 @@ public class CompanyViewController {
     @GetMapping("/listCandidate")
     public String getListCandidate(Model model){
 
-
+        List<UserCandidate> allUsers = userCandidateService.getAllUserCandidates();
+        List<String> usernames = viewLogic.getAllUsernames(allUsers);
+        model.addAttribute("usernames", usernames);
 
         return "listCandidate";
     }

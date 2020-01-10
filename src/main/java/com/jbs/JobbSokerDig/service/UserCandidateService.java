@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Service
 public class UserCandidateService {
@@ -20,5 +21,9 @@ public class UserCandidateService {
 
     public UserCandidate getUserCandidateByUsername(String username) {
         return userRepository.getUserCandidateRepo(username);
+    }
+
+    public List<UserCandidate> getAllUserCandidates() {
+        return (List)userRepository.findAll();
     }
 }
