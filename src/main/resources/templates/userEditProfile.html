@@ -41,14 +41,14 @@
                     <table>
                         <tr>
                             <th th:each="uq : ${userQualification}">
-                                <input th:text="${uq.userQualification.Qualification}" type="checkbox" name="checkboxName" th:value="${uq.userQualification.QualificationId}" checked="checked">
+                                <input th:text="${uq.userQualification.Qualification}" th:value="${uq.userQualification.QualificationId}" type="checkbox" name="checkboxName" checked="checked">
                             </th>
                         </tr>
                     </table>
                     <table>
                         <tr th:each="sqBig : ${splittedQualifications}">
                             <th th:each="sq : ${sqBig}">
-                                <input th:text="${sq.Qualification}" type="checkbox">
+                                <input th:text="${sq.Qualification}" th:value="${sq.QualificationId}" type="checkbox" name="checkboxName">
                             </th>
                         </tr>
                     </table>
