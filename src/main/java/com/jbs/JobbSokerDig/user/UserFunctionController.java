@@ -12,26 +12,8 @@ public class UserFunctionController {
         System.out.println("testar");
 
         for (int i = 0; i < checkboxValue.length; i++) {
-            System.out.println(checkboxValue[i]);
+            System.out.println("Qualification id: " + checkboxValue[i]);
         }
-
-        if(checkboxValue.length==3)
-        {
-            System.out.println("checkbox is checked");
-        }
-        else
-        {
-            System.out.println("checkbox is not checked");
-        }
-
-//        if(checkboxValue != null)
-//        {
-//            System.out.println("checkbox is checked");
-//        }
-//        else
-//        {
-//            System.out.println("checkbox is not checked");
-//        }
 
         return "redirect:/userEditProfile";
     }
