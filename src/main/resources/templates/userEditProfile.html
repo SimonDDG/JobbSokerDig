@@ -34,7 +34,14 @@
         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
                 <!-- Shows in collapsable item body -->
-
+                <h3 >These qualifications are already selected:</h3>
+                <table>
+                    <tr>
+                        <th th:each="uq : ${userQualification}">
+                            <input th:text="${uq.qualification.Qualification}" type="checkbox" checked="checked">
+                        </th>
+                    </tr>
+                </table>
                 <table>
                     <tr th:each="sqBig : ${splittedQualifications}">
                         <th th:each="sq : ${sqBig}">
@@ -42,6 +49,7 @@
                         </th>
                     </tr>
                 </table>
+
 
                 <br>
                 <button type="button" class="btn btn-secondary">Save</button>
