@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -89,18 +90,24 @@ public class UserViewController {
         List<UserQualification> userQualification = getCurrentUserCandidateQualifications(userCandidate);
         System.out.println("SKRIVER VI UT USER QAL LISTAN?!" + userQualification);
 
-        List<Qualification> returnList = qualifications;
-        System.out.println("DETTA AER RETURNLISTEN!!" + returnList);
+        List<Qualification> rL = qualifications;
+
+
 
         for (UserQualification uq : userQualification) {
-            for (Qualification sq : returnList) {
-                if (uq.getUserQualification().getQualification().equals(sq.getQualification())) {
-                    returnList.remove(sq);
+            for (int j = 0; j < qualifications.size(); j++) {
+                System.out.println("PRINTAR VARJE UQ " + uq.getUserQualification().getQualification());
+                System.out.println("PRINTAR VARJE SQ " + qualifications.get(j).getQualification());
+                if (uq.getUserQualification().getQualification().equals(qualifications.get(j).getQualification())) {
+                    System.out.println("PRINTAR VARJE UQ2 " + uq.getUserQualification().getQualification());
+                    System.out.println("PRINTAR VARJE SQ2 " + qualifications.get(j).getQualification());
+                    rL.remove(j);
+
                 }
             }
         }
-        System.out.println(returnList);
-        return returnList;
+        System.out.println("DETTA AER RETURNLISTEN!!" + rL);
+        return rL;
     }
 
 
