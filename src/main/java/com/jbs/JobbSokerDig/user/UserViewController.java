@@ -70,6 +70,13 @@ public class UserViewController {
         List<UserQualification> userQualification = userEditProfileViewLogic.getCurrentUserCandidateQualifications(userCandidate);
         model.addAttribute("userQualification", userQualification);
 
+        for (int i = 0; i < userQualification.size(); i++) {
+            Long UserIdTest = userQualification.get(i).userCandidate.UserCandidateId;
+            Long UserQTest = userQualification.get(i).userQualification.getQualificationId();
+
+            System.out.println(UserIdTest + " + " + UserQTest);
+        }
+
         List<Qualification> qualifications = qualificationService.getAllQualifications();
         List<Qualification> checkedQualificationsList = userEditProfileViewLogic.checkQualificationsAgainstUserCandidateQualifications(userCandidate, qualifications);
 
