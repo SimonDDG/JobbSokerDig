@@ -88,25 +88,16 @@ public class UserViewController {
     private List<Qualification> checkQualificationsAgainstUserCandidateQualifications(UserCandidate userCandidate, List<Qualification> qualifications) {
 
         List<UserQualification> userQualification = getCurrentUserCandidateQualifications(userCandidate);
-        System.out.println("SKRIVER VI UT USER QAL LISTAN?!" + userQualification);
 
         List<Qualification> rL = qualifications;
 
-
-
         for (UserQualification uq : userQualification) {
             for (int j = 0; j < qualifications.size(); j++) {
-                System.out.println("PRINTAR VARJE UQ " + uq.getUserQualification().getQualification());
-                System.out.println("PRINTAR VARJE SQ " + qualifications.get(j).getQualification());
                 if (uq.getUserQualification().getQualification().equals(qualifications.get(j).getQualification())) {
-                    System.out.println("PRINTAR VARJE UQ2 " + uq.getUserQualification().getQualification());
-                    System.out.println("PRINTAR VARJE SQ2 " + qualifications.get(j).getQualification());
                     rL.remove(j);
-
                 }
             }
         }
-        System.out.println("DETTA AER RETURNLISTEN!!" + rL);
         return rL;
     }
 

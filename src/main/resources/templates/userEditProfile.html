@@ -35,25 +35,27 @@
             <div class="card-body">
                 <!-- Shows in collapsable item body -->
                 <h3 >These qualifications are already selected:</h3>
-                <table>
-                    <tr>
-                        <th th:each="uq : ${userQualification}">
-                            <input th:text="${uq.userQualification.Qualification}" type="checkbox" checked="checked">
-                        </th>
-                    </tr>
-                </table>
-                <table>
-                    <tr th:each="sqBig : ${splittedQualifications}">
-                        <th th:each="sq : ${sqBig}">
-                            <input th:text="${sq.Qualification}" type="checkbox">
-                        </th>
-                    </tr>
-                </table>
+                <form action="/save" method="post">
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                    <table>
+                        <tr>
+                            <th th:each="uq : ${userQualification}">
+                                <input th:text="${uq.userQualification.Qualification}" type="checkbox" checked="checked">
+                            </th>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr th:each="sqBig : ${splittedQualifications}">
+                            <th th:each="sq : ${sqBig}">
+                                <input th:text="${sq.Qualification}" type="checkbox">
+                            </th>
+                        </tr>
+                    </table>
 
 
-                <br>
-                <button type="button" class="btn btn-secondary">Save</button>
-
+                    <br>
+                    <input type="submit" class="btn btn-secondary" value="Save">
+                </form>
             </div>
         </div>
     </div>
