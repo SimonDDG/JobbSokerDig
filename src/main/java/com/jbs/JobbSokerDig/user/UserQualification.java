@@ -26,6 +26,16 @@ public class UserQualification {
     @JoinColumn(name = "Usercandidateid")
     UserCandidate userCandidate;
 
+    public UserQualification() {
+    }
+
+    public UserQualification(Long userQualificationId, Qualification userQualification, QualificationLevel userQualificationLevel, UserCandidate userCandidate) {
+        UserQualificationId = userQualificationId;
+        this.userQualification = userQualification;
+        this.userQualificationLevel = userQualificationLevel;
+        this.userCandidate = userCandidate;
+    }
+
     public Long getUserQualificationId() {
         return UserQualificationId;
     }

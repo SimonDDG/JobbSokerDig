@@ -14,6 +14,14 @@ public class QualificationLevel {
     @Column(name = "Qualificationlevel")
     int QualificationLevel;
 
+    public QualificationLevel() {
+    }
+
+    public QualificationLevel(Long qualificationLevelId, int qualificationLevel) {
+        QualificationLevelId = qualificationLevelId;
+        QualificationLevel = qualificationLevel;
+    }
+
     public Long getQualificationLevelId() {
         return QualificationLevelId;
     }

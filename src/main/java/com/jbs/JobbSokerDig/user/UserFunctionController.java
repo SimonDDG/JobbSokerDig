@@ -1,19 +1,22 @@
 package com.jbs.JobbSokerDig.user;
 
+import com.jbs.JobbSokerDig.service.UserQualificationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class UserFunctionController {
 
+    @Autowired
+    UserQualificationService userQualificationService;
+
     @PostMapping("/saveUserSettings")
-    public String saveUserProfile(@RequestParam(value = "checkboxName", required = false) String[] checkboxValue) {
+    public String saveUserProfile(HttpServletRequest request, @RequestParam(value = "checkboxName", required = false) String[] qualificationIds) {
 
-        System.out.println("testar");
-
-        for (int i = 0; i < checkboxValue.length; i++) {
-            System.out.println("Qualification id: " + checkboxValue[i]);
-        }
+        userQualificationService.saveUserQualificationChoice(qualificationIds, request);
 
         return "redirect:/userEditProfile";
     }
