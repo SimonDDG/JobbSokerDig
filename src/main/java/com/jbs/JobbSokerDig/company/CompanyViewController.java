@@ -1,5 +1,6 @@
 package com.jbs.JobbSokerDig.company;
 
+import com.jbs.JobbSokerDig.repositorys.OpenPositionRepository;
 import com.jbs.JobbSokerDig.repositorys.UserRepository;
 import com.jbs.JobbSokerDig.service.*;
 import com.jbs.JobbSokerDig.user.UserCandidate;
@@ -45,6 +46,9 @@ public class CompanyViewController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    OpenPositionRepository openPositionRepository;
+
     @GetMapping("/companyMain")
     public String getCompanyMain(){
 
@@ -65,7 +69,12 @@ public class CompanyViewController {
     @GetMapping("/companyOpenPositions")
     public String getCompanyOpenPositions(HttpServletRequest request, Model model) {
 
-        //List<OpenPosition> allOpenPositions =
+        //inte klar, openPositionService
+        List<OpenPosition> allOpenPositions = (List)openPositionRepository.findAll();
+        
+
+
+
 
         List<Qualification> qualifications = qualificationService.getAllQualifications();
         List<List<Qualification>> qualificationBigList = viewLogic.splitQualificationList(qualifications, 5);
