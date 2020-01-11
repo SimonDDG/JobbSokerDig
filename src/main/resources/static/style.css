@@ -86,6 +86,12 @@
     color: white;
 }
 
+
+
+.btn-outline-secondary:hover {
+    background: #F57458;
+}
+
 .btn-createPosition:hover {
      background: #A3381E;
      color: white;
