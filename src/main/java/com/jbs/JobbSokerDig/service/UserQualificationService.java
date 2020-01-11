@@ -49,33 +49,13 @@ public class UserQualificationService {
         List<UserQualification> oldUserQualifications = userQualificationRepository.getUserQualificationRepo(currentUserCandidateId);
 
         for (int i = 0; i < oldUserQualifications.size(); i++) {
+            //System.out.println("Tar bort: " + oldUserQualifications.get(i).getUserQualification().getQualification());
             userQualificationRepository.delete(oldUserQualifications.get(i));
-            System.out.println("Tar bort: " + oldUserQualifications.get(i).getUserQualification().getQualification());
         }
 
         for (int i = 0; i < newUserQualifications.size(); i++) {
-            System.out.println("Sparar: " + newUserQualifications.get(i).getUserQualification().getQualification());
+            //System.out.println("Sparar: " + newUserQualifications.get(i).getUserQualification().getQualification());
             userQualificationRepository.save(newUserQualifications.get(i));
-        }
-
-
-//        for (int i = 0; i < newUserQualifications.size(); i++) {
-////            System.out.println("Test new: " + newUserQualifications.get(i).getUserQualification().getQualificationId());
-////            for (int j = 0; j < oldUserQualifications.size(); j++) {
-//                if (newUserQualifications.size() <= oldUserQualifications.size() && newUserQualifications.get(i).getUserQualification().getQualificationId().equals(oldUserQualifications.get(i).getUserQualification().getQualificationId())){
-//                    System.out.println("Hoppar över: " + newUserQualifications.get(i).getUserQualification().getQualification());
-//                    continue;
-//                } else {
-//                    System.out.println("Sparar: " + newUserQualifications.get(i).getUserQualification().getQualification());
-//                    //userQualificationRepository.save(newUserQualifications.get(i));
-//
-//                }
-//                System.out.println("Tar bort:" + oldUserQualifications.get(i).getUserQualification().getQualification());
-////            }
-//        }
-
-        for (int i = 0; i < oldUserQualifications.size(); i++) {
-            System.out.println("Test old: " + oldUserQualifications.get(i).getUserQualification().getQualificationId());
         }
 
     }
