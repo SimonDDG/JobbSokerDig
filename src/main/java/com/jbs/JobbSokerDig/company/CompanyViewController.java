@@ -1,6 +1,5 @@
 package com.jbs.JobbSokerDig.company;
 
-import com.jbs.JobbSokerDig.repositorys.OpenPositionRepository;
 import com.jbs.JobbSokerDig.repositorys.UserRepository;
 import com.jbs.JobbSokerDig.service.*;
 import com.jbs.JobbSokerDig.user.UserCandidate;
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -47,7 +45,7 @@ public class CompanyViewController {
     UserRepository userRepository;
 
     @Autowired
-    OpenPositionRepository openPositionRepository;
+    OpenPositionService openPositionService;
 
     @GetMapping("/companyMain")
     public String getCompanyMain(){
@@ -70,7 +68,7 @@ public class CompanyViewController {
     public String getCompanyOpenPositions(HttpServletRequest request, Model model) {
 
         //inte klar, openPositionService
-        List<OpenPosition> allOpenPositions = (List)openPositionRepository.findAll();
+        List<OpenPosition> allOpenPositions = openPositionService.getOpenPositionsByCompanyId(request);
         
 
 

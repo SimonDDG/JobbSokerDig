@@ -20,6 +20,9 @@ public class OpenPositionService {
     @Autowired
     CompanyRepository companyRepository;
 
+    @Autowired
+    CompanyService companyService;
+
     public Company getCompany(HttpServletRequest request) {
         String username = request.getRemoteUser();
         return companyRepository.getCompanyRepo(username);
@@ -31,14 +34,13 @@ public class OpenPositionService {
 
 
     //inte klart
-    public List<OpenPosition> getAllOpenPositionsLoggedInCompany(List<OpenPosition> allOpenPositions) {
+    public List<OpenPosition> getOpenPositionsByCompanyId(HttpServletRequest request) {
+
+        Company company = companyRepository.getCompanyRepo(request.getRemoteUser());
         List<OpenPosition> openPositionsLoggedInCompany = new ArrayList<>();
 
-        for(int i = 0; i < allOpenPositions.size(); i++) {
-
-        }
+        
         return openPositionsLoggedInCompany;
     }
-
 
 }
