@@ -86,12 +86,17 @@
     color: white;
 }
 
+.btn-createPosition:hover {
+     background: #A3381E;
+     color: white;
+}
+
 .btn-savePosition {
     background: #F57458;
     color: white;
 }
 
-.btn-savePosition:hover{
+.btn-savePosition:hover {
      background: #A3381E;
 }
 
