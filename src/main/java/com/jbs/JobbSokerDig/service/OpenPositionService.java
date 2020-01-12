@@ -37,9 +37,9 @@ public class OpenPositionService {
     public List<OpenPosition> getOpenPositionsByCompanyId(HttpServletRequest request) {
 
         Company company = companyRepository.getCompanyRepo(request.getRemoteUser());
-        List<OpenPosition> openPositionsLoggedInCompany = new ArrayList<>();
+        List<OpenPosition> openPositionsLoggedInCompany = openPositionRepository.getAllOpenPositionsByCompanyId(company.getCompanyId());
 
-        
+        company.getCompanyId();
         return openPositionsLoggedInCompany;
     }
 

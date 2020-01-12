@@ -67,12 +67,8 @@ public class CompanyViewController {
     @GetMapping("/companyOpenPositions")
     public String getCompanyOpenPositions(HttpServletRequest request, Model model) {
 
-        //inte klar, openPositionService
         List<OpenPosition> allOpenPositions = openPositionService.getOpenPositionsByCompanyId(request);
-        
-
-
-
+        model.addAttribute("allOpenPositions", allOpenPositions);
 
         List<Qualification> qualifications = qualificationService.getAllQualifications();
         List<List<Qualification>> qualificationBigList = viewLogic.splitQualificationList(qualifications, 5);
