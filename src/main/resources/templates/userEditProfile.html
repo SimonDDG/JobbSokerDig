@@ -72,10 +72,13 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
             <div class="card-body">
                 <h3 >These benefits are selected as your Must Haves:</h3>
-                <table>
+                <form action="/saveUserMustHave" method="post">
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+                    <table>
                     <tr>
                         <th th:each="um : ${userMustHaves}">
-                            <input th:text="${um.benefit.Benefit}" type="checkbox" checked="checked">
+                            <input th:text="${um.benefit.Benefit}" th:value="${um.benefit.Benefit}" name="checkboxName" type="checkbox" checked="checked">
                         </th>
                     </tr>
                 </table>
@@ -83,13 +86,14 @@
                 <table>
                     <tr th:each="benefitArrList : ${splittedBenefits}">
                         <th th:each="benefit : ${benefitArrList}">
-                            <input th:text="${benefit.Benefit}" type="checkbox">
+                            <input th:text="${benefit.Benefit}" th:value="${benefit.Benefit}" type="checkbox" name="checkboxName">
                         </th>
                     </tr>
                 </table>
 
                 <br>
-                <button type="button" class="btn btn-secondary">Save</button>
+                <input type="submit" class="btn btn-secondary" value="Save">
+                </form>
 
             </div>
         </div>
@@ -106,10 +110,14 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
             <div class="card-body">
                 <h3 >These benefits are selected as your preferred benefits (but not "Must Haves"):</h3>
+
+                <form action="/saveUserOptionalPreference" method="post">
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
                 <table>
                     <tr>
                         <th th:each="num : ${notUserMustHaves}">
-                            <input th:text="${num.benefit.Benefit}" type="checkbox" checked="checked">
+                            <input th:text="${num.benefit.Benefit}" th:value="${num.benefit.Benefit}" name="checkboxName" type="checkbox" checked="checked">
                         </th>
                     </tr>
                 </table>
@@ -117,13 +125,14 @@
                 <table>
                     <tr th:each="benefitArrList : ${splittedBenefits}">
                         <th th:each="benefit : ${benefitArrList}">
-                            <input th:text="${benefit.Benefit}" type="checkbox">
+                            <input th:text="${benefit.Benefit}" th:value="${benefit.Benefit}" name="checkboxName" type="checkbox">
                         </th>
                     </tr>
                 </table>
 
                 <br>
-                <button type="button" class="btn btn-secondary">Save</button>
+                    <input type="submit" class="btn btn-secondary" value="Save">
+                </form>
 
             </div>
         </div>

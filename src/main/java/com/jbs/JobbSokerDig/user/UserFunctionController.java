@@ -21,16 +21,26 @@ public class UserFunctionController {
         return "redirect:/userEditProfile";
     }
 
-//    @RequestMapping(value = "/saveUserSettings" , method = RequestMethod. POST)
-//    public void editCustomer(@RequestParam(value = "checkboxName", required = false) String checkboxValue)
-//    {
-//        if(checkboxValue != null)
-//        {
-//            System.out.println("checkbox is checked");
-//        }
-//        else
-//        {
-//            System.out.println("checkbox is not checked");
-//        }
-//    }
+    @PostMapping("/saveUserMustHave")
+    public String saveUserMustHave(HttpServletRequest request, @RequestParam(value = "checkboxName", required = false) String[] mustHaves) {
+
+        for (int i = 0; i < mustHaves.length; i++) {
+            System.out.println("must: " + mustHaves[i]);
+        }
+        System.out.println("----");
+
+        return "redirect:/userEditProfile";
+    }
+
+    @PostMapping("/saveUserOptionalPreference")
+    public String saveUserOptionalPreference(HttpServletRequest request, @RequestParam(value = "checkboxName", required = false) String[] optionalPreferences) {
+
+        for (int i = 0; i < optionalPreferences.length; i++) {
+            System.out.println("opt: " + optionalPreferences[i]);
+        }
+        System.out.println("----");
+
+        return "redirect:/userEditProfile";
+    }
+    
 }

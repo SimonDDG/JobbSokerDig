@@ -33,6 +33,21 @@ public class UserQualificationService {
         return userQualification;
     }
 
+    /*
+
+        List<UserPreference> userPreference = userPreferenceService.getUserPreference(userCandidate.getUserCandidateId());
+        List<Benefit> benefits = benefitService.getAllBenefits();
+        List<Benefit> checkedBenefitsList = userEditProfileViewLogic.checkBenefitsAgainstUserCandidateBenefits(userCandidate, benefits);
+        List<List<Benefit>> splittedBenefits = viewLogic.splitBenefitList(checkedBenefitsList, 5);
+        model.addAttribute("splittedBenefits", splittedBenefits);
+
+        List<UserPreference> userMustHaves = userEditProfileViewLogic.checkUserMustHavePreferances(userCandidate, userPreference);
+        model.addAttribute("userMustHaves", userMustHaves);
+
+        List<UserPreference> notUserMustHaves = userEditProfileViewLogic.isNotUserMustHavePreferances(userCandidate, userPreference);
+        model.addAttribute("notUserMustHaves", notUserMustHaves);
+     */
+
     public void saveUserQualificationChoice(String[] list, HttpServletRequest request) {
         UserCandidate userCandidate = profileViewLogic.getCurrentUserCandidate(request);
 
