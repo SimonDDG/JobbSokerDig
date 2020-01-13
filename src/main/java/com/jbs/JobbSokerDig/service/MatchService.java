@@ -29,34 +29,37 @@ public class MatchService {
     @Autowired
     UserRepository userRepository;
 
-    public ArrayList<Integer> howManyQualificationsMatched(/*Tar en List<QN> för en specifik OpenPosition, Tar en List<UQ> */) {
+    @Autowired
+    OpenPositionRepository openPositionRepository;
 
-        List<QualificationNeed> qualificationNeeds = (List) qualificationNeedRepository.findAll();
-        int numberOfQualificationNeeded = qualificationNeeds.size();
+    public ArrayList<Integer> howManyQualificationsMatched(Long openPositionId/*List<UserQualification> allUserQualifications*/) {
+
+        List<QualificationNeed> qualificationNeedsForOnePosition = (List) qualificationNeedRepository.getAllQualificationsByOpenPositionId(openPositionId); //TODO Hårdkodad CompanyId eftersom vi i presentationen endast har ett företag.
+        int numberOfQualificationNeeded = qualificationNeedsForOnePosition.size();
+
         List<UserQualification> userQualifications = (List) userQualificationRepository.findAll();
-//        userQualification.get(0).getUserCandidate().getFullName();
         List<UserCandidate> allUserCandidates = (List) userRepository.findAll();
 
         ArrayList<Integer> matchedQualifications = new ArrayList<>();
-//
-//        for (int i = 0; i < allUserCandidates.size(); i++) { //itererar genom alla kandidater i databasen, en efter en
-//            int numberOfQualificationMatched = 0;
-//
-//            for (int j = 0; j < qualificationNeeds.size(); j++) { //itererar genom alla kvalifikationsbehov för en specifik OpenPosition
-//
-//                for (int k = 0; k < userQualifications.size(); k++) { //itererar genom alla UserQualification för alla users, en efter en
-//                    if (allUserCandidates.get(i).getUserCandidateId().equals(userQualifications.get(k).getUserCandidate().getUserCandidateId())) {
-//                        if (userQualifications.get(k).getQualification().getQualificationId().equals(qualificationNeeds.get(j).getQualification().getQualificationId())) {
-//                            numberOfQualificationMatched++;
-//
-//                        }
-//                    }
-//                }
-//                matchedQualifications.add(numberOfQualificationMatched);
-//            }
-//
-//        }
-        //            int percentageQualificationMatched = calculateMatchedPercentage(numberOfQualificationMatched, numberOfQualificationNeeded);
+
+        for (int i = 0; i < allUserCandidates.size(); i++) { //itererar genom alla kandidater i databasen, en efter en
+
+
+            for (int j = 0; j < numberOfQualificationNeeded; j++) { //itererar genom alla kvalifikationsbehov för en specifik OpenPosition
+                int numberOfQualificationMatched = 0;
+                for (int k = 0; k < userQualifications.size(); k++) { //itererar genom alla UserQualification för alla users, en efter en
+                    if (allUserCandidates.get(i).getUserCandidateId().equals(userQualifications.get(k).getUserCandidate().getUserCandidateId())) {
+                        if (userQualifications.get(k).getUserQualification().getQualificationId().equals(qualificationNeedsForOnePosition.get(j).getQualification().getQualificationId())) {
+                            numberOfQualificationMatched++;
+
+                        }
+                    }
+                }
+                matchedQualifications.add(numberOfQualificationMatched);
+            }
+
+        }
+                    int percentageQualificationMatched = calculateMatchedPercentage(numberOfQualificationMatched, numberOfQualificationNeeded);
 
         return matchedQualifications;
     }
