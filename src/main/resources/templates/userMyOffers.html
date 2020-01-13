@@ -35,18 +35,19 @@
 <div class="container">
 
     <div class="row mb-3" th:each="so : ${softOffers}">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card shadow">
                 <div class="card-body">
+                    <img th:src="${so.company.Logo}" class="logos">
                     <div class="row text-center ">
-                        <div class="col-md-1 mr-2">
+                        <div class="col-md-1 mr-5">
                             <i class="fa fa-tachometer fa-2x "></i></br>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-7">
                             <h4 th:text="'The company ' + ${so.company.Name} + ' offers you:'">Car Dry Cleaning</h4>
                             <p th:text="${so.SoftOffer}">Engine Oil Change, Oil Filter Change, Air Filter Change</p>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <h3 th:text="'Your status: ' + ${so.UserStatus}">2495/-</h3>
                             <small>An estimated Price*</small>
                             <div class="sub-row">

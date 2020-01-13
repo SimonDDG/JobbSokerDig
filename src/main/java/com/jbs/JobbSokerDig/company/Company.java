@@ -28,6 +28,9 @@ public class Company {
     @Column(name = "Description")
     String Description;
 
+    @Column(name= "Logo")
+    String Logo;
+
     public Long getCompanyId() {
         return CompanyId;
     }
@@ -66,5 +69,13 @@ public class Company {
 
     public void setDescription(String description) {
         Description = description;
+    }
+
+    public String getLogo() {
+        return Logo;
+    }
+
+    public void setLogo(String logo) {
+        Logo = logo;
     }
 }
