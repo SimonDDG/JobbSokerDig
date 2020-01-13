@@ -103,6 +103,7 @@
 
 #aboutUsButton:hover {
     background-color: #A3381E;
+    color: white;
 }
 
 .btn-savePosition {
@@ -146,8 +147,8 @@
 .logos {
     max-width: 8%;
     height: auto;
-    display:inline;
 }
+
 
 .btn-warning {
     background-color: #F57458;
@@ -167,6 +168,46 @@
 .btn-accept:hover {
     background-color: #047364;
     color: white;
+}
+
+#navbar-text1:hover {
+     color: #F57458;
+ }
+
+#navbar-text2:hover {
+    color: #F57458;
+}
+
+#navbar-text3:hover {
+    color: #F57458;
+}
+
+#navbar-text4:hover {
+    color: #F57458;
+}
+
+#navbar-text5:hover {
+    color: #F57458;
+}
+
+#navbar-text6:hover {
+    color: #F57458;
+}
+
+#navbar-text7:hover {
+    color: #F57458;
+}
+
+#navbar-text8:hover {
+    color: #F57458;
+}
+
+#navbar-text9:hover {
+    color: #F57458;
+    }
+
+#navbar-text:hover {
+    color: #F57458;
 }
 
 
