@@ -92,9 +92,17 @@
     background: #F57458;
 }
 
+#aboutUsButton {
+    background-color: #F57458;
+}
+
 .btn-createPosition:hover {
      background: #A3381E;
      color: white;
+}
+
+#aboutUsButton:hover {
+    background-color: #A3381E;
 }
 
 .btn-savePosition {
@@ -102,15 +110,33 @@
     color: white;
 }
 
+.usp-title {
+    color: #F57458;
+}
+
+.howitworks-boxes {
+    width: 90%;
+    margin: auto;
+}
+
 .btn-savePosition:hover {
      background: #A3381E;
+}
+
+#learnMoreButton {
+    background-color: #F57458;
 }
 
 .btn-link {
     color: #F57458;
 }
+
 .btn-link:hover {
     color: #A3381E;
+}
+
+#learnMoreButton:hover{
+    background-color: #A3381E;
 }
 
 https://assets.website-files.com/59a92b6636f2410001271027/59a92b6736f24100012710fb_john-towner-128480.jpg
