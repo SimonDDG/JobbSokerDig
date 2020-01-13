@@ -1,6 +1,8 @@
 package com.jbs.JobbSokerDig;
 
+import com.jbs.JobbSokerDig.company.OpenPosition;
 import com.jbs.JobbSokerDig.service.MatchService;
+import com.jbs.JobbSokerDig.service.OpenPositionService;
 import com.jbs.JobbSokerDig.service.UserCandidateService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,9 @@ class JobbSokerDigApplicationTests {
 	@Autowired
 	UserCandidateService userCandidateService;
 
+	@Autowired
+	OpenPositionService openPositionService;
+
 	@Test
 	void contextLoads() {
 	}
@@ -32,6 +37,12 @@ class JobbSokerDigApplicationTests {
 	public void testAllUserLogins() {
 		List<String> allUserNames = userCandidateService.getAllUserLoginNames(userCandidateService.getAllUserCandidates());
 		System.out.println(allUserNames);
+	}
+
+	//Inte klart
+	@Test
+	public void testAllOpenPositionsForLoggedInCompany() {
+		//List<OpenPosition> allOpenPositionsForCompany = openPositionService.getAllOpenPositionsLoggedInCompany();
 	}
 
 }

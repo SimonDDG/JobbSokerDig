@@ -13,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -45,6 +44,9 @@ public class CompanyViewController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    OpenPositionService openPositionService;
+
     @GetMapping("/companyMain")
     public String getCompanyMain(){
 
@@ -65,7 +67,8 @@ public class CompanyViewController {
     @GetMapping("/companyOpenPositions")
     public String getCompanyOpenPositions(HttpServletRequest request, Model model) {
 
-        //List<OpenPosition> allOpenPositions =
+        List<OpenPosition> allOpenPositions = openPositionService.getOpenPositionsByCompanyId(request);
+        model.addAttribute("allOpenPositions", allOpenPositions);
 
         List<Qualification> qualifications = qualificationService.getAllQualifications();
         List<List<Qualification>> qualificationBigList = viewLogic.splitQualificationList(qualifications, 5);

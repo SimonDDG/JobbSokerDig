@@ -108,7 +108,11 @@
         <div class="card-header" id="headingJob">
             <h2 class="mb-0">
                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseJobOne" aria-expanded="true" aria-controls="collapseJobOne">
-                    Java Developer <!-- HÅRDKODAT, ÄNDRA, GÖRA ALLT TILL EN LOOP BASERAT PÅ ANTAL TJÄNSTER SOM FINNS -->
+
+                    <div th:each="openPos : ${allOpenPositions}">
+                        <div th:text="${openPos.openPositionName}"></div>
+                    </div>
+
                 </button>
             </h2>
         </div>
