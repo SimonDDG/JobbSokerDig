@@ -147,8 +147,8 @@
 .logos {
     max-width: 8%;
     height: auto;
-    display:inline;
 }
+
 
 .btn-warning {
     background-color: #F57458;
@@ -209,6 +209,7 @@
 #navbar-text:hover {
     color: #F57458;
 }
+
 
 
 
