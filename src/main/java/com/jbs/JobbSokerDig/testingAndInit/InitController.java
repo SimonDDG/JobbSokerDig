@@ -62,6 +62,24 @@ public class InitController {
             loginRepository.save(loginCompany);
         }
 
+        Login loginGoogle = loginRepository.findByUsername("google");
+        if (loginGoogle == null) {
+            loginGoogle = new Login();
+            loginGoogle.setUsername("google");
+            loginGoogle.setPassword(encoder.encode("asd"));
+            loginGoogle.setRole("COMPANY");
+            loginRepository.save(loginGoogle);
+        }
+
+        Login loginApple = loginRepository.findByUsername("apple");
+        if (loginApple == null) {
+            loginApple = new Login();
+            loginApple.setUsername("apple");
+            loginApple.setPassword(encoder.encode("asd"));
+            loginApple.setRole("COMPANY");
+            loginRepository.save(loginApple);
+        }
+
         return "ok";
     }
 }

@@ -23,14 +23,49 @@
 
 <h1>Cantidate Offers</h1>
 
-<ul th:each="so : ${softOffers}">
-    <li>
-        <h3 th:text="'The company ' + ${so.company.Name} + ' offers you:'"></h3>
-        <span th:text="${so.SoftOffer}"></span>
-    </li>
-</ul>
-<div th:replace="fragments/footer :: footer">...</div>
+<!--<ul th:each="so : ${softOffers}">-->
+<!--    <li>-->
+<!--        <h3 th:text="'The company ' + ${so.company.Name} + ' offers you:'"></h3>-->
+<!--        <span th:text="${so.SoftOffer}"></span>-->
+<!--    </li>-->
+<!--</ul>-->
 
+<!--Fipplar-->
+
+<div class="container">
+
+    <div class="row mb-3" th:each="so : ${softOffers}">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-body">
+                    <div class="row text-center ">
+                        <div class="col-md-1 mr-2">
+                            <i class="fa fa-tachometer fa-2x "></i></br>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 th:text="'The company ' + ${so.company.Name} + ' offers you:'">Car Dry Cleaning</h4>
+                            <p th:text="${so.SoftOffer}">Engine Oil Change, Oil Filter Change, Air Filter Change</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>2495/-</h3>
+                            <small>An estimated Price*</small>
+                            <div class="sub-row">
+                                <button type="button" class="btn btn-warning btn-sm btn-block">View details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<!--Slut på fippel-->
+
+<div th:replace="fragments/footer :: footer">...</div>
 <!--Bootstrap script-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
