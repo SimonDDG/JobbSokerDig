@@ -67,8 +67,7 @@
                             <p th:text="${so.SoftOffer}">Engine Oil Change, Oil Filter Change, Air Filter Change</p>
                         </div>
                         <div class="col-md-3">
-                            <h3 th:text="'Your status: ' + ${so.UserStatus}">2495/-</h3>
-                            <small>An estimated Price*</small>
+                            <h3 th:text="'Your status: ' + ${so.UserStatus}"></h3>
                             <div class="sub-row">
                                 <form action="/getUserOfferChoice" method="post">
                                     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
@@ -76,7 +75,6 @@
                                     <input type="submit" class="btn btn-accept btn-sm btn-block" value="Accept" name="userOfferChoice">
                                     <input type="submit" class="btn btn-warning btn-sm btn-block" value="Decline" name="userOfferChoice">
                                 </form>
-<!--                                <button type="button" class="btn btn-warning btn-sm btn-block">View details</button>-->
                             </div>
                         </div>
                     </div>
