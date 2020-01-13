@@ -59,12 +59,25 @@ class JobbSokerDigApplicationTests {
 
 	@Test
 	public void getQualificationMatchPercentages() {
-		System.out.println(matchService.howManyQualificationsMatched(1L));
+		System.out.println(matchService.howManyQualificationsMatched(2L));
 	}
 
 	@Test
 	public void getBenefitMatchPercentages() {
-		System.out.println(matchService.howManyBenefitsMatched(1L));
+		System.out.println(matchService.howManyBenefitsMatched(2L));
+	}
+
+	@Test
+	public void getSortedCandidatesByAverageMatched() {
+		Long openPositionId = 3L;
+		for (int i = 0; i < matchService.getCandidatesByHighestMatched(openPositionId).size(); i++) {
+			String fullName = matchService.getCandidatesByHighestMatched(openPositionId).get(i).getFullName();
+			Integer percentageMatched = matchService.getCandidatesByHighestMatched(openPositionId).get(i).getAveragePercentageMatchedInRelationToOpenPosition();
+			System.out.println("Name " + fullName);
+			System.out.println("Percentage " + percentageMatched);
+
+		}
+
 	}
 
 }

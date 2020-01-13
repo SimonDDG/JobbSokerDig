@@ -8,9 +8,13 @@ import com.jbs.JobbSokerDig.user.UserPreference;
 import com.jbs.JobbSokerDig.user.UserQualification;
 import com.jbs.JobbSokerDig.values.Qualification;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -75,8 +79,6 @@ public class MatchService {
         return qualificationPercentages;
     }
 
-
-
     public ArrayList<Double> howManyBenefitsMatched(Long openPositionId/*List<UserQualification> allUserQualifications*/) {
 
         List<UserCandidate> allUserCandidates = (List) userRepository.findAll();
@@ -117,9 +119,38 @@ public class MatchService {
         return matchedCompAndBen;
     }
 
+    public ArrayList<Integer> averageMatchedOn(ArrayList<Double> qualificationsMatched, ArrayList<Double> benefitsMatched){
+        ArrayList<Integer> averageMatchedOnQualificationBenefit = new ArrayList<>();
+        for (int i = 0; i < qualificationsMatched.size(); i++) {
+            averageMatchedOnQualificationBenefit.add((int) ((qualificationsMatched.get(i) + benefitsMatched.get(i)) / 2));
+        }
+        return averageMatchedOnQualificationBenefit;
+    }
+
+    public List<UserCandidate> sortedListOfAllUsersByAverageMatch(ArrayList<Integer> averageMatchedList) {
+        List<UserCandidate> sortedListOfAllUsersByAverageMatch = (List<UserCandidate>) userRepository.findAll();
+        for (int i = 0; i < averageMatchedList.size(); i++) {
+            sortedListOfAllUsersByAverageMatch.get(i).setAveragePercentageMatchedInRelationToOpenPosition(averageMatchedList.get(i));
+        }
+        return sortedListOfAllUsersByAverageMatch;
+    }
+
         public double calculateMatchedPercentage ( double matched, double total){
             double percentageMatched = (matched / total) * 100;
             return percentageMatched;
+        }
+
+        public List<UserCandidate> getCandidatesByHighestMatched (Long openPositionId) {
+            ArrayList<Double> qualificationsMatched = howManyQualificationsMatched(openPositionId);
+            ArrayList<Double> benefitsMatched = howManyBenefitsMatched(openPositionId);
+            ArrayList<Integer> averageMatched = averageMatchedOn(qualificationsMatched, benefitsMatched);
+
+            List<UserCandidate> sortedUsersByPercentageMatched = sortedListOfAllUsersByAverageMatch(averageMatched);
+
+            Collections.sort(sortedUsersByPercentageMatched);
+            Collections.reverse(sortedUsersByPercentageMatched);
+
+            return sortedUsersByPercentageMatched;
         }
 
     }
