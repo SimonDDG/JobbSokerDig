@@ -14,6 +14,14 @@ public class PreferanceLevel {
     @Column(name = "Importancelevel")
     int ImportanceLevel;
 
+    public PreferanceLevel() {
+    }
+
+    public PreferanceLevel(Long preferenceLevelId, int importanceLevel) {
+        PreferenceLevelId = preferenceLevelId;
+        ImportanceLevel = importanceLevel;
+    }
+
     public Long getPreferenceLevelId() {
         return PreferenceLevelId;
     }
