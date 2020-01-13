@@ -51,18 +51,9 @@ public class UserPreferenceService {
         UserCandidate userCandidate = userEditProfileViewLogic.getCurrentUserCandidate(request);
 
         List<UserPreference> userPreference = userPreferenceService.getUserPreference(userCandidate.getUserCandidateId());
-        List<Benefit> benefits = benefitService.getAllBenefits();
-        List<Benefit> checkedBenefitsList = userEditProfileViewLogic.checkBenefitsAgainstUserCandidateBenefits(userCandidate, benefits);
 
-        
-        List<List<Benefit>> splittedBenefits = viewLogic.splitBenefitList(checkedBenefitsList, 5);
-//        model.addAttribute("splittedBenefits", splittedBenefits);
+        List<UserPreference> oldUserMustHaves = userEditProfileViewLogic.checkUserMustHavePreferances(userCandidate, userPreference);
 
-        List<UserPreference> userMustHaves = userEditProfileViewLogic.checkUserMustHavePreferances(userCandidate, userPreference);
-//        model.addAttribute("userMustHaves", userMustHaves);
-
-        List<UserPreference> notUserMustHaves = userEditProfileViewLogic.isNotUserMustHavePreferances(userCandidate, userPreference);
-//        model.addAttribute("notUserMustHaves", notUserMustHaves);
 
     }
 
@@ -72,6 +63,12 @@ public class UserPreferenceService {
             System.out.println("opt: " + optionalPreferences[i]);
         }
         System.out.println("----");
+
+        UserCandidate userCandidate = userEditProfileViewLogic.getCurrentUserCandidate(request);
+
+        List<UserPreference> userPreference = userPreferenceService.getUserPreference(userCandidate.getUserCandidateId());
+
+        List<UserPreference> OldNotUserMustHaves = userEditProfileViewLogic.isNotUserMustHavePreferances(userCandidate, userPreference);
 
     }
 }
