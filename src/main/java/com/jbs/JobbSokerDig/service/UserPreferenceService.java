@@ -57,43 +57,26 @@ public class UserPreferenceService {
             newUserMustHaves.add(new UserPreference(null, newUserBenefitObjectList.get(i), /*new PreferanceLevel(1L,1),*/ userCandidate, true));
         }
 
-        for (int i = 0; i < oldUserMustHaves.size(); i++) {
-            userPreferenceRepository.deleteById(oldUserMustHaves.get(i).getUserPreferenceId());
-        }
-
+        userPreferenceRepository.deleteAll(oldUserMustHaves);
         userPreferenceRepository.saveAll(newUserMustHaves);
 
     }
 
     public void saveUserOptionalPreferences(String[] optionalPreferences, HttpServletRequest request) {
 
-        for (int i = 0; i < optionalPreferences.length; i++) {
-            System.out.println("opt: " + optionalPreferences[i]);
-        }
-        System.out.println("----");
-
         UserCandidate userCandidate = userEditProfileViewLogic.getCurrentUserCandidate(request);
 
         List<UserPreference> userPreference = userPreferenceService.getUserPreference(userCandidate.getUserCandidateId());
+        List<UserPreference> oldNotUserMustHaves = userEditProfileViewLogic.isNotUserMustHavePreferances(userCandidate, userPreference);
 
-        List<UserPreference> OldNotUserMustHaves = userEditProfileViewLogic.isNotUserMustHavePreferances(userCandidate, userPreference);
+        List<Benefit> newUserBenefitObjectList = benefitService.getAllBenefitsById(optionalPreferences);
 
+        List<UserPreference> newUserMustHaves = new ArrayList<>();
+        for (int i = 0; i < newUserBenefitObjectList.size(); i++) {
+            newUserMustHaves.add(new UserPreference(null, newUserBenefitObjectList.get(i), /*new PreferanceLevel(1L,1),*/ userCandidate, false));
+        }
+
+        userPreferenceRepository.deleteAll(oldNotUserMustHaves);
+        userPreferenceRepository.saveAll(newUserMustHaves);
     }
 }
-
-/*
-
-Bra att ha kod, ta bort sen.
-
-        List<UserPreference> userPreference = userPreferenceService.getUserPreference(userCandidate.getUserCandidateId());
-        List<Benefit> benefits = benefitService.getAllBenefits();
-        List<Benefit> checkedBenefitsList = userEditProfileViewLogic.checkBenefitsAgainstUserCandidateBenefits(userCandidate, benefits);
-        List<List<Benefit>> splittedBenefits = viewLogic.splitBenefitList(checkedBenefitsList, 5);
-        model.addAttribute("splittedBenefits", splittedBenefits);
-
-        List<UserPreference> userMustHaves = userEditProfileViewLogic.checkUserMustHavePreferances(userCandidate, userPreference);
-        model.addAttribute("userMustHaves", userMustHaves);
-
-        List<UserPreference> notUserMustHaves = userEditProfileViewLogic.isNotUserMustHavePreferances(userCandidate, userPreference);
-        model.addAttribute("notUserMustHaves", notUserMustHaves);
-     */
