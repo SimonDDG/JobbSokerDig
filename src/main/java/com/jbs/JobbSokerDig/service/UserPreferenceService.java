@@ -6,12 +6,14 @@ import com.jbs.JobbSokerDig.user.UserCandidate;
 import com.jbs.JobbSokerDig.user.UserPreference;
 import com.jbs.JobbSokerDig.user.UserQualification;
 import com.jbs.JobbSokerDig.values.Benefit;
+import com.jbs.JobbSokerDig.values.PreferanceLevel;
 import com.jbs.JobbSokerDig.viewLogic.UserEditProfileViewLogic;
 import com.jbs.JobbSokerDig.viewLogic.ViewLogic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -43,17 +45,23 @@ public class UserPreferenceService {
 
     public void saveUserMustHaves(String[] mustHaves, HttpServletRequest request) {
 
-        for (int i = 0; i < mustHaves.length; i++) {
-            System.out.println("must: " + mustHaves[i]);
-        }
-        System.out.println("----");
-
         UserCandidate userCandidate = userEditProfileViewLogic.getCurrentUserCandidate(request);
 
         List<UserPreference> userPreference = userPreferenceService.getUserPreference(userCandidate.getUserCandidateId());
-
         List<UserPreference> oldUserMustHaves = userEditProfileViewLogic.checkUserMustHavePreferances(userCandidate, userPreference);
 
+        List<Benefit> newUserBenefitObjectList = benefitService.getAllBenefitsById(mustHaves);
+
+        List<UserPreference> newUserMustHaves = new ArrayList<>();
+        for (int i = 0; i < newUserBenefitObjectList.size(); i++) {
+            newUserMustHaves.add(new UserPreference(null, newUserBenefitObjectList.get(i), /*new PreferanceLevel(1L,1),*/ userCandidate, true));
+        }
+
+        for (int i = 0; i < oldUserMustHaves.size(); i++) {
+            userPreferenceRepository.deleteById(oldUserMustHaves.get(i).getUserPreferenceId());
+        }
+
+        userPreferenceRepository.saveAll(newUserMustHaves);
 
     }
 

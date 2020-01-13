@@ -78,7 +78,7 @@
                     <table>
                     <tr>
                         <th th:each="um : ${userMustHaves}">
-                            <input th:text="${um.benefit.Benefit}" th:value="${um.benefit.Benefit}" name="checkboxName" type="checkbox" checked="checked">
+                            <input th:text="${um.benefit.Benefit}" th:value="${um.benefit.BenefitId}" name="checkboxName" type="checkbox" checked="checked">
                         </th>
                     </tr>
                 </table>
@@ -86,7 +86,7 @@
                 <table>
                     <tr th:each="benefitArrList : ${splittedBenefits}">
                         <th th:each="benefit : ${benefitArrList}">
-                            <input th:text="${benefit.Benefit}" th:value="${benefit.Benefit}" type="checkbox" name="checkboxName">
+                            <input th:text="${benefit.Benefit}" th:value="${benefit.BenefitId}" type="checkbox" name="checkboxName">
                         </th>
                     </tr>
                 </table>
@@ -117,7 +117,7 @@
                 <table>
                     <tr>
                         <th th:each="num : ${notUserMustHaves}">
-                            <input th:text="${num.benefit.Benefit}" th:value="${num.benefit.Benefit}" name="checkboxName" type="checkbox" checked="checked">
+                            <input th:text="${num.benefit.Benefit}" th:value="${num.benefit.BenefitId}" name="checkboxName" type="checkbox" checked="checked">
                         </th>
                     </tr>
                 </table>
@@ -125,7 +125,7 @@
                 <table>
                     <tr th:each="benefitArrList : ${splittedBenefits}">
                         <th th:each="benefit : ${benefitArrList}">
-                            <input th:text="${benefit.Benefit}" th:value="${benefit.Benefit}" name="checkboxName" type="checkbox">
+                            <input th:text="${benefit.Benefit}" th:value="${benefit.BenefitId}" name="checkboxName" type="checkbox">
                         </th>
                     </tr>
                 </table>
