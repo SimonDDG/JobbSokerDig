@@ -84,16 +84,17 @@ public class CompanyViewController {
         return "companyOpenPositions";
     }
 
-    @GetMapping("/listCandidate")
-    public String getListCandidate(Model model){
+    @GetMapping("/listCandidate/{openPositionId}")
+    public String getListCandidate(@PathVariable Long openPositionId, Model model){
 
-        List<UserCandidate> userObjectList = (List)userRepository.findAll();
+//        List<UserCandidate> userObjectList = (List)userRepository.findAll();
+        List<UserCandidate> userCandidateByHighestMatched = matchService.getCandidatesByHighestMatched(openPositionId);
 
-        List<String> allUserLoginNames = userCandidateService.getAllUserLoginNames(userObjectList);
-        System.out.println("hej" + allUserLoginNames);
-        model.addAttribute("allUserObjects", userObjectList);
+//        List<String> allUserLoginNames = userCandidateService.getAllUserLoginNames(userObjectList);
+//        System.out.println("hej" + allUserLoginNames);
+        model.addAttribute("userCandidateByHighestMatched", userCandidateByHighestMatched);
 
-        matchService.howManyQualificationsMatched(1L, 1L)
+
 
         return "listCandidate";
     }

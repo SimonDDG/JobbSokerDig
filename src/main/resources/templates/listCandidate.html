@@ -21,14 +21,16 @@
 <body>
 <div th:replace="fragments/header :: header-light">...</div>
 
-<tr th:each="userObject : ${allUserObjects}">
-<li th:text="${userObject.FullName}"></li>
+<tr th:each="userObject : ${userCandidateByHighestMatched}">
+<li th:text="${userObject.FullName} + ' ' + ${userObject.averagePercentageMatchedInRelationToOpenPosition}"></li>
 
     <div class="button-wrapper text-center" style="margin-bottom:100px;">
         <a type="button" class="btn btn-secondary" th:href="'../userProfile/' + ${userObject.Login.username}">View talent</a>
     </div>
 
-    <tr th:each=""
+
+
+
 </tr>
 
 

@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Usercandidate")
-public class UserCandidate {
+public class UserCandidate implements Comparable<UserCandidate> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,11 +29,17 @@ public class UserCandidate {
     @Column(name = "Experiencesandprojects")
     String ExperiencesAndProjects;
 
+    @Transient
     Integer averagePercentageMatchedInRelationToOpenPosition;
 
     public Integer getAveragePercentageMatchedInRelationToOpenPosition() { return averagePercentageMatchedInRelationToOpenPosition; }
 
     public void setAveragePercentageMatchedInRelationToOpenPosition(Integer averagePercentageMatchedInRelationToOpenPosition) { this.averagePercentageMatchedInRelationToOpenPosition = averagePercentageMatchedInRelationToOpenPosition; }
+
+    @Override
+    public int compareTo(UserCandidate tmp) {
+        return averagePercentageMatchedInRelationToOpenPosition-tmp.getAveragePercentageMatchedInRelationToOpenPosition();
+    }
 
     public Long getUserCandidateId() {
         return UserCandidateId;
