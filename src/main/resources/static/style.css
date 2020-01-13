@@ -144,9 +144,8 @@
 }
 
 .logos {
-    width:100px;
-    height:100px;
-
+    max-width: 8%;
+    height: auto;
 }
 
 
