@@ -57,4 +57,14 @@ class JobbSokerDigApplicationTests {
 		System.out.println(qualificationNeedsForOnePosition.get(1).getQualification().getQualification());
 	}
 
+	@Test
+	public void getQualificationMatchPercentages() {
+		System.out.println(matchService.howManyQualificationsMatched(1L));
+	}
+
+	@Test
+	public void getBenefitMatchPercentages() {
+		System.out.println(matchService.howManyBenefitsMatched(1L));
+	}
+
 }

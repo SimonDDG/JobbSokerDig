@@ -1,8 +1,10 @@
 package com.jbs.JobbSokerDig.service;
 
+import com.jbs.JobbSokerDig.company.CompAndBen;
 import com.jbs.JobbSokerDig.company.QualificationNeed;
 import com.jbs.JobbSokerDig.repositorys.*;
 import com.jbs.JobbSokerDig.user.UserCandidate;
+import com.jbs.JobbSokerDig.user.UserPreference;
 import com.jbs.JobbSokerDig.user.UserQualification;
 import com.jbs.JobbSokerDig.values.Qualification;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,55 +34,92 @@ public class MatchService {
     @Autowired
     OpenPositionRepository openPositionRepository;
 
-    public ArrayList<Integer> howManyQualificationsMatched(Long openPositionId/*List<UserQualification> allUserQualifications*/) {
+    public ArrayList<Double> howManyQualificationsMatched(Long openPositionId/*List<UserQualification> allUserQualifications*/) {
 
-        List<QualificationNeed> qualificationNeedsForOnePosition = (List) qualificationNeedRepository.getAllQualificationsByOpenPositionId(openPositionId); //TODO Hårdkodad CompanyId eftersom vi i presentationen endast har ett företag.
-        int numberOfQualificationNeeded = qualificationNeedsForOnePosition.size();
-
-        List<UserQualification> userQualifications = (List) userQualificationRepository.findAll();
         List<UserCandidate> allUserCandidates = (List) userRepository.findAll();
+        int numberOfCandidates = allUserCandidates.size();
 
-        ArrayList<Integer> matchedQualifications = new ArrayList<>();
+        List<QualificationNeed> qualificationNeedsForOnePosition = (List) qualificationNeedRepository.getAllQualificationsByOpenPositionId(openPositionId);
+        int numberOfQualificationNeededForOnePosition = qualificationNeedsForOnePosition.size();
 
-        for (int i = 0; i < allUserCandidates.size(); i++) { //itererar genom alla kandidater i databasen, en efter en
 
 
-            for (int j = 0; j < numberOfQualificationNeeded; j++) { //itererar genom alla kvalifikationsbehov för en specifik OpenPosition
-                int numberOfQualificationMatched = 0;
-                for (int k = 0; k < userQualifications.size(); k++) { //itererar genom alla UserQualification för alla users, en efter en
-                    if (allUserCandidates.get(i).getUserCandidateId().equals(userQualifications.get(k).getUserCandidate().getUserCandidateId())) {
-                        if (userQualifications.get(k).getUserQualification().getQualificationId().equals(qualificationNeedsForOnePosition.get(j).getQualification().getQualificationId())) {
-                            numberOfQualificationMatched++;
+        ArrayList<Double> qualificationPercentages = new ArrayList<>();
 
-                        }
+        for (int i = 0; i < numberOfCandidates; i++) { //itererar genom alla kandidater i databasen, en efter en
+
+            int numberOfQualificationMatched = 0;
+            UserCandidate userCandidate = allUserCandidates.get(i);
+            List<UserQualification> userCandidateQualifications = userQualificationRepository.getUserQualificationRepo(userCandidate.getUserCandidateId());
+            int numberOfQualificationsOneUser = userCandidateQualifications.size();
+
+            for (int j = 0; j < numberOfQualificationNeededForOnePosition; j++) { //itererar genom alla kvalifikationsbehov för en specifik OpenPosition
+
+                Long positionQualificationId = qualificationNeedsForOnePosition.get(j).getQualification().getQualificationId();
+
+                for (int k = 0; k < numberOfQualificationsOneUser; k++) { //itererar genom alla UserQualification för alla users, en efter en
+                    Long userQualificationId = userCandidateQualifications.get(k).getUserQualification().getQualificationId();
+
+                    if (positionQualificationId.equals(userQualificationId)) {
+                        numberOfQualificationMatched++;
                     }
                 }
-                matchedQualifications.add(numberOfQualificationMatched);
+
             }
+            Double percentageQualificationMatched = calculateMatchedPercentage(numberOfQualificationMatched, numberOfQualificationNeededForOnePosition);
+
+            qualificationPercentages.add(percentageQualificationMatched);
 
         }
-                    int percentageQualificationMatched = calculateMatchedPercentage(numberOfQualificationMatched, numberOfQualificationNeeded);
 
-        return matchedQualifications;
+        return qualificationPercentages;
     }
 
 
 
-//    public int calculateHowManyBenefitsMatched (/*Tar emot en kandidat och en OpenPosition*/) {
-//            int numberOfBenefitsGiven = compAndBenRepository.findAll().toString().length();
-//            int numberOfBenefitsMatched = 0;
-//            for (/*iterera genom alla kandidater*/) {
-//                int userQualificationId = userQualificationRepository.findById(/*någon typ av id för userQualification*/).get().getUserQualificationId();
-//                int qualificationNeed = qualificationNeedRepository.findById().get().getQualification();
-//                if (userQualificationId == qualificationNeed) {
-//                    numberOfBenefitsMatched++;
-//                }
-//            }
-//        }
-//
-//        public int calculateMatchedPercentage ( int qualificationsMatched, int numberOfQualificationNeeded){
-//            int percentageMatched = (qualificationsMatched / numberOfQualificationNeeded) * 100;
-//            return percentageMatched;
-//        }
+    public ArrayList<Double> howManyBenefitsMatched(Long openPositionId/*List<UserQualification> allUserQualifications*/) {
+
+        List<UserCandidate> allUserCandidates = (List) userRepository.findAll();
+        int numberOfCandidates = allUserCandidates.size();
+
+        List<CompAndBen> compAndBenForOnePosition = (List) compAndBenRepository.getAllCompAndBenByOpenPositionId(openPositionId);
+        int numberOfCompAndBenForOnePosition = compAndBenForOnePosition.size();
+
+
+
+        ArrayList<Double> matchedCompAndBen = new ArrayList<>();
+
+        for (int i = 0; i < numberOfCandidates; i++) { //itererar genom alla kandidater i databasen, en efter en
+
+            int numberOfCompAndBenMatched = 0;
+            UserCandidate userCandidate = allUserCandidates.get(i);
+            List<UserPreference> userCandidatePreferences = userPreferenceRepository.getUserPreferenceRepo(userCandidate.getUserCandidateId());
+            int numberOfQualificationsOneUser = userCandidatePreferences.size();
+
+            for (int j = 0; j < numberOfCompAndBenForOnePosition; j++) { //itererar genom alla kvalifikationsbehov för en specifik OpenPosition
+
+                Long positionCompAndBenId = compAndBenForOnePosition.get(j).getBenefit().getBenefitId();
+
+                for (int k = 0; k < numberOfQualificationsOneUser; k++) { //itererar genom alla UserQualification för alla users, en efter en
+                    Long userPreferenceId = userCandidatePreferences.get(k).getBenefit().getBenefitId();
+
+                    if (positionCompAndBenId.equals(userPreferenceId)) {
+                        numberOfCompAndBenMatched++;
+                    }
+                }
+
+            }
+            Double percentageQualificationMatched = calculateMatchedPercentage(numberOfCompAndBenMatched, numberOfCompAndBenForOnePosition);
+            matchedCompAndBen.add(percentageQualificationMatched);
+
+        }
+
+        return matchedCompAndBen;
+    }
+
+        public double calculateMatchedPercentage ( double matched, double total){
+            double percentageMatched = (matched / total) * 100;
+            return percentageMatched;
+        }
 
     }
