@@ -24,6 +24,9 @@ public class SoftOffer {
     @Column(name = "Softoffer")
     String SoftOffer;
 
+    @Column(name = "Userstatus")
+    String UserStatus;
+
     public Long getSoftOfferId() {
         return SoftOfferId;
     }
@@ -54,5 +57,13 @@ public class SoftOffer {
 
     public void setSoftOffer(String softOffer) {
         SoftOffer = softOffer;
+    }
+
+    public String getUserStatus() {
+        return UserStatus;
+    }
+
+    public void setUserStatus(String userStatus) {
+        UserStatus = userStatus;
     }
 }
