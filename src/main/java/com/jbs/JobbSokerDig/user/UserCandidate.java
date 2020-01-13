@@ -29,6 +29,12 @@ public class UserCandidate {
     @Column(name = "Experiencesandprojects")
     String ExperiencesAndProjects;
 
+    Integer averagePercentageMatchedInRelationToOpenPosition;
+
+    public Integer getAveragePercentageMatchedInRelationToOpenPosition() { return averagePercentageMatchedInRelationToOpenPosition; }
+
+    public void setAveragePercentageMatchedInRelationToOpenPosition(Integer averagePercentageMatchedInRelationToOpenPosition) { this.averagePercentageMatchedInRelationToOpenPosition = averagePercentageMatchedInRelationToOpenPosition; }
+
     public Long getUserCandidateId() {
         return UserCandidateId;
     }

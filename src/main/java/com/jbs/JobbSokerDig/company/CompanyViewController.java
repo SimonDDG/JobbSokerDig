@@ -47,6 +47,9 @@ public class CompanyViewController {
     @Autowired
     OpenPositionService openPositionService;
 
+    @Autowired
+    MatchService matchService;
+
     @GetMapping("/companyMain")
     public String getCompanyMain(){
 
@@ -89,6 +92,8 @@ public class CompanyViewController {
         List<String> allUserLoginNames = userCandidateService.getAllUserLoginNames(userObjectList);
         System.out.println("hej" + allUserLoginNames);
         model.addAttribute("allUserObjects", userObjectList);
+
+        matchService.howManyQualificationsMatched(1L, 1L)
 
         return "listCandidate";
     }

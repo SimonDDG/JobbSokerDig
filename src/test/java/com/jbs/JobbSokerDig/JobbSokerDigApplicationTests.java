@@ -59,12 +59,12 @@ class JobbSokerDigApplicationTests {
 
 	@Test
 	public void getQualificationMatchPercentages() {
-		System.out.println(matchService.howManyQualificationsMatched(1L));
+		System.out.println(matchService.howManyQualificationsMatched(2L));
 	}
 
 	@Test
 	public void getBenefitMatchPercentages() {
-		System.out.println(matchService.howManyBenefitsMatched(1L));
+		System.out.println(matchService.howManyBenefitsMatched(2L).get(2));
 	}
 
 }
