@@ -41,4 +41,10 @@ public class UserFunctionController {
         return "redirect:/userEditProfile";
     }
 
+    @PostMapping("/getUserOfferChoice")
+    public String getUserOfferChoice(HttpServletRequest request, @RequestParam(value = "userOfferChoice", required = false) String choice){
+        System.out.println(choice);
+        return "redirect:/userMyOffers";
+    }
+
 }

@@ -50,7 +50,12 @@
                             <h3>2495/-</h3>
                             <small>An estimated Price*</small>
                             <div class="sub-row">
-                                <button type="button" class="btn btn-warning btn-sm btn-block">View details</button>
+                                <form action="/getUserOfferChoice" method="post">
+                                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                                    <input type="submit" class="btn btn-warning btn-sm btn-block" value="Accept" name="userOfferChoice">
+                                    <input type="submit" class="btn btn-warning btn-sm btn-block" value="Decline" name="userOfferChoice">
+                                </form>
+<!--                                <button type="button" class="btn btn-warning btn-sm btn-block">View details</button>-->
                             </div>
                         </div>
                     </div>
