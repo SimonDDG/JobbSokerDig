@@ -1,5 +1,7 @@
 package com.jbs.JobbSokerDig.user;
 
+import com.jbs.JobbSokerDig.company.SoftOffer;
+import com.jbs.JobbSokerDig.service.SoftOfferService;
 import com.jbs.JobbSokerDig.service.UserPreferenceService;
 import com.jbs.JobbSokerDig.service.UserQualificationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,9 @@ public class UserFunctionController {
 
     @Autowired
     UserPreferenceService userPreferenceService;
+
+    @Autowired
+    SoftOfferService softOfferService;
 
     @PostMapping("/saveUserSettings")
     public String saveUserProfile(HttpServletRequest request, @RequestParam(value = "checkboxName", required = false) String[] qualificationIds) {
@@ -42,8 +47,10 @@ public class UserFunctionController {
     }
 
     @PostMapping("/getUserOfferChoice")
-    public String getUserOfferChoice(HttpServletRequest request, @RequestParam(value = "userOfferChoice", required = false) String choice){
-        System.out.println(choice);
+    public String getUserOfferChoice(@RequestParam(value = "userOfferChoice", required = false) String choice, @RequestParam(value = "soId", required = false) String soId){
+
+        softOfferService.updateUserChoice(choice, soId);
+
         return "redirect:/userMyOffers";
     }
 

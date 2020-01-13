@@ -52,6 +52,7 @@
                             <div class="sub-row">
                                 <form action="/getUserOfferChoice" method="post">
                                     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                                    <input type="hidden" name="soId" th:value="${so.SoftOfferId}">
                                     <input type="submit" class="btn btn-warning btn-sm btn-block" value="Accept" name="userOfferChoice">
                                     <input type="submit" class="btn btn-warning btn-sm btn-block" value="Decline" name="userOfferChoice">
                                 </form>
