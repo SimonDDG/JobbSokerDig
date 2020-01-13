@@ -146,8 +146,28 @@
 .logos {
     max-width: 8%;
     height: auto;
+    display:inline;
 }
 
+.btn-warning {
+    background-color: #F57458;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #A3381E;
+    color: white;
+}
+
+.btn-accept {
+    background-color: #049a78;
+    color: white;
+}
+
+.btn-accept:hover {
+    background-color: #047364;
+    color: white;
+}
 
 
 
