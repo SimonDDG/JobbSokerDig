@@ -70,6 +70,11 @@ public class UserViewController {
         List<UserQualification> userQualification = userEditProfileViewLogic.getCurrentUserCandidateQualifications(userCandidate);
         model.addAttribute("userQualification", userQualification);
 
+        for (int i = 0; i < userQualification.size(); i++) {
+            Long UserIdTest = userQualification.get(i).userCandidate.UserCandidateId;
+            Long UserQTest = userQualification.get(i).userQualification.getQualificationId();
+        }
+
         List<Qualification> qualifications = qualificationService.getAllQualifications();
         List<Qualification> checkedQualificationsList = userEditProfileViewLogic.checkQualificationsAgainstUserCandidateQualifications(userCandidate, qualifications);
 
@@ -77,7 +82,7 @@ public class UserViewController {
         model.addAttribute("splittedQualifications", splittedQualifications);
 
         List<UserPreference> userPreference = userPreferenceService.getUserPreference(userCandidate.getUserCandidateId());
-        model.addAttribute("userPreference", userPreference);
+        //model.addAttribute("userPreference", userPreference); //Old model used to display pref, before the "sort"
 
         List<Benefit> benefits = benefitService.getAllBenefits();
         List<Benefit> checkedBenefitsList = userEditProfileViewLogic.checkBenefitsAgainstUserCandidateBenefits(userCandidate, benefits);
