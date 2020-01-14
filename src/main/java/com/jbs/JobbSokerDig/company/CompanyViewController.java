@@ -87,15 +87,12 @@ public class CompanyViewController {
 
     @GetMapping("/listCandidate")
     public String getListCandidate(@RequestParam(defaultValue = "0") Long openPositionId, Model model){
-        System.out.println(openPositionId);
-//        List<UserCandidate> userObjectList = (List)userRepository.findAll();
-        List<UserCandidate> userCandidateByHighestMatched = matchService.getCandidatesByHighestMatched(openPositionId);
 
-//        List<String> allUserLoginNames = userCandidateService.getAllUserLoginNames(userObjectList);
-//        System.out.println("hej" + allUserLoginNames);
+        List<UserCandidate> userCandidateByHighestMatched = matchService.getCandidatesByHighestMatched(openPositionId);
         model.addAttribute("userCandidateByHighestMatched", userCandidateByHighestMatched);
 
-
+        List<OpenPosition> openPositions = openPositionService.getAllOpenPositions();
+        model.addAttribute("openPositions", openPositions);
 
         return "listCandidate";
     }

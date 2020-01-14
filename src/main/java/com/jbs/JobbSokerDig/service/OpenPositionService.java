@@ -43,4 +43,7 @@ public class OpenPositionService {
         return openPositionsLoggedInCompany;
     }
 
+    public List<OpenPosition> getAllOpenPositions() {
+        return (List)openPositionRepository.findAll();
+    }
 }

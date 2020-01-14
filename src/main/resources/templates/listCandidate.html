@@ -25,14 +25,12 @@
     <div class="row">
         <div class="btn-group show-on-hover">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                Action <span class="caret"></span>
+                Choose your Open Position <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
-                <li><a href="/listCandidate?openPositionId=0">Position 1</a></li>
-                <li><a href="/listCandidate?openPositionId=1">2</a></li>
-                <li><a href="/listCandidate?openPositionId=2">3</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
+                <li th:each="openPos : ${openPositions}">
+                    <a th:href="'/listCandidate?openPositionId=' + ${openPos.OpenPositionId}" th:text="${openPos.openPositionName}">Position 1</a>
+                </li>
             </ul>
         </div>
     </div>
