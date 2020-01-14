@@ -15,9 +15,21 @@ public class OpenPosition {
     @JoinColumn(name = "Companyid")
     Company company;
 
-
     @Column(name = "Openpositionname")
     String openPositionName;
+
+    @Column(name = "Openpositiondescription")
+    String OpenPositionDescription;
+
+    public OpenPosition() {
+    }
+
+    public OpenPosition(Long openPositionId, Company company, String openPositionName, String openPositionDescription) {
+        OpenPositionId = openPositionId;
+        this.company = company;
+        this.openPositionName = openPositionName;
+        OpenPositionDescription = openPositionDescription;
+    }
 
     public Long getOpenPositionId() {
         return OpenPositionId;
@@ -42,5 +54,13 @@ public class OpenPosition {
 
     public void setOpenPositionName(String openPositionName) {
         this.openPositionName = openPositionName;
+    }
+
+    public String getOpenPositionDescription() {
+        return OpenPositionDescription;
+    }
+
+    public void setOpenPositionDescription(String openPositionDescription) {
+        OpenPositionDescription = openPositionDescription;
     }
 }
