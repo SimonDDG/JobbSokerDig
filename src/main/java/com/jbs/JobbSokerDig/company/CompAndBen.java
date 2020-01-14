@@ -22,6 +22,15 @@ public class CompAndBen {
     @JoinColumn(name = "Openpositionid")
     OpenPosition openPosition;
 
+    public CompAndBen() {
+    }
+
+    public CompAndBen(Long compAndBenId, Benefit benefit, OpenPosition openPosition) {
+        CompAndBenId = compAndBenId;
+        this.benefit = benefit;
+        this.openPosition = openPosition;
+    }
+
     public OpenPosition getOpenPosition() {
         return openPosition;
     }

@@ -19,13 +19,22 @@ public class QualificationNeed {
     @JoinColumn(name = "Qualificationid")
     Qualification qualification;
 
-    @OneToOne
-    @JoinColumn(name = "Qualificationlevelid")
-    QualificationLevel qualificationLevel;
+//    @OneToOne
+//    @JoinColumn(name = "Qualificationlevelid")
+//    QualificationLevel qualificationLevel;
 
     @ManyToOne
     @JoinColumn(name = "Openpositionid")
     OpenPosition openPosition;
+
+    public QualificationNeed() {
+    }
+
+    public QualificationNeed(Long qualificationNeedId, Qualification qualification, OpenPosition openPosition) {
+        QualificationNeedId = qualificationNeedId;
+        this.qualification = qualification;
+        this.openPosition = openPosition;
+    }
 
     public OpenPosition getOpenPosition() {
         return openPosition;
@@ -51,12 +60,12 @@ public class QualificationNeed {
         this.qualification = qualification;
     }
 
-    public QualificationLevel getQualificationLevel() {
-        return qualificationLevel;
-    }
-
-    public void setQualificationLevel(QualificationLevel qualificationLevel) {
-        this.qualificationLevel = qualificationLevel;
-    }
+//    public QualificationLevel getQualificationLevel() {
+//        return qualificationLevel;
+//    }
+//
+//    public void setQualificationLevel(QualificationLevel qualificationLevel) {
+//        this.qualificationLevel = qualificationLevel;
+//    }
 
     }

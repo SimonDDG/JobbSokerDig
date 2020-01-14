@@ -64,13 +64,13 @@
                     <div class="form-group row">
                         <label for="inputTitle" class="col-sm-2 col-form-label">Position title</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputTitle" placeholder="Position title">
+                            <input type="text" class="form-control" id="inputTitle" name="positionTitle" placeholder="Position title">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="description" class="col-sm-2 col-form-label">Description</label>
                         <div class="col-sm-10">
-                            <textarea type="text" class="form-control" id="description" placeholder="Enter a description of the position and the task assignments"></textarea>
+                            <textarea type="text" class="form-control" id="description" name="description" placeholder="Enter a description of the position and the task assignments"></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -80,7 +80,7 @@
                                 <table>
                                     <tr th:each="qualificationSublist : ${qualificationBigList}">
                                         <th th:each="qualification : ${qualificationSublist}">
-                                            <input th:text="${qualification.Qualification}" type="checkbox">
+                                            <input th:text="${qualification.Qualification}" name="qualificationId" th:value="${qualification.QualificationId}" type="checkbox">
                                         </th>
                                     </tr>
                                 </table>
@@ -94,7 +94,7 @@
                                 <table>
                                     <tr th:each="benefitSublist : ${benefitBigList}">
                                         <th th:each="benefit : ${benefitSublist}">
-                                            <input th:text="${benefit.Benefit}" type="checkbox">
+                                            <input th:text="${benefit.Benefit}" name="benefitId" th:value="${benefit.BenefitId}" type="checkbox">
                                         </th>
                                     </tr>
                                 </table>
