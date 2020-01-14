@@ -21,6 +21,23 @@
 <body>
 <div th:replace="fragments/header :: header-light">...</div>
 
+<div class="container">
+    <div class="row">
+        <div class="btn-group show-on-hover">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                Action <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 <tr th:each="userObject : ${userCandidateByHighestMatched}">
 <li th:text="${userObject.FullName} + ' ' + ${userObject.averagePercentageMatchedInRelationToOpenPosition}"></li>
 
