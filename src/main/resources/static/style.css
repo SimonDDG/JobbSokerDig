@@ -323,6 +323,11 @@ width: 90%;
     position: relative;
 }
 
+#reviewPicture {
+    width: 30%;
+    height: auto;
+}
+
 
 
 
