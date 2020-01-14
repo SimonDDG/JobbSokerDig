@@ -37,6 +37,22 @@
              style="transition: transform 600ms linear 0s; transform: translateX(0px) translateY(0px);"></a></div>
 <!--HEADER ENDS-->
 
+<div class="container">
+    <div class="row">
+        <div class="btn-group show-on-hover">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                Choose your Open Position <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li th:each="openPos : ${openPositions}">
+                    <a th:href="'/listCandidate?openPositionId=' + ${openPos.OpenPositionId}" th:text="${openPos.openPositionName}">Position 1</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
 <!--
 <tr th:each="userObject : ${userCandidateByHighestMatched}">
 <li th:text="${userObject.FullName} + ' ' + ${userObject.averagePercentageMatchedInRelationToOpenPosition}"></li>
