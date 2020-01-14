@@ -21,6 +21,10 @@
     background-image: url("https://assets.website-files.com/59a92b6636f2410001271027/5bc87f31b0d4cf8dfe4cb084_Bild.jpg");
 }
 
+#user-profile-background {
+
+    background-image: url("https://assets.website-files.com/59a92b6636f2410001271027/5bc87f31b0d4cf8dfe4cb084_Bild.jpg");
+}
 
 .scroll-link {
     text-align: center;
@@ -213,6 +217,32 @@
 .show-on-hover:hover > ul.dropdown-menu {
     display: block;
 }
+
+
+.jumbotron {
+    width: 90%;
+    margin: auto;
+}
+
+.card {
+    width: 90%;
+    margin: auto;
+}
+
+#profile-presentation {
+    color: white;
+    text-align: center;
+    width: 60%;
+    margin: auto;
+}
+
+.center {
+display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 10%;
+}
+
 
 
 
