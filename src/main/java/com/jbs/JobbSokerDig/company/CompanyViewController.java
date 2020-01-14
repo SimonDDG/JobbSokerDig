@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -84,9 +85,9 @@ public class CompanyViewController {
         return "companyOpenPositions";
     }
 
-    @GetMapping("/listCandidate/{openPositionId}")
-    public String getListCandidate(@PathVariable Long openPositionId, Model model){
-
+    @GetMapping("/listCandidate")
+    public String getListCandidate(@RequestParam(defaultValue = "0") Long openPositionId, Model model){
+        System.out.println(openPositionId);
 //        List<UserCandidate> userObjectList = (List)userRepository.findAll();
         List<UserCandidate> userCandidateByHighestMatched = matchService.getCandidatesByHighestMatched(openPositionId);
 
