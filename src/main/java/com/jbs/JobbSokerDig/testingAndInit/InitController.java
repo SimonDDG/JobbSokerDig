@@ -18,13 +18,6 @@ public class InitController {
 
     @GetMapping("/init")
     public String init(){
-        Login login = loginRepository.findByUsername("testuser");
-        if (login == null) {
-            login = new Login();
-            login.setUsername("testuser");
-            login.setPassword(encoder.encode("123"));
-            loginRepository.save(login);
-        }
 
         Login loginUser = loginRepository.findByUsername("user");
         if (loginUser == null) {
@@ -78,6 +71,69 @@ public class InitController {
             loginApple.setPassword(encoder.encode("asd"));
             loginApple.setRole("COMPANY");
             loginRepository.save(loginApple);
+        }
+
+        Login loginuser4 = loginRepository.findByUsername("user4");
+        if (loginuser4 == null) {
+            loginuser4 = new Login();
+            loginuser4.setUsername("user4");
+            loginuser4.setPassword(encoder.encode("asd"));
+            loginuser4.setRole("USER");
+            loginRepository.save(loginuser4);
+        }
+
+        Login loginuser5 = loginRepository.findByUsername("user5");
+        if (loginuser5 == null) {
+            loginuser5 = new Login();
+            loginuser5.setUsername("user5");
+            loginuser5.setPassword(encoder.encode("asd"));
+            loginuser5.setRole("USER");
+            loginRepository.save(loginuser5);
+        }
+
+        Login loginuser6 = loginRepository.findByUsername("user6");
+        if (loginuser6 == null) {
+            loginuser6 = new Login();
+            loginuser6.setUsername("user6");
+            loginuser6.setPassword(encoder.encode("asd"));
+            loginuser6.setRole("USER");
+            loginRepository.save(loginuser6);
+        }
+
+        Login loginuser7 = loginRepository.findByUsername("user7");
+        if (loginuser7 == null) {
+            loginuser7 = new Login();
+            loginuser7.setUsername("user7");
+            loginuser7.setPassword(encoder.encode("asd"));
+            loginuser7.setRole("USER");
+            loginRepository.save(loginuser7);
+        }
+
+        Login loginuser8 = loginRepository.findByUsername("user8");
+        if (loginuser8 == null) {
+            loginuser8 = new Login();
+            loginuser8.setUsername("user8");
+            loginuser8.setPassword(encoder.encode("asd"));
+            loginuser8.setRole("USER");
+            loginRepository.save(loginuser8);
+        }
+
+        Login loginuser9 = loginRepository.findByUsername("user9");
+        if (loginuser9 == null) {
+            loginuser9 = new Login();
+            loginuser9.setUsername("user9");
+            loginuser9.setPassword(encoder.encode("asd"));
+            loginuser9.setRole("USER");
+            loginRepository.save(loginuser9);
+        }
+
+        Login loginuser10 = loginRepository.findByUsername("user10");
+        if (loginuser10 == null) {
+            loginuser10 = new Login();
+            loginuser10.setUsername("user10");
+            loginuser10.setPassword(encoder.encode("asd"));
+            loginuser10.setRole("USER");
+            loginRepository.save(loginuser10);
         }
 
         return "ok";
