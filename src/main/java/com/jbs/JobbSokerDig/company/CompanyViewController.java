@@ -69,13 +69,19 @@ public class CompanyViewController {
     }
 
     @GetMapping("/companyOpenPositions")
-    public String getCompanyOpenPositions(HttpServletRequest request, Model model) {
+    public String getCompanyOpenPositions(@RequestParam(defaultValue = "0") Long openPositionId, HttpServletRequest request, Model model) {
 
-        List<OpenPosition> allOpenPositions = openPositionService.getOpenPositionsByCompanyId(request);
-        model.addAttribute("allOpenPositions", allOpenPositions);
+        System.out.println(openPositionId);
+        List<OpenPosition> allOpenPositionsForLogedInCompany = openPositionService.getOpenPositionsByCompanyId(request);
+        model.addAttribute("allOpenPositions", allOpenPositionsForLogedInCompany);
+
+        List<QualificationNeed> openPositionQualifications = viewLogic.getCurrentOpenPositionQualifications(openPositionId);
+        System.out.println(openPositionQualifications);
+        model.addAttribute("openPositionQualifications", openPositionQualifications);
 
         List<Qualification> qualifications = qualificationService.getAllQualifications();
-        List<List<Qualification>> qualificationBigList = viewLogic.splitQualificationList(qualifications, 4);
+        List<Qualification> checkedQualifications = viewLogic.checkQualificationsAgainstOpenPositionQualifications(openPositionId, qualifications);
+        List<List<Qualification>> qualificationBigList = viewLogic.splitQualificationList(checkedQualifications, 5);
         model.addAttribute("qualificationBigList", qualificationBigList);
 
         List<Benefit> benefits = benefitService.getAllBenefits();

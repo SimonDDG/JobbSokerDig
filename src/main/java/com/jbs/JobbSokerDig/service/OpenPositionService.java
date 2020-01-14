@@ -65,7 +65,14 @@ public class OpenPositionService {
         return (List)openPositionRepository.findAll();
     }
 
-    public void saveNewOpenPosition(HttpServletRequest request, String positionTitle, String description, String[] qualificationIds, String[] benefitIds) {
+
+    public List<QualificationNeed> getOpenPositionQualification(Long openPosition) {
+        List<QualificationNeed> openPositionQualifications = qualificationNeedRepository.getAllQualificationsByOpenPositionId(openPosition);
+
+        return openPositionQualifications;
+    }
+
+public void saveNewOpenPosition(HttpServletRequest request, String positionTitle, String description, String[] qualificationIds, String[] benefitIds) {
         Company company = companyRepository.getCompanyRepo(request.getRemoteUser());
         createNewOpenPosition(company, positionTitle, description);
 
@@ -104,6 +111,4 @@ public class OpenPositionService {
     private void createNewOpenPosition(Company company, String positionTitle, String description) {
         openPositionRepository.save(new OpenPosition(null, company, positionTitle, description));
     }
-
-
 }

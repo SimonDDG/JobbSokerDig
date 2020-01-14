@@ -1,16 +1,31 @@
 package com.jbs.JobbSokerDig.viewLogic;
 
 
+import com.jbs.JobbSokerDig.company.OpenPosition;
+import com.jbs.JobbSokerDig.company.QualificationNeed;
+import com.jbs.JobbSokerDig.repositorys.OpenPositionRepository;
+import com.jbs.JobbSokerDig.service.OpenPositionService;
+import com.jbs.JobbSokerDig.user.UserCandidate;
+import com.jbs.JobbSokerDig.user.UserPreference;
+import com.jbs.JobbSokerDig.user.UserQualification;
 import com.jbs.JobbSokerDig.values.Benefit;
 import com.jbs.JobbSokerDig.values.Qualification;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class ViewLogic {
+
+    @Autowired
+    OpenPositionRepository openPositionRepository;
+
+    @Autowired
+    OpenPositionService openPositionService;
 
     public List<List<Qualification>> splitQualificationList(List<Qualification> bigList, int innerSize) {
 
@@ -37,6 +52,47 @@ public class ViewLogic {
         return parts;
     }
 
+    public List<Qualification> checkQualificationsAgainstOpenPositionQualifications(Long openPositionId, List<Qualification> qualifications) {
+        List<QualificationNeed> openPositionQualifications = getCurrentOpenPositionQualifications(openPositionId);
 
+        List<Qualification> rL = qualifications;
+
+
+
+        for (QualificationNeed qN : openPositionQualifications) {
+            for (int j = 0; j < qualifications.size(); j++) {
+                if (qN.getQualification().getQualificationId().equals(qualifications.get(j).getQualificationId())) {
+                    rL.remove(j);
+                }
+            }
+        }
+        return rL;
+    }
+//    public List<Benefit> checkBenefitsAgainstUserCandidateBenefits(UserCandidate userCandidate, List<Benefit> benefits) {
+//        List<UserPreference> userBenefits = getCurrentUserCandidatePreference(userCandidate);
+//        List<Benefit> rL = benefits;
+//
+//        for (UserPreference ub : userBenefits) {
+//            for (int j = 0; j < benefits.size(); j++) {
+//                if (ub.getBenefit().getBenefit().equals(benefits.get(j).getBenefit())) {
+//                    rL.remove(j);
+//                }
+//            }
+//        }
+//        return rL;
+//    }
+//    public UserCandidate getCurrentUserCandidate(HttpServletRequest request) {
+//        UserCandidate userCandidate = userCandidateService.getUserCandidate(request);
+//        return userCandidate;
+//    }
+//
+    public List<QualificationNeed> getCurrentOpenPositionQualifications(Long openPositionId) {
+        List<QualificationNeed> openPositonQualifications = openPositionService.getOpenPositionQualification(openPositionId);
+        return openPositonQualifications;
+    }
+//    public List<UserPreference> getCurrentUserCandidatePreference(UserCandidate userCandidate) {
+//        List<UserPreference> userPreference = userPreferenceService.getUserPreference(userCandidate.getUserCandidateId());
+//        return userPreference;
+//    }
 
 }
