@@ -219,6 +219,15 @@
     margin: auto;
 }
 
+.card {
+    width: 90%;
+    margin: auto;
+}
+
+.profile-presentation {
+    color: white;
+    text-align: center;
+}
 
 
 

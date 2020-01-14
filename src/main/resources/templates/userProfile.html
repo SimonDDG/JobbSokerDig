@@ -30,31 +30,25 @@
         </div>
         <div class="w-nav-overlay" data-wf-ignore=""></div>
     </div>
-    <h2 class="hero-header">My profile</h2><a href="#what-we-do" class="link-block w-inline-block">
+    <img src="images/profileExample.png" width="100px">
+    <h2 class="hero-header" th:text="${userCandidate.fullName}"></h2><a href="#what-we-do" class="link-block w-inline-block">
         <img src="https://assets.website-files.com/59a92b6636f2410001271027/5bc87b03f46031e00dec47a8_white.svg"
              data-ix="hero-scroll-arrow" alt="" class="hero-arrow-down-icon"
-             style="transition: transform 600ms linear 0s; transform: translateX(0px) translateY(0px);"></a></div>
+             style="transition: transform 600ms linear 0s; transform: translateX(0px) translateY(0px);"></a>
+    <p th:text="'Description: ' + ${userCandidate.description}"></p>
+    
+</div>
 <!--HEADER ENDS-->
 
 <!--<div th:replace="fragments/header :: header-light">...</div>-->
 <div class="profile-boxes">
-    <div class="jumbotron" id="block1">
 
-        <img src="images/profileExample.jpg" width="100px">
 
-        <h2 class="display-4" th:text="${userCandidate.fullName}"></h2>
-
-        <p th:text="'Description: ' + ${userCandidate.description}"></p>
-    </div>
-
-    <div class="jumbotron" id="block2">
+    <div class="card" style="width: 18rem;">
         <h3>Qualifications</h3>
-        <ul th:each="uq : ${userQualification}">
+        <ul class="list-group list-group-flush" th:each="uq : ${userQualification}">
 
-            <li>
-                <span th:text="${uq.userQualification.Qualification}"></span>
-                <span th:text="${uq.userQualificationLevel.QualificationLevel}"></span>
-            </li>
+            <li class="list-group-item" th:text="${uq.userQualification.Qualification + ' - Level of skill (1-5): '} + ${uq.userQualificationLevel.QualificationLevel}"></li>
 
         </ul>
     </div>
