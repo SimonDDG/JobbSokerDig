@@ -2,7 +2,8 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="/images/Adroit-logo-shortcut.png"
           rel="shortcut icon" type="image/A-icon">
     <link href="images/Adroit-logo-shortcut.png"
@@ -19,7 +20,7 @@
 <body>
 
 <!--HEADER BEGINS-->
-<div id="indexbackground"> <!-- Ändrar bakgrunden på första blocket -->
+<div id="user-profile-background"> <!-- Ändrar bakgrunden på första blocket -->
     <div th:replace="fragments/header :: header">...</div>
     <div data-collapse="medium" data-animation="default" data-duration="400" class="top-menu w-nav">
         <div class="top-menu-wrapper w-clearfix">
@@ -36,48 +37,58 @@
 <!--HEADER ENDS-->
 
 <!--<div th:replace="fragments/header :: header-light">...</div>-->
+<div class="profile-boxes">
+    <div class="jumbotron" id="block1">
 
-<div class="jumbotron" id="block1">
+        <img src="images/profileExample.jpg" width="100px">
 
-<img src="images/profileExample.jpg" width="100px">
+        <h2 class="display-4" th:text="${userCandidate.fullName}"></h2>
 
-<h2 class="display-4" th:text="${userCandidate.fullName}"></h2>
+        <p th:text="'Description: ' + ${userCandidate.description}"></p>
+    </div>
 
-<p th:text="'Description: ' + ${userCandidate.description}"></p>
+    <div class="jumbotron" id="block2">
+        <h3>Qualifications</h3>
+        <ul th:each="uq : ${userQualification}">
+
+            <li>
+                <span th:text="${uq.userQualification.Qualification}"></span>
+                <span th:text="${uq.userQualificationLevel.QualificationLevel}"></span>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="jumbotron" id="block3">
+        <h3>Benefit Preference</h3>
+
+        <ul th:each="up : ${userPreference}">
+            <li>
+                <span th:text="${up.benefit.Benefit}"></span>
+                <!-- <span th:text="${up.preferenceLevel.ImportanceLevel}"></span> -->
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="jumbotron" id="block4">
+        <h3>Reviews</h3>
+    </div>
 </div>
 
-<div class="jumbotron jumbotron-fluid" id="block2">
-<h3>Qualifications</h3>
-<ul th:each="uq : ${userQualification}">
 
-    <li>
-        <span th:text="${uq.userQualification.Qualification}"></span>
-        <span th:text="${uq.userQualificationLevel.QualificationLevel}"></span>
-    </li>
-
-</ul>
-</div>
-
-<div class="jumbotron jumbotron-fluid" id="block3">
-<h3>Benefit Preference</h3>
-
-<ul th:each="up : ${userPreference}">
-    <li>
-        <span th:text="${up.benefit.Benefit}"></span>
-       <!-- <span th:text="${up.preferenceLevel.ImportanceLevel}"></span> -->
-    </li>
-</ul>
-</div>
-
-<div class="jumbotron jumbotron-fluid" id="block4">
-<h3>Reviews</h3>
-</div>
 <div th:replace="fragments/footer :: footer">...</div>
 
 
 <!--Bootstrap script-->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 </body>
 </html>
