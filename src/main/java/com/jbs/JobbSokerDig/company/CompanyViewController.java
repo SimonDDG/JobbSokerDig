@@ -75,11 +75,11 @@ public class CompanyViewController {
         model.addAttribute("allOpenPositions", allOpenPositions);
 
         List<Qualification> qualifications = qualificationService.getAllQualifications();
-        List<List<Qualification>> qualificationBigList = viewLogic.splitQualificationList(qualifications, 5);
+        List<List<Qualification>> qualificationBigList = viewLogic.splitQualificationList(qualifications, 4);
         model.addAttribute("qualificationBigList", qualificationBigList);
 
         List<Benefit> benefits = benefitService.getAllBenefits();
-        List<List<Benefit>> benefitBigList = viewLogic.splitBenefitList(benefits, 5);
+        List<List<Benefit>> benefitBigList = viewLogic.splitBenefitList(benefits, 3);
         model.addAttribute("benefitBigList", benefitBigList);
 
         return "companyOpenPositions";
