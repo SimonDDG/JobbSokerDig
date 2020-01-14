@@ -1,6 +1,7 @@
 package com.jbs.JobbSokerDig.repositorys;
 
 import com.jbs.JobbSokerDig.company.OpenPosition;
+import com.jbs.JobbSokerDig.values.Qualification;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
@@ -11,4 +12,5 @@ public interface OpenPositionRepository extends CrudRepository<OpenPosition, Lon
 
     @Query(value = "SELECT * FROM OpenPosition WHERE CompanyId = ?1", nativeQuery = true)
     List<OpenPosition> getAllOpenPositionsByCompanyId(Long companyId);
+
 }
