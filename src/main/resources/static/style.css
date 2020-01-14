@@ -224,10 +224,20 @@
     margin: auto;
 }
 
-.profile-presentation {
+#profile-presentation {
     color: white;
     text-align: center;
+    width: 60%;
+    margin: auto;
 }
+
+.center {
+    display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 10%;
+}
+
 
 
 
