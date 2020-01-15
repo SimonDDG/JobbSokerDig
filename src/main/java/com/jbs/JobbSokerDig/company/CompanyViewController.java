@@ -1,5 +1,6 @@
 package com.jbs.JobbSokerDig.company;
 
+import com.jbs.JobbSokerDig.repositorys.OpenPositionRepository;
 import com.jbs.JobbSokerDig.repositorys.UserRepository;
 import com.jbs.JobbSokerDig.service.*;
 import com.jbs.JobbSokerDig.user.UserCandidate;
@@ -51,6 +52,9 @@ public class CompanyViewController {
     @Autowired
     MatchService matchService;
 
+    @Autowired
+    OpenPositionRepository openPositionRepository;
+
     @GetMapping("/companyMain")
     public String getCompanyMain(){
 
@@ -71,12 +75,15 @@ public class CompanyViewController {
     @GetMapping("/companyOpenPositions")
     public String getCompanyOpenPositions(@RequestParam(defaultValue = "0") Long openPositionId, HttpServletRequest request, Model model) {
 
-        System.out.println(openPositionId);
         List<OpenPosition> allOpenPositionsForLogedInCompany = openPositionService.getOpenPositionsByCompanyId(request);
         model.addAttribute("allOpenPositions", allOpenPositionsForLogedInCompany);
 
         List<QualificationNeed> openPositionQualifications = viewLogic.getCurrentOpenPositionQualifications(openPositionId);
         model.addAttribute("openPositionQualifications", openPositionQualifications);
+
+        OpenPosition currentOpenPosition = openPositionService.getCurrentOpenPosition(openPositionId);
+        model.addAttribute("currentOpenPosition", currentOpenPosition);
+
 
         List<Qualification> qualifications = qualificationService.getAllQualifications();
         List<Qualification> checkedQualifications = viewLogic.checkQualificationsAgainstOpenPositionQualifications(openPositionId, qualifications);
