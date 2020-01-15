@@ -46,10 +46,30 @@
 
 <!-- Button trigger modal -->
 <div class="text-block">
-
-    <button type="button" class="btn btn-createPosition" data-toggle="modal" data-target="#exampleModalScrollable">
+    <br>
+    <button id="aboutUsButton" type="button" class="btn btn-createPosition" data-toggle="modal" data-target="#exampleModalScrollable">
         Create new position
     </button>
+
+    <br>
+    <br>
+    <div>
+        <div>
+            <div class="btn-group show-on-hover">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Choose your Open Position <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li th:each="openPos : ${allOpenPositions}">
+                        <a th:href="'/companyOpenPositions?openPositionId=' + ${openPos.OpenPositionId}"
+                           th:text="${openPos.openPositionName}">Position 1</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
@@ -132,22 +152,7 @@
     <!-- PLACERA I LOOP FÖR ATT KOLLA HUR MÅNGA JOBS SOM FINNS FÖR SPECIFIKT COMPANY-->
     <!--<tr th:each="openPosition : ${}"> ska göra loop för att hämta alla openPositions för företaget-->
 
-    <div class="container">
-        <div class="row">
-            <div class="btn-group show-on-hover">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    Choose your Open Position <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li th:each="openPos : ${allOpenPositions}">
-                        <a th:href="'/companyOpenPositions?openPositionId=' + ${openPos.OpenPositionId}"
-                           th:text="${openPos.openPositionName}">Position 1</a>
-                    </li>
-                </ul>
-
-            </div>
-        </div>
-    </div>
+    <!-- title over Qualifications and Benefits -->
     <div>
         <h2 th:text="${currentOpenPosition.openPositionName}">Choose a Open Position</h2>
     </div>
@@ -155,7 +160,7 @@
         <div class="card">
             <div class="card-header" id="headingJob">
 
-                <h2 class="mb-0">
+                <h2 id="h2-openPositions" class="mb-0">
                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseJobOne"
                             aria-expanded="true" aria-controls="collapseJobOne">
 
@@ -168,7 +173,7 @@
                                     <div class="card">
                                         <div class="card-header" id="headingOne">
                                             <h5 class="mb-0">
-                                                <button class="btn btn-link" data-toggle="collapse"
+                                                <button class="btn btn-link collapsed" data-toggle="collapse"
                                                         data-target="#collapseOne"
                                                         aria-expanded="true" aria-controls="collapseOne">
                                                     Qualifications
@@ -235,7 +240,7 @@
                                                 <button type="button" class="btn btn-secondary">Save</button>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> <!-- Benefits drop down -->
                                     <div>
                                     </div>
                                 </div>
@@ -243,14 +248,25 @@
                                 <!-- end inner collapse -->
                             </div>
                         </div>
+                    </button>
+                </h2>
             </div>
 
-            </button>
+<!--            </button>-->
             </h2>
         </div>
 
     </div>
 </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div th:replace="fragments/footer :: footer">...</div>
 
 <!--</tr>-->
 
