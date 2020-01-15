@@ -339,6 +339,17 @@ width: 90%;
     transition: 0.4s;
 }
 
+#profilePictureWhite {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+#nameBlurredWhite {
+    color: transparent;
+    text-shadow: white 0 0 35px;
+    transition: 0.7s;
+}
+
 .btn-viewCandidates {
     color: white;
     background-color: #F57458;
@@ -349,6 +360,16 @@ width: 90%;
     background-color: #A3381E;
 }
 
+.btn-sendOfferCandidate {
+    color: white;
+    background-color: #F57458;
+    margin: 0 auto;
+}
+
+.btn-sendOfferCandidate:hover {
+    color: white;
+    background-color: #A3381E;
+}
 
 
 

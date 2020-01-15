@@ -33,15 +33,14 @@
 
     <div>
     <div th:if="${userRole}">
-        <img class="center" src="/images/profileExample.png" width="100px" id="profilePicture">
-        <h2 class="hero-header" th:text="${userCandidate.fullName}" id="nameBlurred"></h2>
+        <img class="center" src="/images/profileExample.png" width="100px" id="profilePictureWhite">
+        <h2 class="hero-header" th:text="${userCandidate.fullName}" id="nameBlurredWhite"></h2>
     </div>
 
     <div th:unless="${userRole}">
         <img class="center" src="/images/profileExample.png" width="100px">
         <h2 class="hero-header" th:text="${userCandidate.fullName}"></h2>
    </div>
-
     </div>
 
     <a href="#what-we-do" class="link-block w-inline-block">
@@ -50,6 +49,10 @@
     <p id="profile-presentation" th:text="${userCandidate.description}"></p>
     <br>
     <br>
+    <div th:if="${userRole}">
+        <button type="button" class="btn btn-lg btn-sendOfferCandidate center" >Send Offer</button><br>
+    </div><br>
+
 </div>
 <!--HEADER ENDS-->
 
@@ -136,6 +139,10 @@
             <!--end review-->
         </div>
     </div>
+
+
+
+
 </div>
 
 
