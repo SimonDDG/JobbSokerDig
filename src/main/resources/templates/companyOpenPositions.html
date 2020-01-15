@@ -138,6 +138,7 @@
                     <a th:href="'/companyOpenPositions?openPositionId=' + ${openPos.OpenPositionId}" th:text="${openPos.openPositionName}">Position 1</a>
                 </li>
             </ul>
+
         </div>
     </div>
 </div>
@@ -145,83 +146,82 @@
 <div class="accordion" id="accordionExample">
     <div class="card">
         <div class="card-header" id="headingJob">
+
             <h2 class="mb-0">
                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseJobOne" aria-expanded="true" aria-controls="collapseJobOne">
+                    
+                        <div id="collapseJobOne" class="collapse" aria-labelledby="headingJob" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <!-- start inner collapse -->
 
-                    <div>
-                        <h2>Click to Edit Open Position</h2>
-                    </div>
+                                <div id="accordion">
+                                    <div class="card">
+                                        <div class="card-header" id="headingOne">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                                        aria-expanded="true" aria-controls="collapseOne">
+                                                    Qualifications
+                                                </button>
+                                            </h5>
+                                        </div>
+
+                                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <h3>Qualifications already selected for this position</h3>
+                                                <table>
+                                                    <tr>
+                                                        <th th:each="qN : ${openPositionQualifications}">
+                                                            <input th:text="${qN.qualification.Qualification}" type="checkbox" checked="checked">
+                                                        </th>
+                                                    </tr>
+                                                </table>
+
+                                                <h3>Qualifications needed for the position</h3>
+                                                <table>
+                                                    <tr th:each="qualificationSublist : ${qualificationBigList}">
+                                                        <th th:each="qualification : ${qualificationSublist}">
+                                                            <input th:text="${qualification.Qualification}" type="checkbox">
+                                                        </th>
+                                                    </tr>
+                                                </table>
+                                                <button type="button" class="btn btn-secondary">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingTwo">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    Benefits
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <h3>Benefits you can offer</h3>
+                                                <table>
+                                                    <tr th:each="benefitSublist : ${benefitBigList}">
+                                                        <th th:each="benefit : ${benefitSublist}">
+                                                            <input th:text="${benefit.Benefit}" type="checkbox">
+                                                        </th>
+                                                    </tr>
+                                                </table>
+                                                <button type="button" class="btn btn-secondary">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                    </div>
+                                </div>
+
+                                <!-- end inner collapse -->
+                            </div>
+                        </div></div>
+
                 </button>
             </h2>
         </div>
 
-            <div id="collapseJobOne" class="collapse" aria-labelledby="headingJob" data-parent="#accordionExample">
-                <div class="card-body">
-                    <!-- start inner collapse -->
-
-                    <div id="accordion">
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
-                                            aria-expanded="true" aria-controls="collapseOne">
-                                        Qualifications
-                                    </button>
-                                </h5>
-                            </div>
-
-                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                            <div class="card-body">
-                                <h3>Qualifications already selected for this position</h3>
-                                <table>
-                                    <tr>
-                                        <th th:each="qN : ${openPositionQualifications}">
-                                            <input th:text="${qN.qualification.Qualification}" type="checkbox" checked="checked">
-                                        </th>
-                                    </tr>
-                                </table>
-
-                                <h3>Qualifications needed for the position</h3>
-                                <table>
-                                    <tr th:each="qualificationSublist : ${qualificationBigList}">
-                                        <th th:each="qualification : ${qualificationSublist}">
-                                            <input th:text="${qualification.Qualification}" type="checkbox">
-                                        </th>
-                                    </tr>
-                                </table>
-                                <button type="button" class="btn btn-secondary">Save</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingTwo">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Benefits
-                                </button>
-                            </h5>
-                        </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                            <div class="card-body">
-                                <h3>Benefits you can offer</h3>
-                                <table>
-                                    <tr th:each="benefitSublist : ${benefitBigList}">
-                                        <th th:each="benefit : ${benefitSublist}">
-                                            <input th:text="${benefit.Benefit}" type="checkbox">
-                                        </th>
-                                    </tr>
-                                </table>
-                                <button type="button" class="btn btn-secondary">Save</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                    </div>
-                </div>
-
-                <!-- end inner collapse -->
-            </div>
-        </div>
     </div>
 </div>
 
