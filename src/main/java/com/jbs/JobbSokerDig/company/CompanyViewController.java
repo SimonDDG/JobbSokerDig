@@ -104,8 +104,10 @@ public class CompanyViewController {
     }
 
     @GetMapping("/userProfile/{username}")
-    public String seeUserProfile(@PathVariable String username, Model model){
+    public String seeUserProfile(@PathVariable String username, Model model, HttpServletRequest request){
 
+        Boolean userRole = request.isUserInRole("ROLE_COMPANY");
+        model.addAttribute("userRole", userRole);
 
         UserCandidate userCandidate = userCandidateService.getUserCandidateByUsername(username);
         model.addAttribute("userCandidate", userCandidate);

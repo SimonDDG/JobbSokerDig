@@ -30,57 +30,72 @@
         </div>
         <div class="w-nav-overlay" data-wf-ignore=""></div>
     </div>
-    <img class="center" src="/images/profileExample.png" width="100px">
-    <h2 class="hero-header" th:text="${userCandidate.fullName}"></h2><a href="#what-we-do" class="link-block w-inline-block">
+
+    <div>
+    <div th:if="${userRole}">
+        <img class="center" src="/images/profileExample.png" width="100px" id="profilePictureWhite">
+        <h2 class="hero-header" th:text="${userCandidate.fullName}" id="nameBlurredWhite"></h2>
+    </div>
+
+    <div th:unless="${userRole}">
+        <img class="center" src="/images/profileExample.png" width="100px">
+        <h2 class="hero-header" th:text="${userCandidate.fullName}"></h2>
+   </div>
+    </div>
+
+    <a href="#what-we-do" class="link-block w-inline-block">
         <img data-ix="hero-scroll-arrow" alt="" class="hero-arrow-down-icon"
              style="transition: transform 600ms linear 0s; transform: translateX(0px) translateY(0px);"></a>
     <p id="profile-presentation" th:text="${userCandidate.description}"></p>
     <br>
     <br>
+    <div th:if="${userRole}">
+        <button type="button" class="btn btn-lg btn-sendOfferCandidate center" >Send Offer</button><br>
+    </div><br>
+
 </div>
 <!--HEADER ENDS-->
 
-<!--<div th:replace="fragments/header :: header-light">...</div>-->
 <div class="profile-boxes">
 
     <div class="jumbotron" id="block1">
         <div class="text-block">
-        <h3>Previous experiences</h3>
-        <p th:text="${userCandidate.ExperiencesAndProjects}"></p>
+            <h3>Previous experiences</h3>
+            <p th:text="${userCandidate.ExperiencesAndProjects}"></p>
         </div>
     </div>
 
     <div class="jumbotron" id="block2">
         <div class="text-block">
 
-        <h3>Qualifications</h3>
-        <ul th:each="uq : ${userQualification}">
+            <h3>Qualifications</h3>
+            <ul th:each="uq : ${userQualification}">
 
-            <li th:text="${uq.userQualification.Qualification + ' - Level of skill (1-5): '} + ${uq.userQualificationLevel.QualificationLevel}"></li>
+                <li th:text="${uq.userQualification.Qualification + ' - Level of skill (1-5): '} + ${uq.userQualificationLevel.QualificationLevel}"></li>
 
-        </ul>
+            </ul>
         </div>
     </div>
 
     <div class="jumbotron" id="block3">
         <div class="text-block">
 
-        <h3>Benefit Preference</h3>
+            <h3>Benefit Preference</h3>
 
-        <ul th:each="up : ${userPreference}">
-            <li>
-                <span th:text="${up.benefit.Benefit}"></span>
-                <!-- <span th:text="${up.preferenceLevel.ImportanceLevel}"></span> -->
-            </li>
-        </ul>
+            <ul th:each="up : ${userPreference}">
+                <li>
+                    <span th:text="${up.benefit.Benefit}"></span>
+                    <!-- <span th:text="${up.preferenceLevel.ImportanceLevel}"></span> -->
+                </li>
+            </ul>
         </div>
     </div>
 
 
     <div class="jumbotron" id="block4">
         <div class="text-block">
-        <h3>Reviews</h3>
-        <!--start review-->
+            <h3>Reviews</h3>
+            <!--start review-->
             <div class="container">
                 <div class="row">
                 </div>
@@ -95,7 +110,10 @@
                                     <!--start review 1-->
                                     <div class="col-md-4 col-sm-6">
                                         <div class="block-text rel zmin">
-                                            <p>This candidate has shown a great ability to cope with a highly dynamic work situations. Additionally, the candidate has excellent referrals from previous colleagues and employers. I believe that the candidate can make a big impact on any development team.</p>
+                                            <p>This candidate has shown a great ability to cope with a highly dynamic
+                                                work situations. Additionally, the candidate has excellent referrals
+                                                from previous colleagues and employers. I believe that the candidate can
+                                                make a big impact on any development team.</p>
                                             <ins class="ab zmin sprite sprite-i-triangle block"></ins>
                                         </div>
                                         <div class="person-text rel">
@@ -121,6 +139,10 @@
             <!--end review-->
         </div>
     </div>
+
+
+
+
 </div>
 
 

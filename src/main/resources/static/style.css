@@ -328,6 +328,48 @@ width: 90%;
     height: auto;
 }
 
+#profilePicture {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+#nameBlurred {
+    color: transparent;
+    text-shadow: #111 0 0 15px;
+    transition: 0.4s;
+}
+
+#profilePictureWhite {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+#nameBlurredWhite {
+    color: transparent;
+    text-shadow: white 0 0 35px;
+    transition: 0.7s;
+}
+
+.btn-viewCandidates {
+    color: white;
+    background-color: #F57458;
+}
+
+.btn-viewCandidates:hover {
+    color: white;
+    background-color: #A3381E;
+}
+
+.btn-sendOfferCandidate {
+    color: white;
+    background-color: #F57458;
+    margin: 0 auto;
+}
+
+.btn-sendOfferCandidate:hover {
+    color: white;
+    background-color: #A3381E;
+}
 
 
 
