@@ -107,7 +107,7 @@
                             <div class="col-sm-10">
                                 <div class="form-check">
                                     <table>
-                                        <tr th:each="qualificationSublist : ${qualificationBigList}">
+                                        <tr th:each="qualificationSublist : ${allQualificationBigList}">
                                             <th th:each="qualification : ${qualificationSublist}">
                                                 <input th:text="${qualification.Qualification}" name="qualificationId"
                                                        th:value="${qualification.QualificationId}" type="checkbox">
@@ -122,7 +122,7 @@
                             <div class="col-sm-10">
                                 <div class="form-check">
                                     <table>
-                                        <tr th:each="benefitSublist : ${benefitBigList}">
+                                        <tr th:each="benefitSublist : ${allBenefitBigList}">
                                             <th th:each="benefit : ${benefitSublist}">
                                                 <input th:text="${benefit.Benefit}" name="benefitId"
                                                        th:value="${benefit.BenefitId}" type="checkbox">
@@ -170,6 +170,7 @@
 
                                 <div id="accordion">
                                     <div class="card">
+
                                         <div class="card-header" id="headingOne">
                                             <h5 class="mb-0">
                                                 <button class="btn btn-link" data-toggle="collapse"
@@ -179,16 +180,21 @@
                                                 </button>
                                             </h5>
                                         </div>
+<form action="/savePositionQualifications" method="post">
+                                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
 
                                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                        
+                                        
                                              data-parent="#accordion">
                                             <div class="card-body">
                                                 <h3>Qualifications already selected for this position</h3>
                                                 <table>
                                                     <tr>
                                                         <th th:each="qN : ${openPositionQualifications}">
-                                                            <input th:text="${qN.qualification.Qualification}"
-                                                                   type="checkbox" checked="checked">
+
+                                                            <input th:text="${qN.qualification.Qualification}" type="checkbox" checked="checked" name="checkboxName" th:value="${qN.qualification.QualificationId}">
+
                                                         </th>
                                                     </tr>
                                                 </table>
@@ -197,15 +203,19 @@
                                                 <table>
                                                     <tr th:each="qualificationSublist : ${qualificationBigList}">
                                                         <th th:each="qualification : ${qualificationSublist}">
-                                                            <input th:text="${qualification.Qualification}"
-                                                                   type="checkbox">
+
+                                                            <input th:text="${qualification.Qualification}" type="checkbox" name="checkboxName" th:value="${qualification.QualificationId}">
+
                                                         </th>
                                                     </tr>
                                                 </table>
-                                                <button type="button" class="btn btn-secondary">Save</button>
                                             </div>
+                                            <input type="hidden" name="openPosId" th:value="${currentOpenPosition.OpenPositionId}">
+                                            <input type="submit" class="btn btn-secondary" value="Save">
                                         </div>
+                                        </form>
                                     </div>
+
                                     <div class="card">
                                         <div class="card-header" id="headingTwo">
                                             <h5 class="mb-0">
@@ -216,6 +226,8 @@
                                                 </button>
                                             </h5>
                                         </div>
+                                        <form action="/savePositionBenefits" method="post">
+                                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
                                         <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
                                              data-parent="#accordion">
                                             <div class="card-body">
@@ -223,8 +235,7 @@
                                                 <table>
                                                     <tr>
                                                         <th th:each="opB : ${openPositionBenefits}">
-                                                            <input th:text="${opB.benefit.benefit}" type="checkbox"
-                                                                   checked="checked">
+                                                            <input th:text="${opB.benefit.benefit}" type="checkbox" checked="checked" name="checkboxName" th:value="${opB.benefit.benefitId}">
                                                         </th>
                                                     </tr>
                                                 </table>
@@ -232,14 +243,17 @@
                                                 <table>
                                                     <tr th:each="benefitSublist : ${benefitBigList}">
                                                         <th th:each="benefit : ${benefitSublist}">
-                                                            <input th:text="${benefit.Benefit}" type="checkbox">
+                                                            <input th:text="${benefit.Benefit}" type="checkbox" name="checkboxName" th:value="${benefit.BenefitId}">
                                                         </th>
                                                     </tr>
                                                 </table>
-                                                <button type="button" class="btn btn-secondary">Save</button>
+                                                <input type="hidden" name="openPosId" th:value="${currentOpenPosition.OpenPositionId}">
+                                                <input type="submit" class="btn btn-secondary" value="Save">
                                             </div>
                                         </div>
-                                    </div> <!-- Benefits drop down -->
+                                        </form>
+                                    </div>
+
                                     <div>
                                     </div>
                                 </div>

@@ -39,4 +39,31 @@ public class CompanyFunctionController {
         return "redirect:/companyOpenPositions";
     }
 
+    @PostMapping("/savePositionQualifications")
+    public String savePositionQual(@RequestParam(required = false, defaultValue = "0") String openPosId, @RequestParam(value = "checkboxName", required = false) String[] newCompanyOpenPos) {
+
+        for (int i = 0; i < newCompanyOpenPos.length; i++) {
+            System.out.println(newCompanyOpenPos[i]);
+        }
+
+        openPositionService.updateOpenPositionQualifications(newCompanyOpenPos, openPosId);
+
+        return "redirect:/companyOpenPositions?openPositionId=" + openPosId;
+    }
+    @PostMapping("/savePositionBenefits")
+    public String savePositionBen(@RequestParam(required = false, defaultValue = "0") String openPosId, @RequestParam(value = "checkboxName", required = false) String[] newCompanyOpenPos) {
+
+        System.out.println("BENEFIT Metoden kallas");
+
+        for (int i = 0; i < newCompanyOpenPos.length; i++) {
+            System.out.println(newCompanyOpenPos[i]);
+        }
+
+        openPositionService.updateOpenPositionBenefits(newCompanyOpenPos, openPosId);
+
+        return "redirect:/companyOpenPositions?openPositionId=" + openPosId;
+    }
+
+
+
 }
