@@ -84,7 +84,6 @@ public class CompanyViewController {
         OpenPosition currentOpenPosition = openPositionService.getCurrentOpenPosition(openPositionId);
         model.addAttribute("currentOpenPosition", currentOpenPosition);
 
-
         List<Qualification> qualifications = qualificationService.getAllQualifications();
         List<Qualification> checkedQualifications = viewLogic.checkQualificationsAgainstOpenPositionQualifications(openPositionId, qualifications);
         List<List<Qualification>> qualificationBigList = viewLogic.splitQualificationList(checkedQualifications, 5);
@@ -92,11 +91,18 @@ public class CompanyViewController {
 
         List<CompAndBen> openPositionBenefits = viewLogic.getCurrentOpenPositionBenefits(openPositionId);
         model.addAttribute("openPositionBenefits", openPositionBenefits);
-
         List<Benefit> benefits = benefitService.getAllBenefits();
         List<Benefit> checkedBenefits = viewLogic.checkBenefitsAgainstOpenPositionBenefits(openPositionId, benefits);
         List<List<Benefit>> benefitBigList = viewLogic.splitBenefitList(checkedBenefits, 3);
         model.addAttribute("benefitBigList", benefitBigList);
+
+        List<Qualification> allQualifications = qualificationService.getAllQualifications();
+        List<List<Qualification>> allQualificationBigList = viewLogic.splitQualificationList(allQualifications, 5);
+        model.addAttribute("allQualificationBigList", allQualificationBigList);
+
+        List<Benefit> allBenefits = benefitService.getAllBenefits();
+        List<List<Benefit>> allBenefitBigList = viewLogic.splitBenefitList(checkedBenefits, 3);
+        model.addAttribute("allBenefitBigList", allBenefitBigList);
 
         return "companyOpenPositions";
     }
