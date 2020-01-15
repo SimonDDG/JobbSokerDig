@@ -107,6 +107,9 @@ public class CompanyViewController {
         List<UserCandidate> userCandidateByHighestMatched = matchService.getCandidatesByHighestMatched(openPositionId);
         model.addAttribute("userCandidateByHighestMatched", userCandidateByHighestMatched);
 
+        OpenPosition currentOpenPosition = openPositionService.getCurrentOpenPosition(openPositionId);
+        model.addAttribute("currentOpenPosition", currentOpenPosition);
+
         List<OpenPosition> openPositions = openPositionService.getAllOpenPositions();
         model.addAttribute("openPositions", openPositions);
 

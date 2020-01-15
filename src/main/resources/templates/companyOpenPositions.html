@@ -56,7 +56,7 @@
     <div>
         <div>
             <div class="btn-group show-on-hover">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" th:text="${currentOpenPosition.openPositionName}">
                     Choose your Open Position <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu">
@@ -65,21 +65,22 @@
                            th:text="${openPos.openPositionName}">Position 1</a>
                     </li>
                 </ul>
-
             </div>
         </div>
     </div>
+    <br>
+    <br>
 
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
-         aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+         aria-labelledby="exampleModalScrollableTitle" aria-hidden="false">
         <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalScrollableTitle">New Position</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="false">&times;</span>
                     </button>
                 </div>
                 <!--START OF FORM-->
@@ -153,9 +154,7 @@
     <!--<tr th:each="openPosition : ${}"> ska göra loop för att hämta alla openPositions för företaget-->
 
     <!-- title over Qualifications and Benefits -->
-    <div>
-        <h2 th:text="${currentOpenPosition.openPositionName}">Choose a Open Position</h2>
-    </div>
+
     <div class="accordion" id="accordionExample">
         <div class="card">
             <div class="card-header" id="headingJob">
@@ -173,7 +172,7 @@
                                     <div class="card">
                                         <div class="card-header" id="headingOne">
                                             <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" data-toggle="collapse"
+                                                <button class="btn btn-link" data-toggle="collapse"
                                                         data-target="#collapseOne"
                                                         aria-expanded="true" aria-controls="collapseOne">
                                                     Qualifications
@@ -181,7 +180,7 @@
                                             </h5>
                                         </div>
 
-                                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                                              data-parent="#accordion">
                                             <div class="card-body">
                                                 <h3>Qualifications already selected for this position</h3>
@@ -211,13 +210,13 @@
                                         <div class="card-header" id="headingTwo">
                                             <h5 class="mb-0">
                                                 <button class="btn btn-link collapsed" data-toggle="collapse"
-                                                        data-target="#collapseTwo" aria-expanded="false"
+                                                        data-target="#collapseTwo" aria-expanded="true"
                                                         aria-controls="collapseTwo">
                                                     Benefits
                                                 </button>
                                             </h5>
                                         </div>
-                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
                                              data-parent="#accordion">
                                             <div class="card-body">
                                                 <h3>Qualifications already selected for this position</h3>
