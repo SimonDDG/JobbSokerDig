@@ -13,6 +13,11 @@ public interface OpenPositionRepository extends CrudRepository<OpenPosition, Lon
     @Query(value = "SELECT * FROM OpenPosition WHERE CompanyId = ?1", nativeQuery = true)
     List<OpenPosition> getAllOpenPositionsByCompanyId(Long companyId);
 
+    @Query(value = "SELECT * FROM OpenPosition WHERE OpenPositionId = ?1", nativeQuery = true)
+    OpenPosition getOneOpenPositionsByOpenPositionId(Long openPositionId);
+
     @Query(value = "SELECT * FROM OpenPosition WHERE OpenPositionName = ?1", nativeQuery = true)
     OpenPosition getOpenPositionByTitle(String positionTitle);
+
+
 }

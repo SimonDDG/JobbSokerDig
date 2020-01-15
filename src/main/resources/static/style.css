@@ -234,7 +234,7 @@ display: block;
 }
 
 .text-block {
-width: 90%;
+width: 75%;
     margin: auto;
 }
 
@@ -332,6 +332,8 @@ width: 90%;
     filter: blur(8px);
     -webkit-filter: blur(8px);
 }
+#h2-openPositions {
+   margin-left: 25px;
 
 #nameBlurred {
     color: transparent;
@@ -343,7 +345,9 @@ width: 90%;
     filter: blur(8px);
     -webkit-filter: blur(8px);
 }
-
+.mb-0 {
+margin-left: 50px;
+}
 #nameBlurredWhite {
     color: transparent;
     text-shadow: white 0 0 35px;

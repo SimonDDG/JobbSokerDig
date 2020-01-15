@@ -72,6 +72,14 @@ public class OpenPositionService {
         return openPositionQualifications;
     }
 
+    public List<CompAndBen> getOpenPositionBenefits(Long openPosition) {
+        List<CompAndBen> openPositionBenefits = compAndBenRepository.getAllCompAndBenByOpenPositionId(openPosition);
+
+        return openPositionBenefits;
+    }
+
+
+
 public void saveNewOpenPosition(HttpServletRequest request, String positionTitle, String description, String[] qualificationIds, String[] benefitIds) {
         Company company = companyRepository.getCompanyRepo(request.getRemoteUser());
         createNewOpenPosition(company, positionTitle, description);
@@ -110,5 +118,16 @@ public void saveNewOpenPosition(HttpServletRequest request, String positionTitle
 
     private void createNewOpenPosition(Company company, String positionTitle, String description) {
         openPositionRepository.save(new OpenPosition(null, company, positionTitle, description));
+    }
+
+    public OpenPosition getCurrentOpenPosition(Long openPositionId) {
+        OpenPosition currentOpenPosition = new OpenPosition();
+        if (openPositionId > 0) {
+            currentOpenPosition = openPositionRepository.getOneOpenPositionsByOpenPositionId(openPositionId);
+            return currentOpenPosition;
+        } else {
+            currentOpenPosition.setOpenPositionName("Choose your position");
+            return currentOpenPosition;
+        }
     }
 }
