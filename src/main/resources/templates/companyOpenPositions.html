@@ -86,7 +86,7 @@
                             <div class="col-sm-10">
                                 <div class="form-check">
                                     <table>
-                                        <tr th:each="qualificationSublist : ${qualificationBigList}">
+                                        <tr th:each="qualificationSublist : ${allQualificationBigList}">
                                             <th th:each="qualification : ${qualificationSublist}">
                                                 <input th:text="${qualification.Qualification}" name="qualificationId"
                                                        th:value="${qualification.QualificationId}" type="checkbox">
@@ -101,7 +101,7 @@
                             <div class="col-sm-10">
                                 <div class="form-check">
                                     <table>
-                                        <tr th:each="benefitSublist : ${benefitBigList}">
+                                        <tr th:each="benefitSublist : ${allBenefitBigList}">
                                             <th th:each="benefit : ${benefitSublist}">
                                                 <input th:text="${benefit.Benefit}" name="benefitId"
                                                        th:value="${benefit.BenefitId}" type="checkbox">
