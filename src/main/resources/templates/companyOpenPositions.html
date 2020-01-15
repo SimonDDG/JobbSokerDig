@@ -203,6 +203,14 @@
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                             <div class="card-body">
+                                <h3>Qualifications already selected for this position</h3>
+                                <table>
+                                    <tr>
+                                        <th th:each="opB : ${openPositionBenefits}">
+                                            <input th:text="${opB.benefit.benefit}" type="checkbox" checked="checked">
+                                        </th>
+                                    </tr>
+                                </table>
                                 <h3>Benefits you can offer</h3>
                                 <table>
                                     <tr th:each="benefitSublist : ${benefitBigList}">

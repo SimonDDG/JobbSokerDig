@@ -1,6 +1,7 @@
 package com.jbs.JobbSokerDig.viewLogic;
 
 
+import com.jbs.JobbSokerDig.company.CompAndBen;
 import com.jbs.JobbSokerDig.company.OpenPosition;
 import com.jbs.JobbSokerDig.company.QualificationNeed;
 import com.jbs.JobbSokerDig.repositorys.OpenPositionRepository;
@@ -68,19 +69,20 @@ public class ViewLogic {
         }
         return rL;
     }
-//    public List<Benefit> checkBenefitsAgainstUserCandidateBenefits(UserCandidate userCandidate, List<Benefit> benefits) {
-//        List<UserPreference> userBenefits = getCurrentUserCandidatePreference(userCandidate);
-//        List<Benefit> rL = benefits;
-//
-//        for (UserPreference ub : userBenefits) {
-//            for (int j = 0; j < benefits.size(); j++) {
-//                if (ub.getBenefit().getBenefit().equals(benefits.get(j).getBenefit())) {
-//                    rL.remove(j);
-//                }
-//            }
-//        }
-//        return rL;
-//    }
+    public List<Benefit> checkBenefitsAgainstOpenPositionBenefits(Long openPositionId, List<Benefit> benefits) {
+        List<CompAndBen> openPositionBenefits = getCurrentOpenPositionBenefits(openPositionId);
+        List<Benefit> rL = benefits;
+
+        for (CompAndBen oB : openPositionBenefits) {
+            for (int j = 0; j < benefits.size(); j++) {
+                if (oB.getBenefit().getBenefit().equals(benefits.get(j).getBenefit())) {
+                    rL.remove(j);
+                }
+            }
+        }
+        return rL;
+    }
+
 //    public UserCandidate getCurrentUserCandidate(HttpServletRequest request) {
 //        UserCandidate userCandidate = userCandidateService.getUserCandidate(request);
 //        return userCandidate;
@@ -90,9 +92,9 @@ public class ViewLogic {
         List<QualificationNeed> openPositonQualifications = openPositionService.getOpenPositionQualification(openPositionId);
         return openPositonQualifications;
     }
-//    public List<UserPreference> getCurrentUserCandidatePreference(UserCandidate userCandidate) {
-//        List<UserPreference> userPreference = userPreferenceService.getUserPreference(userCandidate.getUserCandidateId());
-//        return userPreference;
-//    }
+    public List<CompAndBen> getCurrentOpenPositionBenefits(Long openPositionId) {
+        List<CompAndBen> openPositionBenefits = openPositionService.getOpenPositionBenefits(openPositionId);
+        return openPositionBenefits;
+    }
 
 }
