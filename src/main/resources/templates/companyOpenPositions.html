@@ -166,6 +166,7 @@
 
                                 <div id="accordion">
                                     <div class="card">
+
                                         <div class="card-header" id="headingOne">
                                             <h5 class="mb-0">
                                                 <button class="btn btn-link" data-toggle="collapse"
@@ -175,7 +176,8 @@
                                                 </button>
                                             </h5>
                                         </div>
-
+                                        <form action="/savePositionQualifications" method="post">
+                                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
                                         <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
                                              data-parent="#accordion">
                                             <div class="card-body">
@@ -198,10 +200,12 @@
                                                         </th>
                                                     </tr>
                                                 </table>
-                                                <button type="button" class="btn btn-secondary">Save</button>
                                             </div>
+                                            <input type="submit" class="btn btn-secondary" value="Save">
                                         </div>
+                                        </form>
                                     </div>
+
                                     <div class="card">
                                         <div class="card-header" id="headingTwo">
                                             <h5 class="mb-0">
@@ -236,6 +240,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div>
                                     </div>
                                 </div>

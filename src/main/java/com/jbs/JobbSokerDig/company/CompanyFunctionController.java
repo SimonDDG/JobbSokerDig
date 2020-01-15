@@ -39,4 +39,10 @@ public class CompanyFunctionController {
         return "redirect:/companyOpenPositions";
     }
 
+    @PostMapping("/savePositionQualifications")
+    public String savePositionQual() {
+        System.out.println("Metoden kallas");
+        return "redirect:/companyOpenPositions";
+    }
+
 }
