@@ -125,7 +125,7 @@ public void saveNewOpenPosition(HttpServletRequest request, String positionTitle
         }
     }
 
-    public void updateOpenPosition(String[] newCompanyOpenPos, String openPosId) {
+    public void updateOpenPositionQualifications(String[] newCompanyOpenPos, String openPosId) {
 
 
         List<Qualification> newQualificatios = qualificationService.getQualificationListById(covertStringToLong(newCompanyOpenPos));
@@ -141,6 +141,24 @@ public void saveNewOpenPosition(HttpServletRequest request, String positionTitle
         }
 
     }
+    public void updateOpenPositionBenefits(String[] newCompanyOpenPos, String openPosId) {
+
+
+        List<Benefit> newBenefits = benefitService.getAllBenefitsById(newCompanyOpenPos);
+
+        OpenPosition currentOpenPosition = openPositionRepository.getOneOpenPositionsByOpenPositionId(Long.parseLong(openPosId));
+
+        List<CompAndBen> oldCAB = compAndBenRepository.getAllCompAndBenByOpenPositionId(Long.parseLong(openPosId));
+
+        compAndBenRepository.deleteAll(oldCAB);
+
+        for (int i = 0; i < newBenefits.size(); i++) {
+            compAndBenRepository.save(new CompAndBen(null, newBenefits.get(i), currentOpenPosition));
+        }
+
+    }
+
+
 
     private List<Long> covertStringToLong(String[] ids) {
         List<Long> longIds = new ArrayList<>();
