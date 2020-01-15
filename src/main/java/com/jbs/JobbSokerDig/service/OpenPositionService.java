@@ -108,13 +108,7 @@ public void saveNewOpenPosition(HttpServletRequest request, String positionTitle
 
     }
 
-    private List<Long> covertStringToLong(String[] ids) {
-        List<Long> longIds = new ArrayList<>();
-        for (int i = 0; i < ids.length; i++) {
-            longIds.add(Long.parseLong(ids[i]));
-        }
-        return longIds;
-    }
+
 
     private void createNewOpenPosition(Company company, String positionTitle, String description) {
         openPositionRepository.save(new OpenPosition(null, company, positionTitle, description));
@@ -129,5 +123,30 @@ public void saveNewOpenPosition(HttpServletRequest request, String positionTitle
             currentOpenPosition.setOpenPositionName("Choose your position");
             return currentOpenPosition;
         }
+    }
+
+    public void updateOpenPosition(String[] newCompanyOpenPos, String openPosId) {
+
+
+        List<Qualification> newQualificatios = qualificationService.getQualificationListById(covertStringToLong(newCompanyOpenPos));
+
+        OpenPosition currentOpenPosition = openPositionRepository.getOneOpenPositionsByOpenPositionId(Long.parseLong(openPosId));
+
+        List<QualificationNeed> oldQNeeds = qualificationNeedRepository.getAllQualificationsByOpenPositionId(Long.parseLong(openPosId));
+
+        qualificationNeedRepository.deleteAll(oldQNeeds);
+
+        for (int i = 0; i < newQualificatios.size(); i++) {
+            qualificationNeedRepository.save(new QualificationNeed(null, newQualificatios.get(i), currentOpenPosition));
+        }
+
+    }
+
+    private List<Long> covertStringToLong(String[] ids) {
+        List<Long> longIds = new ArrayList<>();
+        for (int i = 0; i < ids.length; i++) {
+            longIds.add(Long.parseLong(ids[i]));
+        }
+        return longIds;
     }
 }

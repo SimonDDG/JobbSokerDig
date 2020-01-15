@@ -40,9 +40,17 @@ public class CompanyFunctionController {
     }
 
     @PostMapping("/savePositionQualifications")
-    public String savePositionQual() {
+    public String savePositionQual(@RequestParam(required = false, defaultValue = "0") String openPosId, @RequestParam(value = "checkboxName", required = false) String[] newCompanyOpenPos) {
+
         System.out.println("Metoden kallas");
-        return "redirect:/companyOpenPositions";
+
+        for (int i = 0; i < newCompanyOpenPos.length; i++) {
+            System.out.println(newCompanyOpenPos[i]);
+        }
+
+        openPositionService.updateOpenPosition(newCompanyOpenPos, openPosId);
+
+        return "redirect:/companyOpenPositions?openPositionId=" + openPosId;
     }
 
 }

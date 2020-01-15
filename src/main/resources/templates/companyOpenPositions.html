@@ -185,8 +185,9 @@
                                                 <table>
                                                     <tr>
                                                         <th th:each="qN : ${openPositionQualifications}">
-                                                            <input th:text="${qN.qualification.Qualification}"
-                                                                   type="checkbox" checked="checked">
+
+                                                            <input th:text="${qN.qualification.Qualification}" type="checkbox" checked="checked" name="checkboxName" th:value="${qN.qualification.QualificationId}">
+
                                                         </th>
                                                     </tr>
                                                 </table>
@@ -195,12 +196,14 @@
                                                 <table>
                                                     <tr th:each="qualificationSublist : ${qualificationBigList}">
                                                         <th th:each="qualification : ${qualificationSublist}">
-                                                            <input th:text="${qualification.Qualification}"
-                                                                   type="checkbox">
+
+                                                            <input th:text="${qualification.Qualification}" type="checkbox" name="checkboxName" th:value="${qualification.QualificationId}">
+
                                                         </th>
                                                     </tr>
                                                 </table>
                                             </div>
+                                            <input type="hidden" name="openPosId" th:value="${currentOpenPosition.OpenPositionId}">
                                             <input type="submit" class="btn btn-secondary" value="Save">
                                         </div>
                                         </form>
