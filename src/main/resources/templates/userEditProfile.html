@@ -61,7 +61,7 @@
                         <table>
                             <tr>
                                 <th th:each="uq : ${userQualification}">
-                                    <input th:text="${uq.userQualification.Qualification}"
+                                    <input class="margin-table" th:text="${uq.userQualification.Qualification}"
                                            th:value="${uq.userQualification.QualificationId}" type="checkbox"
                                            name="checkboxName" checked="checked">
                                 </th>
@@ -71,7 +71,7 @@
                         <table>
                             <tr th:each="sqBig : ${splittedQualifications}">
                                 <th th:each="sq : ${sqBig}">
-                                    <input th:text="${sq.Qualification}" th:value="${sq.QualificationId}"
+                                    <input class="margin-table" th:text="${sq.Qualification}" th:value="${sq.QualificationId}"
                                            type="checkbox" name="checkboxName">
                                 </th>
                             </tr>
@@ -103,7 +103,7 @@
                         <table>
                             <tr>
                                 <th th:each="um : ${userMustHaves}">
-                                    <input th:text="${um.benefit.Benefit}" th:value="${um.benefit.BenefitId}"
+                                    <input class="margin-table" th:text="${um.benefit.Benefit}" th:value="${um.benefit.BenefitId}"
                                            name="checkboxName" type="checkbox" checked="checked">
                                 </th>
                             </tr>
@@ -145,7 +145,7 @@
                         <table>
                             <tr>
                                 <th th:each="num : ${notUserMustHaves}">
-                                    <input th:text="${num.benefit.Benefit}" th:value="${num.benefit.BenefitId}"
+                                    <input class="margin-table" th:text="${num.benefit.Benefit}" th:value="${num.benefit.BenefitId}"
                                            name="checkboxName" type="checkbox" checked="checked">
                                 </th>
                             </tr>
