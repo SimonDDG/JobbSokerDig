@@ -12,15 +12,15 @@ public class CompAndBen {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Compandbenid")
-    Long CompAndBenId;
+    private Long CompAndBenId;
 
     @OneToOne
     @JoinColumn(name = "Benefitid")
-    Benefit benefit;
+    private Benefit benefit;
 
     @ManyToOne
     @JoinColumn(name = "Openpositionid")
-    OpenPosition openPosition;
+    private OpenPosition openPosition;
 
     public CompAndBen() {
     }

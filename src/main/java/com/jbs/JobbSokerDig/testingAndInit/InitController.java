@@ -14,7 +14,7 @@ public class InitController {
     private LoginRepository loginRepository;
 
     @Autowired
-    PasswordEncoder encoder;
+    private PasswordEncoder encoder;
 
     @GetMapping("/init")
     public String init(){

@@ -21,22 +21,22 @@ import java.util.List;
 public class MatchService {
 
     @Autowired
-    UserQualificationRepository userQualificationRepository;
+    private UserQualificationRepository userQualificationRepository;
 
     @Autowired
-    UserPreferenceRepository userPreferenceRepository;
+    private UserPreferenceRepository userPreferenceRepository;
 
     @Autowired
-    QualificationNeedRepository qualificationNeedRepository;
+    private QualificationNeedRepository qualificationNeedRepository;
 
     @Autowired
-    CompAndBenRepository compAndBenRepository;
+    private CompAndBenRepository compAndBenRepository;
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Autowired
-    OpenPositionRepository openPositionRepository;
+    private OpenPositionRepository openPositionRepository;
 
     public ArrayList<Double> howManyQualificationsMatched(Long openPositionId/*List<UserQualification> allUserQualifications*/) {
 

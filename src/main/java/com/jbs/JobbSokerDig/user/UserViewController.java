@@ -20,28 +20,28 @@ import java.util.List;
 public class UserViewController {
 
     @Autowired
-    UserCandidateService userCandidateService;
+    private UserCandidateService userCandidateService;
 
     @Autowired
-    UserQualificationService userQualificationService;
+    private UserQualificationService userQualificationService;
 
     @Autowired
-    UserPreferenceService userPreferenceService;
+    private UserPreferenceService userPreferenceService;
 
     @Autowired
-    SoftOfferService softOfferService;
+    private SoftOfferService softOfferService;
 
     @Autowired
-    QualificationService qualificationService;
+    private QualificationService qualificationService;
 
     @Autowired
-    BenefitService benefitService;
+    private BenefitService benefitService;
 
     @Autowired
-    ViewLogic viewLogic;
+    private ViewLogic viewLogic;
 
     @Autowired
-    UserEditProfileViewLogic userEditProfileViewLogic;
+    private UserEditProfileViewLogic userEditProfileViewLogic;
 
     @GetMapping("/userMain")
     public String getUserMain(){
@@ -76,8 +76,8 @@ public class UserViewController {
         model.addAttribute("userQualification", userQualification);
 
         for (int i = 0; i < userQualification.size(); i++) {
-            Long UserIdTest = userQualification.get(i).userCandidate.UserCandidateId;
-            Long UserQTest = userQualification.get(i).userQualification.getQualificationId();
+            Long UserIdTest = userQualification.get(i).getUserCandidate().getUserCandidateId();
+            Long UserQTest = userQualification.get(i).getUserQualification().getQualificationId();
         }
 
         List<Qualification> qualifications = qualificationService.getAllQualifications();

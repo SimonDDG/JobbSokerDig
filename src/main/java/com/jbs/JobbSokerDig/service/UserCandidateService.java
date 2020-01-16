@@ -14,7 +14,7 @@ import java.util.List;
 public class UserCandidateService {
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     public UserCandidate getUserCandidate(HttpServletRequest request) {
         String username = request.getRemoteUser();

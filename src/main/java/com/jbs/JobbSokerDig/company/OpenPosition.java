@@ -9,17 +9,17 @@ public class OpenPosition {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Openpositionid")
-    Long OpenPositionId;
+    private Long OpenPositionId;
 
     @ManyToOne
     @JoinColumn(name = "Companyid")
-    Company company;
+    private Company company;
 
     @Column(name = "Openpositionname")
-    String openPositionName;
+    private String openPositionName;
 
     @Column(name = "Openpositiondescription")
-    String OpenPositionDescription;
+    private String OpenPositionDescription;
 
     public OpenPosition() {
     }

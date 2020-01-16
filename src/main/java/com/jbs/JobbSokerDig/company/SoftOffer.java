@@ -11,25 +11,25 @@ public class SoftOffer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Softofferid")
-    Long SoftOfferId;
+    private Long SoftOfferId;
 
     @ManyToOne
     @JoinColumn(name = "Usercandidateid")
-    UserCandidate userCandidate;
+    private UserCandidate userCandidate;
 
     @ManyToOne
     @JoinColumn(name = "Companyid")
-    Company company;
+    private Company company;
 
     @Column(name = "Softoffer")
-    String SoftOffer;
+    private String SoftOffer;
 
     @Column(name = "Userstatus")
-    String UserStatus;
+    private String UserStatus;
 
     @ManyToOne
     @JoinColumn(name = "Openpositionid")
-    OpenPosition openPosition;
+    private OpenPosition openPosition;
 
     public Long getSoftOfferId() {
         return SoftOfferId;

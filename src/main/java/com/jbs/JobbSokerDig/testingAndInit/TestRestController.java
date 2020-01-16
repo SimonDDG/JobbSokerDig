@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestRestController {
 
     @Autowired
-    LoginRepository repo;
+    private LoginRepository repo;
 
 //    @GetMapping("/test")
 //    public Login getIndex(){

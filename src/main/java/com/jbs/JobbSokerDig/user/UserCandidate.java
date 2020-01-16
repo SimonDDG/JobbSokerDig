@@ -11,26 +11,26 @@ public class UserCandidate implements Comparable<UserCandidate> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Usercandidateid")
-    Long UserCandidateId;
+    private Long UserCandidateId;
 
     @OneToOne
     @JoinColumn(name = "Loginid")
-    Login login;
+    private Login login;
 
     @Column(name = "Fullname")
-    String fullName;
+    private String fullName;
 
     @Column(name = "email")
-    String email;
+    private String email;
 
     @Column(name = "Description")
-    String Description;
+    private String Description;
 
     @Column(name = "Experiencesandprojects")
-    String ExperiencesAndProjects;
+    private String ExperiencesAndProjects;
 
     @Transient
-    Integer averagePercentageMatchedInRelationToOpenPosition;
+    private Integer averagePercentageMatchedInRelationToOpenPosition;
 
     public Integer getAveragePercentageMatchedInRelationToOpenPosition() { return averagePercentageMatchedInRelationToOpenPosition; }
 

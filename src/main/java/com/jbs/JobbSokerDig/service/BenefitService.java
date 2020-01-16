@@ -13,7 +13,7 @@ import java.util.List;
 public class BenefitService {
 
     @Autowired
-    BenefitRepository benefitRepository;
+    private BenefitRepository benefitRepository;
 
     public List<Benefit> getAllBenefits() {
 

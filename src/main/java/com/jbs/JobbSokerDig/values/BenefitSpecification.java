@@ -9,10 +9,10 @@ public class BenefitSpecification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Benefitspecificationid")
-    Long BenefitSpecificationId;
+    private Long BenefitSpecificationId;
 
     @Column(name = "Benefitspec")
-    String BenefitSpec;
+    private String BenefitSpec;
 
     public Long getBenefitSpecificationId() {
         return BenefitSpecificationId;

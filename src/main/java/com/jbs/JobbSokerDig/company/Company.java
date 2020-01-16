@@ -13,23 +13,23 @@ public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Companyid")
-    Long CompanyId;
+    private Long CompanyId;
 
     @OneToOne
     @JoinColumn(name = "LoginID")
-    Login login;
+    private Login login;
 
     @Column(name = "Name")
-    String Name;
+    private String Name;
 
     @Column(name = "email")
-    String email;
+    private String email;
 
     @Column(name = "Description")
-    String Description;
+    private String Description;
 
     @Column(name= "Logo")
-    String Logo;
+    private String Logo;
 
     public Long getCompanyId() {
         return CompanyId;

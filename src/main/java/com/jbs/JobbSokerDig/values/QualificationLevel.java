@@ -9,10 +9,10 @@ public class QualificationLevel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Qualificationlevelid")
-    Long QualificationLevelId;
+    private Long QualificationLevelId;
 
     @Column(name = "Qualificationlevel")
-    int QualificationLevel;
+    private int QualificationLevel;
 
     public QualificationLevel() {
     }

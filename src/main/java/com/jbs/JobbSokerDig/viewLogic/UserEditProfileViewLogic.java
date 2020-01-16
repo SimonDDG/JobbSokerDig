@@ -19,13 +19,13 @@ import java.util.List;
 public class UserEditProfileViewLogic {
 
     @Autowired
-    UserCandidateService userCandidateService;
+    private UserCandidateService userCandidateService;
 
     @Autowired
-    UserQualificationService userQualificationService;
+    private UserQualificationService userQualificationService;
 
     @Autowired
-    UserPreferenceService userPreferenceService;
+    private UserPreferenceService userPreferenceService;
 
     public List<Qualification> checkQualificationsAgainstUserCandidateQualifications(UserCandidate userCandidate, List<Qualification> qualifications) {
         List<UserQualification> userQualification = getCurrentUserCandidateQualifications(userCandidate);

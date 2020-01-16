@@ -23,10 +23,10 @@ import java.util.List;
 public class ViewLogic {
 
     @Autowired
-    OpenPositionRepository openPositionRepository;
+    private OpenPositionRepository openPositionRepository;
 
     @Autowired
-    OpenPositionService openPositionService;
+    private OpenPositionService openPositionService;
 
     public List<List<Qualification>> splitQualificationList(List<Qualification> bigList, int innerSize) {
 

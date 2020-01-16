@@ -9,10 +9,10 @@ public class Qualification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Qualificationid")
-    Long QualificationId;
+    private Long QualificationId;
 
     @Column(name = "Qualification")
-    String Qualification;
+    private String Qualification;
 
     public Long getQualificationId() {
         return QualificationId;

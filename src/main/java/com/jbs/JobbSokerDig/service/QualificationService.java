@@ -12,7 +12,7 @@ import java.util.List;
 public class QualificationService {
 
     @Autowired
-    QualificationRepository qualificationRepository;
+    private QualificationRepository qualificationRepository;
 
     public List<Qualification> getAllQualifications() {
 

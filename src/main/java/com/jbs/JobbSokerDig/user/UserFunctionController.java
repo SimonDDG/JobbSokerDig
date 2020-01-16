@@ -14,13 +14,13 @@ import javax.servlet.http.HttpServletRequest;
 public class UserFunctionController {
 
     @Autowired
-    UserQualificationService userQualificationService;
+    private UserQualificationService userQualificationService;
 
     @Autowired
-    UserPreferenceService userPreferenceService;
+    private UserPreferenceService userPreferenceService;
 
     @Autowired
-    SoftOfferService softOfferService;
+    private SoftOfferService softOfferService;
 
     @PostMapping("/saveUserSettings")
     public String saveUserProfile(HttpServletRequest request, @RequestParam(value = "checkboxName", required = false) String[] qualificationIds) {

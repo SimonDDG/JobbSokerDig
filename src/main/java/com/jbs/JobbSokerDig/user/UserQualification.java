@@ -12,19 +12,19 @@ public class UserQualification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Userqualificationid")
-    Long UserQualificationId;
+    private Long UserQualificationId;
 
     @OneToOne
     @JoinColumn(name = "Qualificationid")
-    Qualification userQualification;
+    private Qualification userQualification;
 
     @OneToOne
     @JoinColumn(name = "Qualificationlevelid")
-    QualificationLevel userQualificationLevel;
+    private QualificationLevel userQualificationLevel;
 
     @ManyToOne
     @JoinColumn(name = "Usercandidateid")
-    UserCandidate userCandidate;
+    private UserCandidate userCandidate;
 
     public UserQualification() {
     }

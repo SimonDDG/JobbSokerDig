@@ -20,19 +20,19 @@ import java.util.List;
 public class UserPreferenceService {
 
     @Autowired
-    UserPreferenceRepository userPreferenceRepository;
+    private UserPreferenceRepository userPreferenceRepository;
 
     @Autowired
-    UserPreferenceService userPreferenceService;
+    private UserPreferenceService userPreferenceService;
 
     @Autowired
-    BenefitService benefitService;
+    private BenefitService benefitService;
 
     @Autowired
-    UserEditProfileViewLogic userEditProfileViewLogic;
+    private UserEditProfileViewLogic userEditProfileViewLogic;
 
     @Autowired
-    ViewLogic viewLogic;
+    private ViewLogic viewLogic;
 
 
 

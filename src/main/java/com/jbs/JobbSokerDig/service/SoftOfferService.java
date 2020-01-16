@@ -13,10 +13,10 @@ import java.util.List;
 public class SoftOfferService {
 
     @Autowired
-    SoftOfferRepository softOfferRepository;
+    private SoftOfferRepository softOfferRepository;
 
     @Autowired
-    UserCandidateService userCandidateService;
+    private UserCandidateService userCandidateService;
 
     public List<SoftOffer> getSoftOfferForUser(Long userCandidateId){
 

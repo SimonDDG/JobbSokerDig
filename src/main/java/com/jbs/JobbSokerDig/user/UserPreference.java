@@ -12,11 +12,11 @@ public class UserPreference {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Userpreferenceid")
-    Long UserPreferenceId;
+    private Long UserPreferenceId;
 
     @OneToOne
     @JoinColumn(name = "Benefitid")
-    Benefit benefit;
+    private Benefit benefit;
 
 //    @OneToOne
 //    @JoinColumn(name = "Preferencelevelid")
@@ -24,10 +24,10 @@ public class UserPreference {
 
     @ManyToOne
     @JoinColumn(name = "Usercandidateid")
-    UserCandidate userCandidate;
+    private UserCandidate userCandidate;
 
     @Column(name = "Musthave")
-    Boolean mustHave;
+    private Boolean mustHave;
 
     public UserPreference() {
     }

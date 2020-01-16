@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class SecurityLoginDetailsService implements UserDetailsService {
 
     @Autowired
-    LoginRepository loginRepository;
+    private LoginRepository loginRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) {

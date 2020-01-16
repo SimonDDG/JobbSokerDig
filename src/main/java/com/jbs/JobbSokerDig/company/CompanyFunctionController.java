@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 public class CompanyFunctionController {
 
     @Autowired
-    OpenPositionService openPositionService;
+    private OpenPositionService openPositionService;
 
     @PostMapping("/saveNewOpenPosition")
     public String saveNewOpenPosition(

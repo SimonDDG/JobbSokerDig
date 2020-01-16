@@ -21,25 +21,25 @@ import java.util.List;
 public class OpenPositionService {
 
     @Autowired
-    OpenPositionRepository openPositionRepository;
+    private OpenPositionRepository openPositionRepository;
 
     @Autowired
-    CompanyRepository companyRepository;
+    private CompanyRepository companyRepository;
 
     @Autowired
-    CompanyService companyService;
+    private CompanyService companyService;
 
     @Autowired
-    QualificationService qualificationService;
+    private QualificationService qualificationService;
 
     @Autowired
-    BenefitService benefitService;
+    private BenefitService benefitService;
 
     @Autowired
-    QualificationNeedRepository qualificationNeedRepository;
+    private QualificationNeedRepository qualificationNeedRepository;
 
     @Autowired
-    CompAndBenRepository compAndBenRepository;
+    private CompAndBenRepository compAndBenRepository;
 
     public Company getCompany(HttpServletRequest request) {
         String username = request.getRemoteUser();

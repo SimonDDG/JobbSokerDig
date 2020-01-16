@@ -17,13 +17,13 @@ import java.util.List;
 public class UserQualificationService {
 
     @Autowired
-    UserQualificationRepository userQualificationRepository;
+    private UserQualificationRepository userQualificationRepository;
 
     @Autowired
-    UserEditProfileViewLogic profileViewLogic;
+    private UserEditProfileViewLogic profileViewLogic;
 
     @Autowired
-    QualificationService qualificationService;
+    private QualificationService qualificationService;
 
     public List<UserQualification> getUserQualification(Long userCandidateId){
         List<UserQualification> userQualification = userQualificationRepository.getUserQualificationRepo(userCandidateId);

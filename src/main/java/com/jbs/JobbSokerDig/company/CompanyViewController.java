@@ -23,40 +23,40 @@ import java.util.List;
 public class CompanyViewController {
 
     @Autowired
-    CompanyService companyService;
+    private CompanyService companyService;
 
     @Autowired
-    QualificationService qualificationService;
+    private QualificationService qualificationService;
 
     @Autowired
-    BenefitService benefitService;
+    private BenefitService benefitService;
 
     @Autowired
-    ViewLogic viewLogic;
+    private ViewLogic viewLogic;
 
     @Autowired
-    UserCandidateService userCandidateService;
+    private UserCandidateService userCandidateService;
 
     @Autowired
-    UserPreferenceService userPreferenceService;
+    private UserPreferenceService userPreferenceService;
 
     @Autowired
-    UserQualificationService userQualificationService;
+    private UserQualificationService userQualificationService;
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Autowired
-    OpenPositionService openPositionService;
+    private OpenPositionService openPositionService;
 
     @Autowired
-    MatchService matchService;
+    private MatchService matchService;
 
     @Autowired
-    OpenPositionRepository openPositionRepository;
+    private OpenPositionRepository openPositionRepository;
 
     @Autowired
-    SoftOfferService softOfferService;
+    private SoftOfferService softOfferService;
 
     @GetMapping("/companyMain")
     public String getCompanyMain(){

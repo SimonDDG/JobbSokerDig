@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 public class CompanyService {
 
     @Autowired
-    CompanyRepository companyRepository;
+    private CompanyRepository companyRepository;
 
     public Company getCompany(HttpServletRequest request) {
         String username = request.getRemoteUser();

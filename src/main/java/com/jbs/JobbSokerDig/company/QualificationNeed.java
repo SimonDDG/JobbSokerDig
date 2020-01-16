@@ -25,7 +25,7 @@ public class QualificationNeed {
 
     @ManyToOne
     @JoinColumn(name = "Openpositionid")
-    OpenPosition openPosition;
+    private OpenPosition openPosition;
 
     public QualificationNeed() {
     }

@@ -9,10 +9,10 @@ public class PreferanceLevel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Preferencelevelid")
-    Long PreferenceLevelId;
+    private Long PreferenceLevelId;
 
     @Column(name = "Importancelevel")
-    int ImportanceLevel;
+    private int ImportanceLevel;
 
     public PreferanceLevel() {
     }
