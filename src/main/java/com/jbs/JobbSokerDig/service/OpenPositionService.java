@@ -51,7 +51,7 @@ public class OpenPositionService {
     }
 
 
-    //inte klart
+
     public List<OpenPosition> getOpenPositionsByCompanyId(HttpServletRequest request) {
 
         Company company = companyRepository.getCompanyRepo(request.getRemoteUser());

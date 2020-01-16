@@ -28,7 +28,6 @@ public class UserQualificationService {
     public List<UserQualification> getUserQualification(Long userCandidateId){
         List<UserQualification> userQualification = userQualificationRepository.getUserQualificationRepo(userCandidateId);
 
-        //UserQualification userQualification = userQualificationRepository.findByUserCandidateId(userCandidateId);
 
         return userQualification;
     }
@@ -49,12 +48,10 @@ public class UserQualificationService {
         List<UserQualification> oldUserQualifications = userQualificationRepository.getUserQualificationRepo(currentUserCandidateId);
 
         for (int i = 0; i < oldUserQualifications.size(); i++) {
-            //System.out.println("Tar bort: " + oldUserQualifications.get(i).getUserQualification().getQualification());
             userQualificationRepository.delete(oldUserQualifications.get(i));
         }
 
         for (int i = 0; i < newUserQualifications.size(); i++) {
-            //System.out.println("Sparar: " + newUserQualifications.get(i).getUserQualification().getQualification());
             userQualificationRepository.save(newUserQualifications.get(i));
         }
 

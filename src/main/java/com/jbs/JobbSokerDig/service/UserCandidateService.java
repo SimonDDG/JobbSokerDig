@@ -27,7 +27,6 @@ public class UserCandidateService {
 
     public List<String> getAllUserLoginNames(List<UserCandidate> userCandidateObjects) {
         List<String> userNameList = new ArrayList<>();
-//        userRepository.findById((long) i).get().getLogin().getUsername()
         for (int i = 0; i < userCandidateObjects.size(); i++) {
             userNameList.add(userCandidateObjects.get(i).getLogin().getUsername());
         }
