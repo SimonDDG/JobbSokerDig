@@ -27,6 +27,10 @@ public class SoftOffer {
     @Column(name = "Userstatus")
     String UserStatus;
 
+    @ManyToOne
+    @JoinColumn(name = "Openpositionid")
+    OpenPosition openPosition;
+
     public Long getSoftOfferId() {
         return SoftOfferId;
     }
@@ -65,5 +69,13 @@ public class SoftOffer {
 
     public void setUserStatus(String userStatus) {
         UserStatus = userStatus;
+    }
+
+    public OpenPosition getOpenPosition() {
+        return openPosition;
+    }
+
+    public void setOpenPosition(OpenPosition openPosition) {
+        this.openPosition = openPosition;
     }
 }

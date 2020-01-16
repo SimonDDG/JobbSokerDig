@@ -34,4 +34,8 @@ public class SoftOfferService {
         softOfferRepository.save(softOffer);
 
     }
+
+    public List<SoftOffer> getAllSoftOfeers() {
+        return (List)softOfferRepository.findAll();
+    }
 }
