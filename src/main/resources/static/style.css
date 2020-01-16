@@ -100,6 +100,11 @@
     background-color: #F57458;
 }
 
+.btn-createPosition {
+     background: #F57458;
+     color: white;
+}
+
 .btn-createPosition:hover {
      background: #A3381E;
      color: white;
@@ -115,6 +120,10 @@
     color: white;
 }
 
+.btn-savePosition:hover {
+     background: #A3381E;
+}
+
 .usp-title {
     color: #F57458;
 }
@@ -124,9 +133,6 @@
     margin: auto;
 }
 
-.btn-savePosition:hover {
-     background: #A3381E;
-}
 
 #learnMoreButton {
     background-color: #F57458;
