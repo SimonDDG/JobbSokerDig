@@ -31,56 +31,64 @@
 }
 
 .nav-item nav-link {
+    background: transparent;
     color: white;
 }
 
 #welcome-text {
+    background: transparent;
     color: white;
 }
 
 #navbar-text {
+    background: transparent;
     color: white;
 }
 #navbar-text1 {
+    background: transparent;
     color: white;
 }
 #navbar-text2 {
+    background: transparent;
     color: white;
 }
 #navbar-text3 {
+    background: transparent;
     color: white;
 }
 #navbar-text4 {
+    background: transparent;
     color: white;
 }
 #navbar-text5 {
+    background: transparent;
     color: white;
 }
 #navbar-text6 {
+    background: transparent;
     color: white;
 }
 #navbar-text7 {
+    background: transparent;
     color: white;
 }
 #navbar-text8 {
+    background: transparent;
     color: white;
 }
 #navbar-text9 {
+    background: transparent;
     color: white;
 }
 #navbar-text {
+    background: transparent;
     color: white;
 }
 
 
 #menu {
     position: absolute;
-    top: 40px;
-    left: 300px;
-}
-
-#menu-dark {
-    position: absolute;
+    background: transparent;
     top: 40px;
     left: 300px;
 }
