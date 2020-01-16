@@ -181,9 +181,9 @@
                                                 <h3>Qualifications already selected for this position</h3>
                                                 <table>
                                                     <tr>
-                                                        <th th:each="qN : ${openPositionQualifications}">
+                                                        <th  th:each="qN : ${openPositionQualifications}">
 
-                                                            <input th:text="${qN.qualification.Qualification}" type="checkbox" checked="checked" name="checkboxName" th:value="${qN.qualification.QualificationId}">
+                                                            <input class="margin-table" th:text="${qN.qualification.Qualification}" type="checkbox" checked="checked" name="checkboxName" th:value="${qN.qualification.QualificationId}">
 
                                                         </th>
                                                     </tr>
@@ -194,7 +194,7 @@
                                                     <tr th:each="qualificationSublist : ${qualificationBigList}">
                                                         <th th:each="qualification : ${qualificationSublist}">
 
-                                                            <input th:text="${qualification.Qualification}" type="checkbox" name="checkboxName" th:value="${qualification.QualificationId}">
+                                                            <input class="margin-table" th:text="${qualification.Qualification}" type="checkbox" name="checkboxName" th:value="${qualification.QualificationId}">
 
                                                         </th>
                                                     </tr>
@@ -225,7 +225,7 @@
                                                 <table>
                                                     <tr>
                                                         <th th:each="opB : ${openPositionBenefits}">
-                                                            <input th:text="${opB.benefit.benefit}" type="checkbox" checked="checked" name="checkboxName" th:value="${opB.benefit.benefitId}">
+                                                            <input class="margin-table" th:text="${opB.benefit.benefit}" type="checkbox" checked="checked" name="checkboxName" th:value="${opB.benefit.benefitId}">
                                                         </th>
                                                     </tr>
                                                 </table>
@@ -233,7 +233,7 @@
                                                 <table>
                                                     <tr th:each="benefitSublist : ${benefitBigList}">
                                                         <th th:each="benefit : ${benefitSublist}">
-                                                            <input th:text="${benefit.Benefit}" type="checkbox" name="checkboxName" th:value="${benefit.BenefitId}">
+                                                            <input class="margin-table" th:text="${benefit.Benefit}" type="checkbox" name="checkboxName" th:value="${benefit.BenefitId}">
                                                         </th>
                                                     </tr>
                                                 </table>
