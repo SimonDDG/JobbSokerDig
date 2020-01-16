@@ -66,6 +66,8 @@
                             <img src="images/profileExample.png" width="200px">
                         </div>
                         <div class="col-md-7">
+                            <span th:each="softoffer : ${softOffers}">
+                            </span>
                             <h4 th:text="${userObject.FullName}" id="nameBlurred">Car Dry Cleaning</h4>
                             <p th:text="${userObject.Description}">Engine Oil Change, Oil Filter Change, Air Filter Change</p>
                         </div>

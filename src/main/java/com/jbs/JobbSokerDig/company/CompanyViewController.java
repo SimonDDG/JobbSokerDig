@@ -55,6 +55,9 @@ public class CompanyViewController {
     @Autowired
     OpenPositionRepository openPositionRepository;
 
+    @Autowired
+    SoftOfferService softOfferService;
+
     @GetMapping("/companyMain")
     public String getCompanyMain(){
 
@@ -118,6 +121,10 @@ public class CompanyViewController {
 
         List<OpenPosition> openPositions = openPositionService.getAllOpenPositions();
         model.addAttribute("openPositions", openPositions);
+
+        List<SoftOffer> softOffers = softOfferService.getAllSoftOfeers();
+        model.addAttribute("softOffers", softOffers);
+
 
         return "listCandidate";
     }
