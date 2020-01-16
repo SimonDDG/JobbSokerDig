@@ -17,10 +17,10 @@ public class UserCandidateTestClass {
     void contextLoads() {
     }
 
-    @Test
-    public void userTest() {
-        UserCandidate userCandidate = userRepository.findByFullName("JSD User");
-
-        Assert.assertEquals("JSD User", userCandidate.getFullName());
-    }
+//    @Test
+//    public void userTest() {
+//        UserCandidate userCandidate = userRepository.findByFullName("JSD User");
+//
+//        Assert.assertEquals("JSD User", userCandidate.getFullName());
+//    }
 }

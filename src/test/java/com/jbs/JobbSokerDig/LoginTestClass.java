@@ -23,12 +23,12 @@ public class LoginTestClass {
     }
 
 
-    @Test
-    public void LoginTest() {
-        Login login = loginRepository.findByUsername("user");
-
-        Assert.assertEquals("user", login.getUsername().trim());
-    }
+//    @Test
+//    public void LoginTest() {
+//        Login login = loginRepository.findByUsername("user");
+//
+//        Assert.assertEquals("user", login.getUsername().trim());
+//    }
 
 //    @Test
 //    public void returnUserNameTest() {
