@@ -45,6 +45,7 @@
 <!-- Button trigger modal -->
 <div class="text-block">
     <br>
+    <br>
     <div class="row"> <!--surrounds both buttons-->
         <div class="btn-AboutUs">
     <button id="aboutUsButton" type="button" class="btn btn-createPosition" data-toggle="modal" data-target="#exampleModalScrollable">
@@ -203,8 +204,9 @@
                                                 </table>
                                             </div>
                                             <input type="hidden" name="openPosId" th:value="${currentOpenPosition.OpenPositionId}">
-                                            <input type="submit" class="btn btn-savePosition" value="Save">
+                                            <input type="submit" class="btn btn-savePosition" value="Save" id="btn-margins">
                                         </div>
+                                            <br>
                                         </form>
                                     </div>
 
@@ -223,7 +225,7 @@
                                         <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
                                              data-parent="#accordion">
                                             <div class="card-body">
-                                                <h3>Qualifications already selected for this position</h3>
+                                                <h3>Benefits already selected for this position</h3>
                                                 <table>
                                                     <tr>
                                                         <th th:each="opB : ${openPositionBenefits}">
@@ -240,6 +242,7 @@
                                                     </tr>
                                                 </table>
                                                 <input type="hidden" name="openPosId" th:value="${currentOpenPosition.OpenPositionId}">
+                                                <br>
                                                 <input type="submit" class="btn btn-savePosition" value="Save">
                                             </div>
                                         </div>
